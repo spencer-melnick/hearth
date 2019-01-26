@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Tileset/dungeon_tileset_1.tres" type="TileSet" id=1]
+[ext_resource path="res://Prefabs/basic_character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/pushable_block.tscn" type="PackedScene" id=3]
+
+[node name="Node2D" type="Node2D" index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="ground_tiles_1" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 17, 0, 1, 17, 0, 2, 17, 0, 3, 17, 0, 4, 17, 0, 5, 17, 0, 6, 17, 0, 7, 17, 0, 65536, 17, 0, 65537, 17, 0, 65538, 17, 0, 65539, 17, 0, 65540, 17, 0, 65541, 17, 0, 65542, 17, 0, 65543, 17, 0, 131072, 17, 0, 131073, 17, 0, 131074, 17, 0, 131075, 17, 0, 131076, 17, 0, 131077, 17, 0, 131078, 17, 0, 131079, 17, 0, 196608, 17, 0, 196609, 17, 0, 196610, 17, 0, 196611, 17, 0, 196612, 17, 0, 196613, 17, 0, 196614, 17, 0, 196615, 17, 0, 262144, 17, 0, 262145, 17, 0, 262146, 17, 0, 262147, 17, 0, 262148, 17, 0, 262149, 17, 0, 262150, 17, 0, 262151, 17, 0, 327680, 17, 0, 327681, 17, 0, 327682, 17, 0, 327683, 17, 0, 327684, 17, 0, 327685, 17, 0, 327686, 17, 0, 327687, 17, 0, 393216, 17, 0, 393217, 17, 0, 393218, 17, 0, 393219, 17, 0, 393220, 17, 0, 393221, 17, 0, 393222, 17, 0, 393223, 17, 0 )
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ground_tiles_2" type="TileMap" parent="." index="1"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 10, 0, 1, 11, 0, 2, 11, 0, 3, 11, 0, 4, 11, 0, 5, 11, 0, 6, 11, 0, 7, 12, 0, 65536, 9, 0, 65537, 16, 0, 65538, 16, 0, 65539, 16, 0, 65540, 16, 0, 65541, 16, 0, 65542, 16, 0, 65543, 13, 0, 131072, 9, 0, 131073, 16, 0, 131074, 16, 0, 131075, 16, 0, 131076, 16, 0, 131077, 15, 0, 131078, 16, 0, 131079, 13, 0, 196608, 9, 0, 196609, 16, 0, 196610, 15, 0, 196611, 16, 0, 196612, 16, 0, 196613, 16, 0, 196614, 16, 0, 196615, 13, 0, 262144, 9, 0, 262145, 16, 0, 262146, 16, 0, 262147, 16, 0, 262148, 15, 0, 262149, 16, 0, 262150, 16, 0, 262151, 13, 0, 327680, 9, 0, 327681, 16, 0, 327682, 16, 0, 327683, 16, 0, 327684, 16, 0, 327685, 16, 0, 327686, 16, 0, 327687, 13, 0, 393216, 19, 0, 393217, 14, 0, 393218, 14, 0, 393219, 14, 0, 393220, 14, 0, 393221, 14, 0, 393222, 14, 0, 393223, 20, 0 )
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="wall_tiles" type="TileMap" parent="." index="2"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = true
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 65537, 5, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 6, 0, 131073, 21, 0, 131078, 21, 0, 196609, 21, 0, 196614, 21, 0, 262145, 8, 0, 262146, 2, 0, 262149, 0, 0, 262150, 7, 0 )
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="basic_character" parent="wall_tiles" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 126, 128.5 )
+WalkSpeed = 80.0
+
+[node name="pushable_block" parent="wall_tiles" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 117, 93.5 )
+
+

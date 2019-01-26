@@ -1,2 +1,2 @@
-# hearth
-Submission for the Global Game Jam 2019J
+# adventure-game
+A quick prototype of a Link to the Past inspired Adventure/Role Playing Game in the Godot engine.

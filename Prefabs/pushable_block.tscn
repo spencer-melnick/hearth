@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/PushableBlock.cs" type="Script" id=1]
+[ext_resource path="res://Textures/dungeon_tilesheet_1.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 13, 8 )
+
+[node name="pushable_block" type="KinematicBody2D" groups=[
+"pushable",
+]]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+PushSpeed = 40.0
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 32, 64, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 0, 4 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+
