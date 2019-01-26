@@ -1,5 +1,5 @@
 # Hearth
-An adventure game in the style of The Legend of Zelda. You are in a winter wasteland area, and have a hearth that keeps you warm. If you leave the area that it warms, you start to lose health. But the fire is now dying. You can collect glowing "tinder" to feed the hearth, but it slowly becomes less and less effective. Eventually, you discover a new hearth, and may choose to feed it with tinder. This new hearth is not dying. If you continue feeding it, it grows so brilliantly that it melts the snow in the surrounding area, bringing back room for growth. This is your new hearth.
+An adventure game in the style of The Legend of Zelda. You are in a winter wasteland area, and have a hearth that keeps you warm. If you leave the area that it warms, you start to lose health. But the fire is now dying. You can collect glowing "kindling" to feed the hearth, but it slowly becomes less and less effective. Eventually, you discover a new hearth, and may choose to feed it with kindling. This new hearth is not dying. If you continue feeding it, it grows so brilliantly that it melts the snow in the surrounding area, bringing back room for growth. This is your new hearth.
 
 This game is being made for Global Game Jam '19, with the theme of: **What Home Means to You**
 We're having fun playing with symbolism of change and moving to a new home.
@@ -68,6 +68,7 @@ Hearth
 * After adding kindling (crystal appears)
 
 Scenery
+* Snow/Ground tiles
 * Trees
 * Rocks
 * Whatever else we feel
@@ -119,12 +120,12 @@ Environment - pretty consistent / repetitive
 
 Action
 * Player walking through snow
-* Player walking through snow carrying tinder (heavy)
-* Player picks up tinder
-* Player puts tinder into the fire (3 versions of the same noise: ok, not ideal, & sorta pointless)
-* Player puts tinder into hearth (3 versions: good, great, & you're healing the world and your inner being)
+* Player walking through snow carrying kindling (heavy)
+* Player picks up kindling
+* Player puts kindling into the fire (3 versions of the same noise: ok, not ideal, & sorta pointless)
+* Player puts kindling into hearth (3 versions: good, great, & you're healing the world and your inner being)
 * Player dies
-* Player dies after dropping the tinder they were carrying
+* Player dies after dropping the kindling they were carrying
 
 ## UI / UX
 Start Menu
