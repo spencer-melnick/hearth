@@ -17,7 +17,7 @@ public class Globals : Node
             }
             else if (value > 100.0f)
             {
-                // No more HP?
+                _playerHealth = 100.0f;
             }
             else
             {
