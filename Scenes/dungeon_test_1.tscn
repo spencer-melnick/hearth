@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Tileset/dungeon_tileset_1.tres" type="TileSet" id=1]
 [ext_resource path="res://Prefabs/Gameplay/kindling.tscn" type="PackedScene" id=2]
@@ -7,17 +7,9 @@
 [ext_resource path="res://Prefabs/Gameplay/fireplace.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Textures/light.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/Effects/FlickeringLight.cs" type="Script" id=7]
-[ext_resource path="res://Fonts/Cave-Story.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=10]
-
-[sub_resource type="DynamicFont" id=1]
-
-size = 32
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 8 )
-_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -97,10 +89,13 @@ __meta__ = {
 
 [node name="kindling" parent="wall_tiles" index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 113.816, 148.552 )
+position = Vector2( 106.816, 180.552 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
 
 [node name="basic_character" parent="wall_tiles" index="1" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 position = Vector2( 133.5, 104.5 )
 WalkSpeed = 80.0
 
@@ -143,7 +138,7 @@ HealOuterRadius = 20.0
 
 [node name="Light2D" type="Light2D" parent="wall_tiles/fireplace" index="1"]
 
-position = Vector2( 0, 7.62939e-06 )
+position = Vector2( 0, 2.00001 )
 enabled = true
 editor_only = false
 texture = ExtResource( 6 )
@@ -170,35 +165,15 @@ _sections_unfolded = [ "Range" ]
 FlickerSpacing = Vector2( 2, 1.5 )
 FlickerTime = 0.1
 
-[node name="PlaceKindling" type="Label" parent="wall_tiles/fireplace" index="2"]
+[node name="interact_tooltip" parent="." index="3" instance=ExtResource( 8 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -20.0
-margin_top = -28.0
-margin_right = 20.0
-margin_bottom = -12.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
-text = "[e]"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Margin", "custom_fonts" ]
+position = Vector2( 108.816, 179.552 )
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="3"]
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="4"]
 
 color = Color( 0.207664, 0.1819, 0.355469, 1 )
 
-[node name="gui_layer" type="CanvasLayer" parent="." index="4"]
+[node name="gui_layer" type="CanvasLayer" parent="." index="5"]
 
 layer = 2
 offset = Vector2( 0, 0 )

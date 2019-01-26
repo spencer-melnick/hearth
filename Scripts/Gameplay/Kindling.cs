@@ -8,6 +8,12 @@ public class Kindling : Node2D, IInteractive
     [Export]
     public bool CanInteract = true;
 
+    [Export]
+    public bool TooltipEnabled = false;
+
+    [Export]
+    public NodePath TooltipPath;
+
     public override void _Ready()
     {
         _interactiveArea = GetNode("Area2D") as Area2D;
@@ -17,10 +23,17 @@ public class Kindling : Node2D, IInteractive
    {
        if (CanInteract)
        {
-           CanInteract = false;
-           GetParent().RemoveChild(this);
-           character.GetCarryAttachPoint().AddChild(this);
-           SetPosition(new Vector2());
+            if (TooltipEnabled)
+            {
+               InteractTooltip tooltip = GetNode(TooltipPath) as InteractTooltip;
+
+               tooltip?.FadeOut();
+            }
+
+            CanInteract = false;
+            GetParent().RemoveChild(this);
+            character.GetCarryAttachPoint().AddChild(this);
+            SetPosition(new Vector2());
        }
    }
 

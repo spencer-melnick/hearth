@@ -55,6 +55,7 @@
     <Compile Include="Scripts\Effects\FlickeringLight.cs" />
     <Compile Include="Scripts\Gameplay\Fireplace.cs" />
     <Compile Include="Scripts\Gameplay\IInteractive.cs" />
+    <Compile Include="Scripts\Gameplay\InteractTooltip.cs" />
     <Compile Include="Scripts\Gameplay\Kindling.cs" />
     <Compile Include="Scripts\Gameplay\PushableBlock.cs" />
     <Compile Include="Scripts\Gameplay\IPushable.cs" />
