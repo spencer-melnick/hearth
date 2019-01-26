@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/demo_with_oboe.ogg-36db822bf21bbe8d55e5662787035dc3.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/demo_with_oboe.ogg"
+dest_files=[ "res://.import/demo_with_oboe.ogg-36db822bf21bbe8d55e5662787035dc3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
