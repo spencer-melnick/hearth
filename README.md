@@ -1,7 +1,7 @@
 # Hearth
 A quick prototype of a Link to the Past inspired Adventure/Role Playing Game in the Godot engine.
 
-# TODO:
+# Work List:
 
 ## Coding
 
@@ -91,4 +91,54 @@ Environment / Screen
 * Player death
 * Final piece of kindling added to hearth --> snow melting around the area & spring and joy returning!
 
+## Music and Noises
+### Music
+Doing alright
+* Player is near fire & the fire is ok
+* Player is losing health / outside of warmth circle (but is still doing ok)
 
+Not too hot
+* Player is near fire and the fire is low (not really helping the player anymore, sorta sad, sorta scared)
+* Player losing health / not safe (but is close to dying--not good, please help, but not blaring)
+
+Discovered the hearth!
+* Player discovers hearth
+* Hearth grows brighter
+* Hearth heals everything (finale)
+
+### Noises
+Environment - pretty consistent / repetitive
+* It's snowing
+* The fire is powerful
+* The fire is dying (it never dies, but it does eventually stop being effective/supportive)
+
+Action
+* Player walking through snow
+* Player walking through snow carrying tinder (heavy)
+* Player picks up tinder
+* Player puts tinder into the fire (3 versions of the same noise: ok, not ideal, & sorta pointless)
+* Player puts tinder into hearth (3 versions: good, great, & you're healing the world and your inner being)
+* Player dies
+* Player dies after dropping the tinder they were carrying
+
+## UI / UX
+Start Menu
+```
+Background is the initial positioning of the player, fire, and piece of kindling, but with no health or strength bars. Small text in bottom right says "Press Spacebar"
+```
+
+Pause Menu
+```
+Overlay over screen (screen given a gray tint)
+* Resume
+* Quit
+* Maybe some sorta impactful quote?
+```
+
+Death Menu
+```
+Overlay over screen (screen grays out to black)
+* Restart
+* Quit
+* Maybe some sorta impactful quote?
+```
