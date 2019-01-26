@@ -32,4 +32,6 @@ texture = ExtResource( 2 )
 offset = Vector2( 0, 6 )
 _sections_unfolded = [ "Offset" ]
 
+[node name="carry_attach_point" type="Node2D" parent="." index="2"]
+
 

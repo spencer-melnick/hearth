@@ -39,6 +39,11 @@ public class BasicCharacter : KinematicBody2D
 	public override void _Process(float delta)
 	{
 		CheckHeat(delta);
+
+		if (Input.IsActionPressed("character_primary_interact"))
+		{
+			_checkInteractions();
+		}
 	}
 
 	public override void _PhysicsProcess(float delta) {
@@ -65,6 +70,26 @@ public class BasicCharacter : KinematicBody2D
 
 			velocity = velocity.Slide(collision.Normal);
 			MoveAndCollide(velocity * delta);
+		}
+	}
+
+	private void _checkInteractions()
+	{
+		var interactables = GetTree().GetNodesInGroup("interactive");
+
+		foreach (Node node in interactables)
+		{
+			IInteractive interactable = node as IInteractive;
+
+			if (interactable != null)
+			{
+				Area2D interactiveArea = interactable.GetInteractiveArea();
+
+				if (interactiveArea.OverlapsBody(this))
+				{
+					interactable.TryInteract(this);
+				}
+			}
 		}
 	}
 
@@ -139,5 +164,10 @@ public class BasicCharacter : KinematicBody2D
 		{
 			_globals.PlayerHealth -= maxHealSpeed * minFreezeFactor * delta;
 		}
+	}
+
+	public Node2D GetCarryAttachPoint()
+	{
+		return GetNode("carry_attach_point") as Node2D;
 	}
 }

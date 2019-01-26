@@ -1,20 +1,22 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Tileset/dungeon_tileset_1.tres" type="TileSet" id=1]
-[ext_resource path="res://Prefabs/Gameplay/fireplace.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Textures/light.png" type="Texture" id=3]
-[ext_resource path="res://Fonts/Cave-Story.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Prefabs/Gameplay/basic_character.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Prefabs/Gameplay/pushable_block.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/Gameplay/kindling.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Gameplay/basic_character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/Gameplay/pushable_block.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Gameplay/fireplace.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Textures/light.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Effects/FlickeringLight.cs" type="Script" id=7]
+[ext_resource path="res://Fonts/Cave-Story.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 32
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 4 )
+font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Node2D" type="Node2D" index="0"]
@@ -93,7 +95,45 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="fireplace" parent="wall_tiles" index="0" instance=ExtResource( 2 )]
+[node name="kindling" parent="wall_tiles" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 113.816, 148.552 )
+
+[node name="basic_character" parent="wall_tiles" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 133.5, 104.5 )
+WalkSpeed = 80.0
+
+[node name="Camera2D" type="Camera2D" parent="wall_tiles/basic_character" index="2"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 0.5, 0.5 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+[node name="pushable_block" parent="wall_tiles" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 101, 85 )
+
+[node name="fireplace" parent="wall_tiles" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 151.362, 88.5205 )
 HeatInnerRadius = 150.0
@@ -106,7 +146,7 @@ HealOuterRadius = 20.0
 position = Vector2( 0, 7.62939e-06 )
 enabled = true
 editor_only = false
-texture = ExtResource( 3 )
+texture = ExtResource( 6 )
 offset = Vector2( 0, 0 )
 texture_scale = 3.0
 color = Color( 0.972656, 0.589818, 0.27356, 1 )
@@ -125,7 +165,10 @@ shadow_gradient_length = 0.0
 shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
+script = ExtResource( 7 )
 _sections_unfolded = [ "Range" ]
+FlickerSpacing = Vector2( 2, 1.5 )
+FlickerTime = 0.1
 
 [node name="PlaceKindling" type="Label" parent="wall_tiles/fireplace" index="2"]
 
@@ -155,41 +198,6 @@ _sections_unfolded = [ "Margin", "custom_fonts" ]
 
 color = Color( 0.207664, 0.1819, 0.355469, 1 )
 
-[node name="basic_character" parent="CanvasModulate" index="0" instance=ExtResource( 5 )]
-
-position = Vector2( 133.5, 104.5 )
-WalkSpeed = 80.0
-FreezeSpeed = 10.0
-
-[node name="Camera2D" type="Camera2D" parent="CanvasModulate/basic_character" index="2"]
-
-anchor_mode = 1
-rotating = false
-current = true
-zoom = Vector2( 0.5, 0.5 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
-
-[node name="pushable_block" parent="CanvasModulate" index="1" instance=ExtResource( 6 )]
-
-position = Vector2( 101, 85 )
-
 [node name="gui_layer" type="CanvasLayer" parent="." index="4"]
 
 layer = 2
@@ -198,14 +206,14 @@ rotation = 0.0
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
-[node name="fireplace_bar" parent="gui_layer" index="0" instance=ExtResource( 7 )]
+[node name="fireplace_bar" parent="gui_layer" index="0" instance=ExtResource( 9 )]
 
 margin_left = 4.0
 margin_top = 275.0
 margin_right = 254.0
 margin_bottom = 283.0
 
-[node name="health_bar" parent="gui_layer" index="1" instance=ExtResource( 8 )]
+[node name="health_bar" parent="gui_layer" index="1" instance=ExtResource( 10 )]
 
 margin_left = 4.0
 margin_top = 287.0
