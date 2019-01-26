@@ -122,18 +122,7 @@ public class BasicCharacter : KinematicBody2D
 	private void CheckHeat(float delta)
 	{
 		var fireplaces = GetTree().GetNodesInGroup("fireplace");
-
-		// Defines how fast (in % of FreezeSpeed) the player's health will decay.
-		// Take the smallest value - freeze factor is the percent distance of the player
-		// from the inner radius of the fire to the outer radius.
-		// Valid between -1.0f and 1.0f.
-		// A value of less than 0.0f indicates that the player is being healed
-		// in which case, the max heal speed will be set according to that fireplace's
-		// heal speed.
-		float minFreezeFactor = 1.0f;
-
-		// Heal
-		float maxHealSpeed = 0.0f;
+		float heatRate = -FreezeSpeed;
 
 		foreach (Node node in fireplaces)
 		{
@@ -143,59 +132,25 @@ public class BasicCharacter : KinematicBody2D
 			{
 				float distance = fireplace.GlobalPosition.DistanceTo(GlobalPosition);
 				
-				// Note - multiple fires healing the player at once could be weird!
-				// Not currently handled
-				if (fireplace.HealEnabled && distance < fireplace.HealInnerRadius)
+				if (distance < fireplace.HeatInnerRadius)
 				{
-					minFreezeFactor = -1.0f;
-					maxHealSpeed = fireplace.HealSpeed;
-					break;
-				}
-				else if (fireplace.HealEnabled && distance < fireplace.HealOuterRadius)
-				{
-					float freezeFactor = -(distance - fireplace.HealInnerRadius)
-										  / (fireplace.HealOuterRadius - fireplace.HealInnerRadius);
-				
-					if (freezeFactor < minFreezeFactor)
-					{
-						minFreezeFactor = freezeFactor;
-						maxHealSpeed = fireplace.HealSpeed;
-					}
-				}
-				else if (distance < fireplace.HeatInnerRadius)
-				{
-					if (minFreezeFactor > 0.0f)
-					{
-						minFreezeFactor = 0.0f;
-					}
+					heatRate += fireplace.HeatSpeed;
 				}
 				else if (distance < fireplace.HeatOuterRadius)
 				{
-					float freezeFactor = (distance - fireplace.HeatInnerRadius)
-										  / (fireplace.HeatOuterRadius - fireplace.HeatInnerRadius);
+					heatRate += fireplace.HeatSpeed * (fireplace.HeatOuterRadius - distance)
+								/ (fireplace.HeatOuterRadius - fireplace.HeatInnerRadius);
 				
-					if (freezeFactor < minFreezeFactor)
-					{
-						minFreezeFactor = freezeFactor;
-					}
 				}
 			}
 		}
 
 		_healthParticles.Emitting = false;
-
-		if (minFreezeFactor > 0.0f)
-		{
-			_globals.PlayerHealth -= FreezeSpeed * minFreezeFactor * delta;
-		}
-		else if (minFreezeFactor < 0.0f)
-		{
-			_globals.PlayerHealth -= maxHealSpeed * minFreezeFactor * delta;
+		_globals.PlayerHealth += heatRate * delta;
 			
-			if (_globals.PlayerHealth < 100.0f)
-			{
-				_healthParticles.Emitting = true;
-			}
+		if (_globals.PlayerHealth < 100.0f && heatRate > 0.0f)
+		{
+			_healthParticles.Emitting = true;
 		}
 	}
 

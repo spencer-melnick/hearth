@@ -41,9 +41,9 @@ public class Globals : Node
             {
                 _fireplaceHealth = 100.0f;
             }
-            else if (value < 0.0f)
+            else if (value < 10.0f)
             {
-                _fireplaceHealth = 0.0f;
+                _fireplaceHealth = 10.0f;
             }
             else
             {

@@ -152,6 +152,10 @@ position = Vector2( 101, 85 )
 [node name="first_fireplace" parent="wall_tiles" index="6" instance=ExtResource( 7 )]
 
 position = Vector2( 163.816, 94.5519 )
+HeatInnerRadius = 50.0
+HeatOuterRadius = 150.0
+MaxHeatSpeed = 20.0
+MinHeatSpeed = 8.0
 
 [node name="snow_particles" parent="." index="4" instance=ExtResource( 8 )]
 

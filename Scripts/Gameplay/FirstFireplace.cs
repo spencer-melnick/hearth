@@ -10,6 +10,12 @@ public class FirstFireplace : Fireplace, IInteractive
     private Light2D _fireplaceLight;
 
     [Export]
+    public float MaxHeatSpeed = 20.0f;
+
+    [Export]
+    public float MinHeatSpeed = 5.0f;
+
+    [Export]
     public Gradient FadeGradient;
 
 
@@ -56,6 +62,9 @@ public class FirstFireplace : Fireplace, IInteractive
         {
             _tooltip.FadeIn();
         }
+
+        HeatSpeed = MinHeatSpeed + (_globals.FireplaceHealth / 100.0f) *
+                    (MaxHeatSpeed - MinHeatSpeed);
 
         float energy = FadeGradient.Interpolate(_globals.FireplaceHealth / 100.0f).Gray();
 

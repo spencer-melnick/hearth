@@ -36,10 +36,9 @@ extents = Vector2( 10, 10 )
 script = ExtResource( 1 )
 HeatInnerRadius = 150.0
 HeatOuterRadius = 200.0
-HealEnabled = true
-HealInnerRadius = 10.0
-HealOuterRadius = 30.0
-HealSpeed = 20.0
+HeatSpeed = 20.0
+MaxHeatSpeed = 20.0
+MinHeatSpeed = 9.5
 FadeGradient = SubResource( 4 )
 
 [node name="fireplace_light" parent="." index="0" instance=ExtResource( 2 )]
