@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Tileset/dungeon_tileset_1.tres" type="TileSet" id=1]
 [ext_resource path="res://Prefabs/Gameplay/fire_fader.tscn" type="PackedScene" id=2]
@@ -7,14 +7,12 @@
 [ext_resource path="res://Prefabs/Gameplay/basic_character.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Prefabs/Gameplay/pushable_block.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prefabs/Gameplay/first_fireplace.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Textures/light.png" type="Texture" id=8]
-[ext_resource path="res://Scripts/Effects/FlickeringLight.cs" type="Script" id=9]
-[ext_resource path="res://Prefabs/Effects/snow_particles.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scripts/Effects/SnowParticles.cs" type="Script" id=11]
-[ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Sounds/Music/demo_with_oboe.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Prefabs/Effects/snow_particles.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/Effects/SnowParticles.cs" type="Script" id=9]
+[ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sounds/Music/demo_with_oboe.ogg" type="AudioStream" id=13]
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -71,6 +69,7 @@ __meta__ = {
 [node name="fire_fader" parent="." index="2" instance=ExtResource( 2 )]
 
 position = Vector2( 308.816, 79.5519 )
+FadeSpeed = 5.0
 
 [node name="wall_tiles" type="TileMap" parent="." index="3"]
 
@@ -113,6 +112,7 @@ position = Vector2( 0, -66.1302 )
 position = Vector2( 106.816, 180.552 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
+FuelAmount = 100.0
 
 [node name="basic_character" parent="wall_tiles" index="4" instance=ExtResource( 5 )]
 
@@ -153,43 +153,12 @@ position = Vector2( 101, 85 )
 
 position = Vector2( 163.816, 94.5519 )
 
-[node name="Light2D" type="Light2D" parent="wall_tiles/first_fireplace" index="1"]
-
-enabled = true
-editor_only = false
-texture = ExtResource( 8 )
-offset = Vector2( 0, 0 )
-texture_scale = 3.0
-color = Color( 0.972656, 0.589818, 0.27356, 1 )
-energy = 1.0
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 1
-range_item_cull_mask = 1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
-script = ExtResource( 9 )
-_sections_unfolded = [ "Range", "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-FlickerSpacing = Vector2( 2, 1.5 )
-FlickerTime = 0.1
-
-[node name="snow_particles" parent="." index="4" instance=ExtResource( 10 )]
+[node name="snow_particles" parent="." index="4" instance=ExtResource( 8 )]
 
 position = Vector2( 133.5, 104.5 )
-script = ExtResource( 11 )
+script = ExtResource( 9 )
 
-[node name="interact_tooltip" parent="." index="5" instance=ExtResource( 12 )]
+[node name="interact_tooltip" parent="." index="5" instance=ExtResource( 10 )]
 
 position = Vector2( 108.816, 179.552 )
 OneShot = true
@@ -208,14 +177,14 @@ rotation = 0.0
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
-[node name="fireplace_bar" parent="gui_layer" index="0" instance=ExtResource( 13 )]
+[node name="fireplace_bar" parent="gui_layer" index="0" instance=ExtResource( 11 )]
 
 margin_left = 4.0
 margin_top = 275.0
 margin_right = 254.0
 margin_bottom = 283.0
 
-[node name="health_bar" parent="gui_layer" index="1" instance=ExtResource( 14 )]
+[node name="health_bar" parent="gui_layer" index="1" instance=ExtResource( 12 )]
 
 margin_left = 4.0
 margin_top = 287.0
@@ -224,7 +193,7 @@ margin_bottom = 295.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="8"]
 
-stream = ExtResource( 15 )
+stream = ExtResource( 13 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true

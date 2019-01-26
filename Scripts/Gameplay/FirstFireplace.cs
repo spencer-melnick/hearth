@@ -7,6 +7,10 @@ public class FirstFireplace : Fireplace, IInteractive
     private InteractTooltip _tooltip;
     private Globals _globals;
     private BasicCharacter _mainCharacter;
+    private Light2D _fireplaceLight;
+
+    [Export]
+    public Gradient FadeGradient;
 
 
     public override void _Ready()
@@ -14,6 +18,7 @@ public class FirstFireplace : Fireplace, IInteractive
         _area = GetNode("Area2D") as Area2D;
         _tooltip = GetNode("interact_tooltip") as InteractTooltip;
         _globals = GetNode("/root/Globals") as Globals;
+        _fireplaceLight = GetNode("fireplace_light") as Light2D;
 
         var characters = GetTree().GetNodesInGroup("main_character");
 
@@ -51,5 +56,15 @@ public class FirstFireplace : Fireplace, IInteractive
         {
             _tooltip.FadeIn();
         }
+
+        float energy = FadeGradient.Interpolate(_globals.FireplaceHealth / 100.0f).Gray();
+
+        Sprite veins = GetNode("veins") as Sprite;
+        veins.SelfModulate = new Color(1.0f, 1.0f, 1.0f, energy);
+
+        Sprite glow = GetNode("glow") as Sprite;
+        glow.SelfModulate = new Color(1.0f, 1.0f, 1.0f, energy);
+
+        _fireplaceLight.Energy = energy;
     }
 }

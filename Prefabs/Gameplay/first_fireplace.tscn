@@ -1,8 +1,22 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Gameplay/FirstFireplace.cs" type="Script" id=1]
-[ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Textures/environmental_asset_sheet.png" type="Texture" id=3]
+[ext_resource path="res://Prefabs/Effects/fireplace_light.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Textures/environmental_asset_sheet.png" type="Texture" id=4]
+[ext_resource path="res://Textures/hearth_overlay_1.png" type="Texture" id=5]
+[ext_resource path="res://Textures/hearth_overlay_2.png" type="Texture" id=6]
+
+[sub_resource type="Gradient" id=4]
+
+offsets = PoolRealArray( 0, 0.2, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.726562, 0.726562, 0.726562, 1, 1, 1, 1, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=3]
+
+render_priority = 0
+blend_mode = 1
+light_mode = 1
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -26,30 +40,48 @@ HealEnabled = true
 HealInnerRadius = 10.0
 HealOuterRadius = 30.0
 HealSpeed = 20.0
+FadeGradient = SubResource( 4 )
 
-[node name="interact_tooltip" parent="." index="0" instance=ExtResource( 2 )]
+[node name="fireplace_light" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="interact_tooltip" parent="." index="1" instance=ExtResource( 3 )]
 
 Enabled = false
 UseAreaTrigger = false
 
-[node name="Sprite2" type="Sprite" parent="." index="1"]
+[node name="stand" type="Sprite" parent="." index="2"]
 
 position = Vector2( 0, 15 )
 scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 470, 318.493, 150, 66 )
 _sections_unfolded = [ "Region", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="." index="2"]
+[node name="hearth" type="Sprite" parent="." index="3"]
 
 scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 490, 165.817, 113, 132.845 )
 _sections_unfolded = [ "Region", "Transform" ]
 
-[node name="Area2D" type="Area2D" parent="." index="3"]
+[node name="veins" type="Sprite" parent="." index="4"]
+
+position = Vector2( 0.8, 0.2 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="glow" type="Sprite" parent="." index="5"]
+
+material = SubResource( 3 )
+position = Vector2( 0.8, 0.2 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Area2D" type="Area2D" parent="." index="6"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -65,7 +97,7 @@ position = Vector2( -0.181746, 11.625 )
 scale = Vector2( 1.23913, 1.07639 )
 shape = SubResource( 1 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="4"]
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="7"]
 
 input_pickable = false
 collision_layer = 1
