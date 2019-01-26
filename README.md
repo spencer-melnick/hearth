@@ -1,7 +1,7 @@
 # Hearth
 An adventure game in the style of The Legend of Zelda. You are in a winter wasteland area, and have a hearth that keeps you warm. If you leave the area that it warms, you start to lose health. But the fire is now dying. You can collect glowing "tinder" to feed the hearth, but it slowly becomes less and less effective. Eventually, you discover a new hearth, and may choose to feed it with tinder. This new hearth is not dying. If you continue feeding it, it grows so brilliantly that it melts the snow in the surrounding area, bringing back room for growth. This is your new hearth.
 
-This game is being made for Global Game Jam '19, with the theme of: What Home Means to You
+This game is being made for Global Game Jam '19, with the theme of: **What Home Means to You**
 We're having fun playing with symbolism of change and moving to a new home.
 
 # Work List:
