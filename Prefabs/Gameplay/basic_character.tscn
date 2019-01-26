@@ -3,13 +3,12 @@
 [ext_resource path="res://Scripts/Character/BasicCharacter.cs" type="Script" id=1]
 [ext_resource path="res://Textures/player_placeholder.png" type="Texture" id=2]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 7, 6 )
 
-[node name="basic_character" type="KinematicBody2D" index="0" groups=[
+[node name="basic_character" type="KinematicBody2D" groups=[
 "applies_pressure",
 ]]
 
@@ -19,6 +18,7 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 WalkSpeed = 20.0
+FreezeSpeed = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 

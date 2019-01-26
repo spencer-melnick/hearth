@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Tileset/dungeon_tileset_1.tres" type="TileSet" id=1]
 [ext_resource path="res://Prefabs/Gameplay/fireplace.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Textures/light.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/Cave-Story.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Prefabs/Gameplay/pushable_block.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Gameplay/basic_character.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/Gameplay/pushable_block.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -102,12 +103,13 @@ HealOuterRadius = 20.0
 
 [node name="Light2D" type="Light2D" parent="wall_tiles/fireplace" index="1"]
 
+position = Vector2( 0, 7.62939e-06 )
 enabled = true
 editor_only = false
 texture = ExtResource( 3 )
 offset = Vector2( 0, 0 )
 texture_scale = 3.0
-color = Color( 1, 0.854539, 0.734375, 1 )
+color = Color( 0.972656, 0.589818, 0.27356, 1 )
 energy = 1.0
 mode = 0
 range_height = 0.0
@@ -149,11 +151,17 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_fonts" ]
 
-[node name="basic_character" parent="wall_tiles" index="1" instance=ExtResource( 5 )]
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="3"]
 
-position = Vector2( 126, 128.5 )
+color = Color( 0.207664, 0.1819, 0.355469, 1 )
 
-[node name="Camera2D" type="Camera2D" parent="wall_tiles/basic_character" index="2"]
+[node name="basic_character" parent="CanvasModulate" index="0" instance=ExtResource( 5 )]
+
+position = Vector2( 133.5, 104.5 )
+WalkSpeed = 80.0
+FreezeSpeed = 10.0
+
+[node name="Camera2D" type="Camera2D" parent="CanvasModulate/basic_character" index="2"]
 
 anchor_mode = 1
 rotating = false
@@ -178,11 +186,9 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="pushable_block" parent="wall_tiles" index="2" instance=ExtResource( 6 )]
+[node name="pushable_block" parent="CanvasModulate" index="1" instance=ExtResource( 6 )]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="3"]
-
-color = Color( 0.429688, 0.429688, 0.429688, 1 )
+position = Vector2( 101, 85 )
 
 [node name="gui_layer" type="CanvasLayer" parent="." index="4"]
 
@@ -192,20 +198,18 @@ rotation = 0.0
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
-[node name="health_bar" parent="gui_layer" index="0" instance=ExtResource( 6 )]
+[node name="fireplace_bar" parent="gui_layer" index="0" instance=ExtResource( 7 )]
 
-margin_left = 8.0
+margin_left = 4.0
 margin_top = 275.0
-margin_right = 338.0
+margin_right = 254.0
 margin_bottom = 283.0
-_sections_unfolded = [ "Anchor", "Percent", "Rect", "Theme", "custom_styles" ]
 
-[node name="fireplace_bar" parent="gui_layer" index="1" instance=ExtResource( 7 )]
+[node name="health_bar" parent="gui_layer" index="1" instance=ExtResource( 8 )]
 
-margin_left = 8.0
-margin_top = 285.0
-margin_right = 338.0
-margin_bottom = 293.0
-_sections_unfolded = [ "Anchor", "Percent", "Rect", "Theme", "custom_styles" ]
+margin_left = 4.0
+margin_top = 287.0
+margin_right = 254.0
+margin_bottom = 295.0
 
 
