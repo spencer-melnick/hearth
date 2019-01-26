@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Tileset/dungeon_tileset_1.tres" type="TileSet" id=1]
-[ext_resource path="res://Prefabs/fireplace.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Gameplay/fireplace.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Textures/light.png" type="Texture" id=3]
-[ext_resource path="res://Prefabs/basic_character.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Prefabs/pushable_block.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Prefabs/health_bar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Gameplay/basic_character.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Gameplay/pushable_block.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=7]
+
+
+
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -161,36 +165,23 @@ color = Color( 0.213933, 0.17395, 0.292969, 1 )
 layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
-[node name="gui" type="MarginContainer" parent="gui_layer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 620.0
-margin_bottom = 340.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
-
-[node name="health_bar" parent="gui_layer/gui" index="0" instance=ExtResource( 6 )]
+[node name="health_bar" parent="gui_layer" index="0" instance=ExtResource( 6 )]
 
 margin_left = 8.0
-margin_right = 600.0
-margin_bottom = 320.0
-_sections_unfolded = [ "Anchor" ]
+margin_top = 275.0
+margin_right = 338.0
+margin_bottom = 283.0
+_sections_unfolded = [ "Anchor", "Percent", "Rect", "Theme", "custom_styles" ]
+
+[node name="fireplace_bar" parent="gui_layer" index="1" instance=ExtResource( 7 )]
+
+margin_left = 8.0
+margin_top = 285.0
+margin_right = 338.0
+margin_bottom = 293.0
+_sections_unfolded = [ "Anchor", "Percent", "Rect", "Theme", "custom_styles" ]
 
 

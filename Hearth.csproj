@@ -57,6 +57,7 @@
     <Compile Include="Scripts\Gameplay\IPushable.cs" />
     <Compile Include="Scripts\Globals.cs" />
     <Compile Include="Scripts\GUI\HealthBar.cs" />
+    <Compile Include="Scripts\GUI\FireplaceBar.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

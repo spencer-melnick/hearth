@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class HealthBar : ProgressBar
+public class FireplaceBar : ProgressBar
 {
     private Globals _globals;
     public override void _Ready()
@@ -11,6 +11,6 @@ public class HealthBar : ProgressBar
 
    public override void _Process(float delta)
    {
-        Value = _globals.PlayerHealth;
+        Value = _globals.FireplaceHealth;
    }
 }
