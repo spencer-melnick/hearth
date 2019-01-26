@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Tileset/dungeon_tileset_1.tres" type="TileSet" id=1]
 [ext_resource path="res://Prefabs/fireplace.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Prefabs/basic_character.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Prefabs/pushable_block.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Prefabs/health_bar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Textures/light.png" type="Texture" id=3]
+[ext_resource path="res://Prefabs/basic_character.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/pushable_block.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/health_bar.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -85,10 +86,37 @@ __meta__ = {
 [node name="fireplace" parent="wall_tiles" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 151.362, 88.5205 )
+HeatInnerRadius = 150.0
+HeatOuterRadius = 200.0
 HealEnabled = true
 HealOuterRadius = 20.0
 
-[node name="basic_character" parent="wall_tiles" index="1" instance=ExtResource( 3 )]
+[node name="Light2D" type="Light2D" parent="wall_tiles/fireplace" index="1"]
+
+enabled = true
+editor_only = false
+texture = ExtResource( 3 )
+offset = Vector2( 0, 0 )
+texture_scale = 3.0
+color = Color( 1, 0.854539, 0.734375, 1 )
+energy = 1.0
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 1
+range_item_cull_mask = 1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Range" ]
+
+[node name="basic_character" parent="wall_tiles" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( 126, 128.5 )
 WalkSpeed = 80.0
@@ -119,13 +147,17 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="pushable_block" parent="wall_tiles" index="2" instance=ExtResource( 4 )]
+[node name="pushable_block" parent="wall_tiles" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 117, 93.5 )
 
-[node name="gui_layer" type="CanvasLayer" parent="." index="3"]
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="3"]
 
-layer = 1
+color = Color( 0.429688, 0.429688, 0.429688, 1 )
+
+[node name="gui_layer" type="CanvasLayer" parent="." index="4"]
+
+layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
@@ -153,7 +185,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="health_bar" parent="gui_layer/gui" index="0" instance=ExtResource( 5 )]
+[node name="health_bar" parent="gui_layer/gui" index="0" instance=ExtResource( 6 )]
 
 margin_left = 8.0
 margin_right = 600.0

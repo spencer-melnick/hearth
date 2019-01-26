@@ -15,6 +15,10 @@ public class Globals : Node
             {
                 // Do something here
             }
+            else if (value > 100.0f)
+            {
+                // No more HP?
+            }
             else
             {
                 _playerHealth = value;
