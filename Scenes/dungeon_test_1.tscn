@@ -1,11 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Tileset/dungeon_tileset_1.tres" type="TileSet" id=1]
 [ext_resource path="res://Prefabs/fireplace.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Textures/light.png" type="Texture" id=3]
-[ext_resource path="res://Prefabs/basic_character.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Prefabs/pushable_block.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Prefabs/health_bar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fonts/Cave-Story.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Prefabs/basic_character.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/pushable_block.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/health_bar.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 26
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -98,7 +107,7 @@ editor_only = false
 texture = ExtResource( 3 )
 offset = Vector2( 0, 0 )
 texture_scale = 3.0
-color = Color( 0.984375, 0.527435, 0.149963, 1 )
+color = Color( 1, 0.854539, 0.734375, 1 )
 energy = 1.0
 mode = 0
 range_height = 0.0
@@ -116,7 +125,31 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range" ]
 
-[node name="basic_character" parent="wall_tiles" index="1" instance=ExtResource( 4 )]
+[node name="PlaceKindling" type="Label" parent="wall_tiles/fireplace" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -11.0
+margin_top = -28.0
+margin_right = -15.0
+margin_bottom = -12.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "[e]"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_fonts" ]
+
+[node name="basic_character" parent="wall_tiles" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 126, 128.5 )
 WalkSpeed = 80.0
@@ -146,15 +179,14 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Smoothing" ]
 
-[node name="pushable_block" parent="wall_tiles" index="2" instance=ExtResource( 5 )]
+[node name="pushable_block" parent="wall_tiles" index="2" instance=ExtResource( 6 )]
 
 position = Vector2( 117, 93.5 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="3"]
 
-color = Color( 0.213933, 0.17395, 0.292969, 1 )
+color = Color( 0.429688, 0.429688, 0.429688, 1 )
 
 [node name="gui_layer" type="CanvasLayer" parent="." index="4"]
 
@@ -186,7 +218,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="health_bar" parent="gui_layer/gui" index="0" instance=ExtResource( 6 )]
+[node name="health_bar" parent="gui_layer/gui" index="0" instance=ExtResource( 7 )]
 
 margin_left = 8.0
 margin_right = 600.0
