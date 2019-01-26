@@ -17,14 +17,14 @@ Fire (old home)
 * Fire radius ** Note: Radius of campfire never changes **
 
 Player
-* Exists and can move/collide
+* Exists and can move/collide ✓
 * Has a Health bar
-* Health drains when outside campfire radius
-* Health regained when inside campfire radius
+* Health drains when outside campfire radius ✓
+* Health regained when inside campfire radius ✓
 
 Kindling
 * Exists in world
-* Can be picked up
+* Can be picked up ✓
 * Can be added to fire
 * When added to fire, fire health goes up
 
@@ -51,9 +51,9 @@ Design Map
 
 ## Art Assets
 Player
-* Facing down
+* Facing down ✓
 * Facing up
-* Facing left / right (left and right could just be mirrors)
+* Facing left / right (left and right could just be mirrors) [WIP]
 * Holding kindling up
 * Holding kindling down
 * Holding kindling left / right
@@ -68,14 +68,14 @@ Hearth
 * After adding kindling (crystal appears)
 
 Scenery
-* Snow/Ground tiles
-* Trees
+* Snow/Ground tiles [WIP]
+* Trees ✓
 * Rocks
 * Whatever else we feel
 
 ## Animation
 Player
-* Walking
+* Walking [WIP]
 * Walking with kindling
 * Picking up kindling
 * Adding kindling to fire
