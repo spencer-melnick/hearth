@@ -68,6 +68,7 @@ Hearth
 * After adding kindling (crystal appears)
 
 Scenery
+* Snow/Ground tiles
 * Trees
 * Rocks
 * Whatever else we feel
