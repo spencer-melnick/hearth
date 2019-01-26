@@ -53,7 +53,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Damping", "Emission Shape", "Initial Velocity", "Orbit Velocity" ]
 
-[node name="Particles2D" type="Particles2D"]
+[node name="snow_particles" type="Particles2D" index="0"]
 
 rotation = 1.5708
 emitting = true
