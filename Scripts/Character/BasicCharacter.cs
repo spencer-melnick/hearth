@@ -16,6 +16,8 @@ public class BasicCharacter : KinematicBody2D
 
 	private Node2D _carriedObject = null;
 
+	private Particles2D _healthParticles;
+
 	public Node2D HeldObject
 	{
 		get
@@ -57,6 +59,7 @@ public class BasicCharacter : KinematicBody2D
     {
 		_globals = GetNode("/root/Globals") as Globals;
 		_carryAttachPoint = GetNode("carry_attach_point") as Node2D;
+		_healthParticles = GetNode("health_particles") as Particles2D;
     }
 
 	public override void _Process(float delta)
@@ -179,13 +182,20 @@ public class BasicCharacter : KinematicBody2D
 			}
 		}
 
+		_healthParticles.Emitting = false;
+
 		if (minFreezeFactor > 0.0f)
 		{
 			_globals.PlayerHealth -= FreezeSpeed * minFreezeFactor * delta;
 		}
-		else
+		else if (minFreezeFactor < 0.0f)
 		{
 			_globals.PlayerHealth -= maxHealSpeed * minFreezeFactor * delta;
+			
+			if (_globals.PlayerHealth < 100.0f)
+			{
+				_healthParticles.Emitting = true;
+			}
 		}
 	}
 
