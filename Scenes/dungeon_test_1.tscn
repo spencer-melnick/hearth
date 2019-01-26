@@ -4,7 +4,7 @@
 [ext_resource path="res://Prefabs/Gameplay/kindling.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prefabs/Gameplay/basic_character.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prefabs/Gameplay/pushable_block.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Prefabs/Gameplay/fireplace.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/Gameplay/first_fireplace.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Textures/light.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/Effects/FlickeringLight.cs" type="Script" id=7]
 [ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=8]
@@ -128,17 +128,12 @@ editor_draw_drag_margin = false
 
 position = Vector2( 101, 85 )
 
-[node name="fireplace" parent="wall_tiles" index="3" instance=ExtResource( 5 )]
+[node name="first_fireplace" parent="wall_tiles" index="3" instance=ExtResource( 5 )]
 
-position = Vector2( 151.362, 88.5205 )
-HeatInnerRadius = 150.0
-HeatOuterRadius = 200.0
-HealEnabled = true
-HealOuterRadius = 20.0
+position = Vector2( 163.816, 94.5519 )
 
-[node name="Light2D" type="Light2D" parent="wall_tiles/fireplace" index="1"]
+[node name="Light2D" type="Light2D" parent="wall_tiles/first_fireplace" index="1"]
 
-position = Vector2( 0, 2.00001 )
 enabled = true
 editor_only = false
 texture = ExtResource( 6 )
@@ -161,13 +156,14 @@ shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 script = ExtResource( 7 )
-_sections_unfolded = [ "Range" ]
+_sections_unfolded = [ "Range", "Transform" ]
 FlickerSpacing = Vector2( 2, 1.5 )
 FlickerTime = 0.1
 
 [node name="interact_tooltip" parent="." index="3" instance=ExtResource( 8 )]
 
 position = Vector2( 108.816, 179.552 )
+OneShot = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="4"]
 

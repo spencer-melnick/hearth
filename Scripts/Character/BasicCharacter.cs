@@ -11,6 +11,28 @@ public class BasicCharacter : KinematicBody2D
 	public float FreezeSpeed = 10.0f;
 
 	private Globals _globals;
+
+	private bool _fuelHeld = false;
+
+	private Node2D _carriedObject = null;
+
+	public Node2D HeldObject
+	{
+		get
+		{
+			return _carriedObject;
+		}
+	}
+
+	private Node2D _carryAttachPoint;
+
+	public bool FuelHeld
+	{
+		get
+		{
+			return _fuelHeld;
+		}
+	}
 	
 	private struct AxisMapping
 	{
@@ -34,13 +56,14 @@ public class BasicCharacter : KinematicBody2D
     public override void _Ready()
     {
 		_globals = GetNode("/root/Globals") as Globals;
+		_carryAttachPoint = GetNode("carry_attach_point") as Node2D;
     }
 
 	public override void _Process(float delta)
 	{
 		CheckHeat(delta);
 
-		if (Input.IsActionPressed("character_primary_interact"))
+		if (Input.IsActionJustPressed("character_primary_interact"))
 		{
 			_checkInteractions();
 		}
@@ -166,8 +189,30 @@ public class BasicCharacter : KinematicBody2D
 		}
 	}
 
-	public Node2D GetCarryAttachPoint()
+	public void PickupObject(Node2D node)
 	{
-		return GetNode("carry_attach_point") as Node2D;
+		if (_carriedObject == null)
+		{
+			if (node.IsInGroup("fuel"))
+			{
+				_fuelHeld = true;
+			}
+			
+			_carriedObject = node;
+			node.GetParent().RemoveChild(node);
+			_carryAttachPoint.AddChild(node);
+			node.SetPosition(new Vector2());
+		}
+	}
+
+	public void DestroyHeldObject()
+	{
+		_carryAttachPoint.RemoveChild(_carriedObject);
+		_carriedObject.QueueFree();
+
+		if (_fuelHeld)
+		{
+			_fuelHeld = false;
+		}
 	}
 }

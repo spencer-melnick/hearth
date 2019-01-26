@@ -9,6 +9,7 @@ custom_solver_bias = 0.0
 extents = Vector2( 7, 6 )
 
 [node name="basic_character" type="KinematicBody2D" groups=[
+"main_character",
 "applies_pressure",
 ]]
 

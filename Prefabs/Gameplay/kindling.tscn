@@ -9,6 +9,7 @@ custom_solver_bias = 0.0
 extents = Vector2( 20, 15 )
 
 [node name="kindling" type="Node2D" groups=[
+"fuel",
 "interactive",
 ]]
 

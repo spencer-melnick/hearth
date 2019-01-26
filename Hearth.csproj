@@ -54,6 +54,7 @@
     <Compile Include="Scripts\Character\CharacterState.cs" />
     <Compile Include="Scripts\Effects\FlickeringLight.cs" />
     <Compile Include="Scripts\Gameplay\Fireplace.cs" />
+    <Compile Include="Scripts\Gameplay\FirstFireplace.cs" />
     <Compile Include="Scripts\Gameplay\IInteractive.cs" />
     <Compile Include="Scripts\Gameplay\InteractTooltip.cs" />
     <Compile Include="Scripts\Gameplay\Kindling.cs" />

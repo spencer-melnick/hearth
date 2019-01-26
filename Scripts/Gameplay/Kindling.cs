@@ -31,9 +31,7 @@ public class Kindling : Node2D, IInteractive
             }
 
             CanInteract = false;
-            GetParent().RemoveChild(this);
-            character.GetCarryAttachPoint().AddChild(this);
-            SetPosition(new Vector2());
+            character.PickupObject(this);
        }
    }
 

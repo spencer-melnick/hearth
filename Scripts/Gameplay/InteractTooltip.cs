@@ -6,9 +6,19 @@ public class InteractTooltip : Node2D
     private Area2D _area;
     private AnimationPlayer _animationPlayer;
 
+    [Export]
+    public bool Enabled = true;
+
+    [Export]
+    public bool OneShot = false;
+
+    [Export]
+    public bool UseAreaTrigger = true;
+
     private enum State
     {
         Invisible,
+        Animating,
         FadedIn,
         FadedOut
     }
@@ -41,14 +51,24 @@ public class InteractTooltip : Node2D
         _animationPlayer.Play("fade_out");
     }
 
+    public void FadeIn()
+    {
+        if (Enabled && _state == State.Invisible)
+        {
+            _animationPlayer.Play("fade_in");
+            _state = State.Animating;
+        }  
+    }
+
     private void _onBodyEntered(Godot.Object body)
     {
-        if (_state == State.Invisible)
-        {
+        if (UseAreaTrigger)
+        {        
             BasicCharacter character = body as BasicCharacter;
+
             if (character != null)
             {
-                _animationPlayer.Play("fade_in");
+                FadeIn();
             }
         }
     }
@@ -64,6 +84,14 @@ public class InteractTooltip : Node2D
             else
             {
                 _state = State.FadedIn;
+            }
+        }
+
+        if (name == "fade_out" && !OneShot)
+        {
+            if (!OneShot)
+            {
+                _state = State.Invisible;
             }
         }
     }

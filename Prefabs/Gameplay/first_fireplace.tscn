@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Gameplay/FirstFireplace.cs" type="Script" id=1]
+[ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Textures/fire_placeholder.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 20, 15 )
+
+[node name="first_fireplace" type="Node2D" groups=[
+"interactive",
+"fireplace",
+]]
+
+script = ExtResource( 1 )
+HeatInnerRadius = 150.0
+HeatOuterRadius = 200.0
+HealEnabled = true
+HealInnerRadius = 10.0
+HealOuterRadius = 30.0
+HealSpeed = 20.0
+
+[node name="interact_tooltip" parent="." index="0" instance=ExtResource( 2 )]
+
+Enabled = false
+UseAreaTrigger = false
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+shape = SubResource( 1 )
+
+
