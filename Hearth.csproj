@@ -52,8 +52,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\Character\BasicCharacter.cs" />
     <Compile Include="Scripts\Character\CharacterState.cs" />
-    <Compile Include="Scripts\PushableBlock.cs" />
-    <Compile Include="Scripts\IPushable.cs" />
+    <Compile Include="Scripts\Gameplay\Fireplace.cs" />
+    <Compile Include="Scripts\Gameplay\PushableBlock.cs" />
+    <Compile Include="Scripts\Gameplay\IPushable.cs" />
+    <Compile Include="Scripts\Globals.cs" />
+    <Compile Include="Scripts\GUI\HealthBar.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

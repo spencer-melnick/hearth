@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Gameplay/Fireplace.cs" type="Script" id=1]
+[ext_resource path="res://Textures/fire_placeholder.png" type="Texture" id=2]
+
+[node name="fireplace" type="Node2D" groups=[
+"fireplace",
+]]
+
+script = ExtResource( 1 )
+HeatInnerRadius = 50.0
+HeatOuterRadius = 100.0
+HealEnabled = false
+HealInnerRadius = 10.0
+HealOuterRadius = 0.0
+HealSpeed = 20.0
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+
