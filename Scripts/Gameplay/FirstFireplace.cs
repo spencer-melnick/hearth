@@ -27,7 +27,12 @@ public class FirstFireplace : Fireplace, IInteractive
     {
         if (character.FuelHeld)
         {
-            GD.Print("Player put stuff into the fire!");
+            IFuel fuel = character.HeldObject as IFuel;
+            if (fuel != null)
+            {
+                _globals.FireplaceHealth += fuel.GetFuelAmount();
+            }
+
             character.DestroyHeldObject();
             _tooltip.FadeOut();
         }

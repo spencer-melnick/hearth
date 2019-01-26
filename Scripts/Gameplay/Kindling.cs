@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Kindling : Node2D, IInteractive
+public class Kindling : Node2D, IInteractive, IFuel
 {
     private Area2D _interactiveArea;
 
@@ -13,6 +13,14 @@ public class Kindling : Node2D, IInteractive
 
     [Export]
     public NodePath TooltipPath;
+
+    [Export]
+    public float FuelAmount = 20.0f;
+
+    public float GetFuelAmount()
+    {
+        return FuelAmount;
+    }
 
     public override void _Ready()
     {

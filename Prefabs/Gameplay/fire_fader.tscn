@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Gameplay/FireFader.cs" type="Script" id=1]
+
+[node name="fire_fader" type="Node2D"]
+
+script = ExtResource( 1 )
+Enabled = true
+FadeSpeed = 1.0
+
+

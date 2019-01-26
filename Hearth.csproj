@@ -53,6 +53,7 @@
     <Compile Include="Scripts\Character\BasicCharacter.cs" />
     <Compile Include="Scripts\Character\CharacterState.cs" />
     <Compile Include="Scripts\Effects\FlickeringLight.cs" />
+    <Compile Include="Scripts\Gameplay\FireFader.cs" />
     <Compile Include="Scripts\Gameplay\Fireplace.cs" />
     <Compile Include="Scripts\Gameplay\FirstFireplace.cs" />
     <Compile Include="Scripts\Gameplay\IInteractive.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Scripts\Gameplay\Kindling.cs" />
     <Compile Include="Scripts\Gameplay\PushableBlock.cs" />
     <Compile Include="Scripts\Gameplay\IPushable.cs" />
+    <Compile Include="Scripts\Gameplay\IFuel.cs" />
     <Compile Include="Scripts\Globals.cs" />
     <Compile Include="Scripts\GUI\HealthBar.cs" />
     <Compile Include="Scripts\GUI\FireplaceBar.cs" />

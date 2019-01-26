@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Tileset/dungeon_tileset_1.tres" type="TileSet" id=1]
-[ext_resource path="res://Prefabs/Gameplay/kindling.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Prefabs/Gameplay/basic_character.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Prefabs/Gameplay/pushable_block.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Prefabs/Gameplay/first_fireplace.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Textures/light.png" type="Texture" id=6]
-[ext_resource path="res://Scripts/Effects/FlickeringLight.cs" type="Script" id=7]
-[ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Prefabs/Gameplay/fire_fader.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Gameplay/kindling.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/Gameplay/basic_character.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Gameplay/pushable_block.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/Gameplay/first_fireplace.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Textures/light.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/Effects/FlickeringLight.cs" type="Script" id=8]
+[ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=11]
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -63,7 +64,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="wall_tiles" type="TileMap" parent="." index="2"]
+[node name="fire_fader" parent="." index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 308.816, 79.5519 )
+Enabled = true
+FadeSpeed = 1.0
+
+[node name="wall_tiles" type="TileMap" parent="." index="3"]
 
 mode = 0
 tile_set = ExtResource( 1 )
@@ -87,13 +94,14 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="kindling" parent="wall_tiles" index="0" instance=ExtResource( 2 )]
+[node name="kindling" parent="wall_tiles" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( 106.816, 180.552 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
+FuelAmount = 20.0
 
-[node name="basic_character" parent="wall_tiles" index="1" instance=ExtResource( 3 )]
+[node name="basic_character" parent="wall_tiles" index="1" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 position = Vector2( 133.5, 104.5 )
@@ -124,11 +132,11 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="pushable_block" parent="wall_tiles" index="2" instance=ExtResource( 4 )]
+[node name="pushable_block" parent="wall_tiles" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 101, 85 )
 
-[node name="first_fireplace" parent="wall_tiles" index="3" instance=ExtResource( 5 )]
+[node name="first_fireplace" parent="wall_tiles" index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 163.816, 94.5519 )
 
@@ -136,7 +144,7 @@ position = Vector2( 163.816, 94.5519 )
 
 enabled = true
 editor_only = false
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 offset = Vector2( 0, 0 )
 texture_scale = 3.0
 color = Color( 0.972656, 0.589818, 0.27356, 1 )
@@ -155,21 +163,21 @@ shadow_gradient_length = 0.0
 shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Range", "Transform" ]
 FlickerSpacing = Vector2( 2, 1.5 )
 FlickerTime = 0.1
 
-[node name="interact_tooltip" parent="." index="3" instance=ExtResource( 8 )]
+[node name="interact_tooltip" parent="." index="4" instance=ExtResource( 9 )]
 
 position = Vector2( 108.816, 179.552 )
 OneShot = true
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="4"]
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="5"]
 
 color = Color( 0.207664, 0.1819, 0.355469, 1 )
 
-[node name="gui_layer" type="CanvasLayer" parent="." index="5"]
+[node name="gui_layer" type="CanvasLayer" parent="." index="6"]
 
 layer = 2
 offset = Vector2( 0, 0 )
@@ -177,14 +185,14 @@ rotation = 0.0
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
-[node name="fireplace_bar" parent="gui_layer" index="0" instance=ExtResource( 9 )]
+[node name="fireplace_bar" parent="gui_layer" index="0" instance=ExtResource( 10 )]
 
 margin_left = 4.0
 margin_top = 275.0
 margin_right = 254.0
 margin_bottom = 283.0
 
-[node name="health_bar" parent="gui_layer" index="1" instance=ExtResource( 10 )]
+[node name="health_bar" parent="gui_layer" index="1" instance=ExtResource( 11 )]
 
 margin_left = 4.0
 margin_top = 287.0
