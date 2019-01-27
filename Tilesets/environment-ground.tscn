@@ -2,17 +2,24 @@
 
 [ext_resource path="res://Textures/environmental_asset_sheet.png" type="Texture" id=1]
 
-
 [node name="Node2D" type="Node2D" index="0"]
 
-[node name="path_up1" type="Sprite" parent="." index="0"]
+[node name="path_long" type="Sprite" parent="." index="0"]
+
+position = Vector2( -203.211, -247.955 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1044, -6.899, 181, 428.899 )
+_sections_unfolded = [ "Region" ]
+
+[node name="path_up1" type="Sprite" parent="." index="1"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1044, -6.899, 181, 153 )
 _sections_unfolded = [ "Region" ]
 
-[node name="path_up2" type="Sprite" parent="." index="1"]
+[node name="path_up2" type="Sprite" parent="." index="2"]
 
 position = Vector2( 174.516, 4.49785 )
 texture = ExtResource( 1 )
@@ -20,7 +27,7 @@ region_enabled = true
 region_rect = Rect2( 1042, 144.101, 181, 140 )
 _sections_unfolded = [ "Region" ]
 
-[node name="path_up3" type="Sprite" parent="." index="2"]
+[node name="path_up3" type="Sprite" parent="." index="3"]
 
 position = Vector2( 4.49783, -131.787 )
 texture = ExtResource( 1 )
@@ -28,7 +35,7 @@ region_enabled = true
 region_rect = Rect2( 1055, 283.101, 165, 146 )
 _sections_unfolded = [ "Region" ]
 
-[node name="path_corner" type="Sprite" parent="." index="3"]
+[node name="path_corner" type="Sprite" parent="." index="4"]
 
 position = Vector2( 177.215, -144.381 )
 texture = ExtResource( 1 )
@@ -36,7 +43,7 @@ region_enabled = true
 region_rect = Rect2( 1053, 428.508, 163, 152 )
 _sections_unfolded = [ "Region" ]
 
-[node name="path_diag1" type="Sprite" parent="." index="4"]
+[node name="path_diag1" type="Sprite" parent="." index="5"]
 
 position = Vector2( 372.658, -151.179 )
 texture = ExtResource( 1 )
@@ -44,7 +51,7 @@ region_enabled = true
 region_rect = Rect2( 1260, 0.768, 205, 185 )
 _sections_unfolded = [ "Region" ]
 
-[node name="path_diag2" type="Sprite" parent="." index="5"]
+[node name="path_diag2" type="Sprite" parent="." index="6"]
 
 position = Vector2( 499.272, -3.32173 )
 texture = ExtResource( 1 )
@@ -52,7 +59,7 @@ region_enabled = true
 region_rect = Rect2( 1251, 402.768, 208, 190 )
 _sections_unfolded = [ "Region" ]
 
-[node name="path_diag3" type="Sprite" parent="." index="6"]
+[node name="path_diag3" type="Sprite" parent="." index="7"]
 
 position = Vector2( 582.547, -157.127 )
 texture = ExtResource( 1 )
@@ -60,7 +67,7 @@ region_enabled = true
 region_rect = Rect2( 1261, 202.768, 208, 199 )
 _sections_unfolded = [ "Region" ]
 
-[node name="pond1" type="Sprite" parent="." index="7"]
+[node name="pond1" type="Sprite" parent="." index="8"]
 
 position = Vector2( 59.9492, -320.28 )
 texture = ExtResource( 1 )
@@ -68,7 +75,7 @@ region_enabled = true
 region_rect = Rect2( 186, 60.768, 135, 171 )
 _sections_unfolded = [ "Region" ]
 
-[node name="pond2" type="Sprite" parent="." index="8"]
+[node name="pond2" type="Sprite" parent="." index="9"]
 
 position = Vector2( 275.787, -322.829 )
 texture = ExtResource( 1 )
@@ -76,7 +83,7 @@ region_enabled = true
 region_rect = Rect2( 190, 247.768, 144, 167 )
 _sections_unfolded = [ "Region" ]
 
-[node name="pond3" type="Sprite" parent="." index="9"]
+[node name="pond3" type="Sprite" parent="." index="10"]
 
 position = Vector2( 481.427, -332.176 )
 texture = ExtResource( 1 )

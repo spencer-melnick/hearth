@@ -103,4 +103,13 @@
 10/occluder_offset = Vector2( 104, 99.5 )
 10/navigation_offset = Vector2( 104, 99.5 )
 10/shapes = [  ]
+11/name = "path_long"
+11/texture = ExtResource( 1 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 1044, -6, 181, 428 )
+11/is_autotile = false
+11/occluder_offset = Vector2( 90.5, 214.449 )
+11/navigation_offset = Vector2( 90.5, 214.449 )
+11/shapes = [  ]
 
