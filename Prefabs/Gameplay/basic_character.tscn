@@ -866,7 +866,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[node name="basic_character" type="KinematicBody2D" index="0" groups=[
+[node name="basic_character" type="KinematicBody2D" groups=[
 "main_character",
 "applies_pressure",
 ]]
