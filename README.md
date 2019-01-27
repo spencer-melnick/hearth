@@ -36,7 +36,7 @@ Hearth (new home)
 
 ### Game Design-y bits
 Campfire
-* First time kindling added, full strength + trigger animation for "yay!"
+* First time kindling added, full strength + trigger animation for "yay!" ✓
 * Second time kindling added, slightly less strength added + trigger animation for "meh"
 * we can decide ramp up, but the fire heals less each kindling
 * As fire is lower strength, it heals player less ✓
@@ -47,16 +47,16 @@ Hearth
 
 Design Map
 * Place kindling in slightly further away from fire locations
-* one kindling piece right next to the hearth
+* one kindling piece right next to the hearth ✓
 
 ## Art Assets
 Player
 * Facing down ✓
 * Facing up ✓
-* Facing left / right (left and right could just be mirrors) ✓
+* Facing left / right ✓
 * Holding kindling up ✓
 * Holding kindling down ✓
-* Holding kindling left / right 
+* Holding kindling left / right ✓
 
 Fire ✓
 
@@ -70,14 +70,14 @@ Hearth
 Scenery
 * Snow/Ground tiles ✓
 * Trees ✓
-* Rocks
+* Rocks ✓
 * Whatever else we feel
 
 ## Animation
 Player
 * Walking ✓
-* Walking with kindling
-* Picking up kindling ✓
+* Walking with kindling ✓
+* Picking up kindling 
 * Adding kindling to fire ✓
 * Lower health --> maybe add a blue shader? - parking lot
 
@@ -89,7 +89,7 @@ Kindling
 * Picked up ✓
 
 Hearth
-* First kindling added --> crystal appears
+* First kindling added --> crystal appears ✓
 * Gradually increasing in strength (similar to the fire but generally in reverse)
 
 Environment / Screen
