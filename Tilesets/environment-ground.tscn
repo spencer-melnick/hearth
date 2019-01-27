@@ -91,4 +91,28 @@ region_enabled = true
 region_rect = Rect2( 177, 434.671, 153, 152 )
 _sections_unfolded = [ "Region" ]
 
+[node name="bush" type="Sprite" parent="." index="11"]
+
+position = Vector2( 702.519, -339.546 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 19, 279, 163, 119 )
+_sections_unfolded = [ "Region" ]
+
+[node name="rocks" type="Sprite" parent="." index="12"]
+
+position = Vector2( 740.841, -229 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 907, 49, 117, 58 )
+_sections_unfolded = [ "Region" ]
+
+[node name="tree" type="Sprite" parent="." index="13"]
+
+position = Vector2( 928.032, -271.744 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 358, 164, 275, 386 )
+_sections_unfolded = [ "Region" ]
+
 
