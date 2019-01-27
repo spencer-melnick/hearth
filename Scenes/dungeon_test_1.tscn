@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Tileset/dungeon_tileset_1.tres" type="TileSet" id=1]
 [ext_resource path="res://Textures/snow_placeholder_2.png" type="Texture" id=2]
@@ -7,16 +7,17 @@
 [ext_resource path="res://Prefabs/Gameplay/new_fireplace.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Prefabs/Gameplay/kindling.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prefabs/Gameplay/basic_character.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Prefabs/Gameplay/pushable_block.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Prefabs/Gameplay/first_fireplace.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Prefabs/Effects/snow_particles.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scripts/Effects/SnowParticles.cs" type="Script" id=11]
-[ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Textures/environmental_asset_sheet.png" type="Texture" id=14]
-[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Textures/filtered_spritesheet.png" type="Texture" id=16]
-[ext_resource path="res://Sounds/Music/song.wav" type="AudioStream" id=17]
+[ext_resource path="res://Prefabs/Effects/wind_sounds.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/Gameplay/pushable_block.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/Gameplay/first_fireplace.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Prefabs/Effects/snow_particles.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/Effects/SnowParticles.cs" type="Script" id=12]
+[ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Textures/environmental_asset_sheet.png" type="Texture" id=15]
+[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Textures/filtered_spritesheet.png" type="Texture" id=17]
+[ext_resource path="res://Sounds/Music/song.wav" type="AudioStream" id=18]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -110,6 +111,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="fire_fader" parent="." index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 308.816, 79.5519 )
+FadeSpeed = 0.5
 
 [node name="wall_tiles" type="TileMap" parent="." index="5"]
 
@@ -134,7 +136,7 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="new_fireplace2" parent="wall_tiles" index="0" instance=ExtResource( 5 )]
 
-position = Vector2( -1300.43, -1356.74 )
+position = Vector2( -1299.94, -1356.74 )
 
 [node name="kindling" parent="wall_tiles" index="1" instance=ExtResource( 6 )]
 
@@ -264,7 +266,7 @@ TooltipPath = NodePath("../../interact_tooltip")
 editor/display_folded = true
 position = Vector2( 133.5, 104.5 )
 WalkSpeed = 80.0
-FreezeSpeed = 2.0
+FreezeSpeed = 20.0
 
 [node name="Camera2D" type="Camera2D" parent="wall_tiles/basic_character" index="2"]
 
@@ -291,58 +293,66 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="pushable_block" parent="wall_tiles" index="23" instance=ExtResource( 8 )]
+[node name="wind_sounds" parent="wall_tiles/basic_character" index="11" instance=ExtResource( 8 )]
+
+position = Vector2( -25.912, 37.0454 )
+
+[node name="wind_sounds2" parent="wall_tiles/basic_character" index="12" instance=ExtResource( 8 )]
+
+position = Vector2( -245.853, -17.574 )
+
+[node name="pushable_block" parent="wall_tiles" index="23" instance=ExtResource( 9 )]
 
 position = Vector2( 101, 85 )
 
-[node name="pushable_block2" parent="wall_tiles" index="24" instance=ExtResource( 8 )]
+[node name="pushable_block2" parent="wall_tiles" index="24" instance=ExtResource( 9 )]
 
 position = Vector2( -1226.68, 988.99 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="pushable_block3" parent="wall_tiles" index="25" instance=ExtResource( 8 )]
+[node name="pushable_block3" parent="wall_tiles" index="25" instance=ExtResource( 9 )]
 
 position = Vector2( -1276.68, 1040.99 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="pushable_block4" parent="wall_tiles" index="26" instance=ExtResource( 8 )]
+[node name="pushable_block4" parent="wall_tiles" index="26" instance=ExtResource( 9 )]
 
 position = Vector2( -1126.68, 1040.99 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="pushable_block5" parent="wall_tiles" index="27" instance=ExtResource( 8 )]
+[node name="pushable_block5" parent="wall_tiles" index="27" instance=ExtResource( 9 )]
 
 position = Vector2( -1126.68, 1040.99 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="pushable_block6" parent="wall_tiles" index="28" instance=ExtResource( 8 )]
+[node name="pushable_block6" parent="wall_tiles" index="28" instance=ExtResource( 9 )]
 
 position = Vector2( -1182.68, 1063.39 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="pushable_block7" parent="wall_tiles" index="29" instance=ExtResource( 8 )]
+[node name="pushable_block7" parent="wall_tiles" index="29" instance=ExtResource( 9 )]
 
 position = Vector2( -1234.76, 1066.75 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="pushable_block8" parent="wall_tiles" index="30" instance=ExtResource( 8 )]
+[node name="pushable_block8" parent="wall_tiles" index="30" instance=ExtResource( 9 )]
 
 position = Vector2( -1173.16, 1008.51 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="first_fireplace" parent="wall_tiles" index="31" instance=ExtResource( 9 )]
+[node name="first_fireplace" parent="wall_tiles" index="31" instance=ExtResource( 10 )]
 
 position = Vector2( 163.816, 94.5519 )
 HeatInnerRadius = 50.0
 HeatOuterRadius = 100.0
 MinHeatSpeed = 1.0
 
-[node name="snow_particles" parent="." index="6" instance=ExtResource( 10 )]
+[node name="snow_particles" parent="." index="6" instance=ExtResource( 11 )]
 
 position = Vector2( 133.686, 104.5 )
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 
-[node name="interact_tooltip" parent="." index="7" instance=ExtResource( 12 )]
+[node name="interact_tooltip" parent="." index="7" instance=ExtResource( 13 )]
 
 position = Vector2( 336.802, 241.73 )
 OneShot = true
@@ -361,7 +371,7 @@ rotation = 0.0
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
-[node name="fireplace_bar" parent="gui_layer" index="0" instance=ExtResource( 13 )]
+[node name="fireplace_bar" parent="gui_layer" index="0" instance=ExtResource( 14 )]
 
 margin_left = 14.0
 margin_top = 275.0
@@ -372,12 +382,12 @@ margin_bottom = 283.0
 
 position = Vector2( 7, 278 )
 scale = Vector2( 0.065, 0.065 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 region_enabled = true
 region_rect = Rect2( 673, 41, 154, 184 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="health_bar" parent="gui_layer" index="2" instance=ExtResource( 15 )]
+[node name="health_bar" parent="gui_layer" index="2" instance=ExtResource( 16 )]
 
 margin_left = 14.0
 margin_top = 288.0
@@ -388,13 +398,14 @@ margin_bottom = 296.0
 
 position = Vector2( 8, 292 )
 scale = Vector2( 0.09, 0.09 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 region_enabled = true
 region_rect = Rect2( 3, 515, 56, 121 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="10"]
 
+editor/display_folded = true
 visible = false
 input_pickable = false
 collision_layer = 0
@@ -412,11 +423,13 @@ shape = SubResource( 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="11"]
 
-stream = ExtResource( 17 )
+stream = ExtResource( 18 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
 mix_target = 0
 bus = "Master"
+
+[node name="wind_sounds" parent="." index="12" instance=ExtResource( 8 )]
 
 

@@ -77,6 +77,7 @@ public class BasicCharacter : KinematicBody2D
 		_footprintPlayers = new List<AudioStreamPlayer>();
 		_footprintPlayers.Add(GetNode("footprint_sound_1") as AudioStreamPlayer);
 		_footprintPlayers.Add(GetNode("footprint_sound_2") as AudioStreamPlayer);
+		_animationPlayer.Stop();
 
 		_random = new Random();
     }
