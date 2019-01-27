@@ -337,7 +337,7 @@ TooltipPath = NodePath("../../interact_tooltip")
 editor/display_folded = true
 position = Vector2( 133.5, 104.5 )
 WalkSpeed = 80.0
-FreezeSpeed = 50.0
+FreezeSpeed = 2.0
 FadeOut = NodePath("../../gui_layer/ColorRect/AnimationPlayer")
 
 [node name="Camera2D" type="Camera2D" parent="wall_tiles/basic_character" index="2"]
