@@ -14,11 +14,11 @@ the charleston
 Fire (old home)
 * Has a Strength bar ✓
 * Fire strength slowly drains ✓
-* Fire radius ** Note: Radius of campfire never changes **
+* Fire radius ✓
 
 Player
 * Exists and can move/collide ✓
-* Has a Health bar
+* Has a Health bar ✓
 * Health drains when outside campfire radius ✓
 * Health regained when inside campfire radius ✓
 
@@ -29,8 +29,8 @@ Kindling
 * When added to fire, fire health goes up ✓
 
 Hearth (new home)
-* exists
-* when player can "see" it, new strength bar appears
+* exists ✓
+* when player can "see" it, new strength bar appears 
 * when kindling added, 1/5 hearth strength bar filled
 
 
@@ -39,11 +39,11 @@ Campfire
 * First time kindling added, full strength + trigger animation for "yay!"
 * Second time kindling added, slightly less strength added + trigger animation for "meh"
 * we can decide ramp up, but the fire heals less each kindling
-* As fire is lower strength, it heals player less
-* Fire has a minimum strength, but it heals the player less than the player loses health
+* As fire is lower strength, it heals player less ✓
+* Fire has a minimum strength, but net loss health ✓
 
 Hearth
-* heals the player according to level of fire health (slower if lower, faster if higher)
+* heals the player according to level of fire health (slower if lower, faster if higher) 
 
 Design Map
 * Place kindling in slightly further away from fire locations
@@ -54,21 +54,21 @@ Player
 * Facing down ✓
 * Facing up ✓
 * Facing left / right (left and right could just be mirrors) ✓
-* Holding kindling up
-* Holding kindling down
-* Holding kindling left / right
+* Holding kindling up ✓
+* Holding kindling down ✓
+* Holding kindling left / right 
 
-Fire
+Fire ✓
 
 Kindling
-* maybe a couple alternate options (but similar enough to look the same when picked up)
+* maybe a couple alternate options (but similar enough to look the same when picked up) ✓
 
 Hearth
-* Before adding the first kindling (just a base)
-* After adding kindling (crystal appears)
+* Before adding the first kindling (just a base) ✓
+* After adding kindling (crystal appears) ✓
 
 Scenery
-* Snow/Ground tiles [WIP]
+* Snow/Ground tiles ✓
 * Trees ✓
 * Rocks
 * Whatever else we feel
@@ -77,25 +77,26 @@ Scenery
 Player
 * Walking ✓
 * Walking with kindling
-* Picking up kindling
-* Adding kindling to fire
-* Lower health --> maybe add a blue shader?
+* Picking up kindling ✓
+* Adding kindling to fire ✓
+* Lower health --> maybe add a blue shader? - parking lot
 
 Fire
-* As fire gets weaker, apply a shader of some sort
-* Maybe "strength" light/rings that show the current power of the fire (also decreases with strength)
+* As fire gets weaker, apply a shader of some sort ✓
+* Maybe "strength" light/rings that show the current power of the fire (also decreases with strength) ✓
 
 Kindling
-* Picked up
+* Picked up ✓
 
 Hearth
 * First kindling added --> crystal appears
 * Gradually increasing in strength (similar to the fire but generally in reverse)
 
 Environment / Screen
-* Snow?
+* Snow ✓
 * Player death
-* Final piece of kindling added to hearth --> snow melting around the area & spring and joy returning!
+* Final piece of kindling added to hearth --> snow melting around the area & spring and joy returning! - parking lot
+* replacement-->ending screen
 
 ## Music and Noises
 ### Music
