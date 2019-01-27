@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/EnvironmentalAssetSheet.png-714205ec07403190eab0449e770f7a46.stex"
+path="res://.import/filtered_spritesheet.png-6f2dcea7576a9a67f55d381db230b2f6.stex"
 
 [deps]
 
-source_file="res://Textures/EnvironmentalAssetSheet.png"
-dest_files=[ "res://.import/EnvironmentalAssetSheet.png-714205ec07403190eab0449e770f7a46.stex" ]
+source_file="res://Textures/filtered_spritesheet.png"
+dest_files=[ "res://.import/filtered_spritesheet.png-6f2dcea7576a9a67f55d381db230b2f6.stex" ]
 
 [params]
 

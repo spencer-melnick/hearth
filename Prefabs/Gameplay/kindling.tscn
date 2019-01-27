@@ -9,8 +9,8 @@ custom_solver_bias = 0.0
 extents = Vector2( 20, 10 )
 
 [node name="kindling" type="Node2D" groups=[
-"fuel",
 "interactive",
+"fuel",
 ]]
 
 script = ExtResource( 1 )
@@ -21,10 +21,10 @@ FuelAmount = 20.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 0.25, 0.25 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 315, 49.197, 105, 57 )
+region_rect = Rect2( 429, 72.648, 156, 72 )
 _sections_unfolded = [ "Region", "Transform" ]
 
 [node name="Area2D" type="Area2D" parent="." index="1"]

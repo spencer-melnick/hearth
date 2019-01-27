@@ -2,35 +2,34 @@
 
 [ext_resource path="res://Scripts/Gameplay/NewFireplace.cs" type="Script" id=1]
 [ext_resource path="res://Prefabs/Effects/fireplace_light.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Textures/environmental_asset_sheet.png" type="Texture" id=4]
-[ext_resource path="res://Textures/hearth_overlay_1.png" type="Texture" id=5]
-[ext_resource path="res://Textures/hearth_overlay_2.png" type="Texture" id=6]
+[ext_resource path="res://Textures/environmental_asset_sheet.png" type="Texture" id=3]
+[ext_resource path="res://Textures/hearth_overlay_1.png" type="Texture" id=4]
+[ext_resource path="res://Textures/hearth_overlay_2.png" type="Texture" id=5]
+[ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=6]
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0, 0.2, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.726562, 0.726562, 0.726562, 1, 1, 1, 1, 1 )
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="CanvasItemMaterial" id=2]
 
 render_priority = 0
 blend_mode = 1
 light_mode = 1
 
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 20, 15 )
-
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 21.4504, 15 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="RectangleShape2D" id=4]
 
-resource_name = "flash"
+custom_solver_bias = 0.0
+extents = Vector2( 13.988, 10 )
+
+[sub_resource type="Animation" id=5]
+
 length = 3.0
 loop = false
 step = 0.1
@@ -115,7 +114,7 @@ tracks/5/keys = {
 "values": [ false, true ]
 }
 
-[node name="new_fireplace" type="Node2D" index="0" groups=[
+[node name="new_fireplace" type="Node2D" groups=[
 "interactive",
 "fireplace",
 ]]
@@ -126,53 +125,48 @@ HeatOuterRadius = 100.0
 HeatSpeed = 20.0
 MaxHeatSpeed = 20.0
 MinHeatSpeed = 5.0
-FadeGradient = SubResource( 5 )
+FadeGradient = SubResource( 1 )
 
 [node name="fireplace_light" parent="." index="0" instance=ExtResource( 2 )]
 
 enabled = false
 
-[node name="interact_tooltip" parent="." index="1" instance=ExtResource( 3 )]
-
-Enabled = false
-OneShot = true
-
-[node name="stand" type="Sprite" parent="." index="2"]
+[node name="stand" type="Sprite" parent="." index="1"]
 
 position = Vector2( 0, 15 )
 scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 region_enabled = true
-region_rect = Rect2( 470, 318.493, 150, 66 )
+region_rect = Rect2( 646, 427.296, 216, 94 )
 _sections_unfolded = [ "Region", "Transform", "Visibility" ]
 
-[node name="hearth" type="Sprite" parent="." index="3"]
+[node name="hearth" type="Sprite" parent="." index="2"]
 
 visible = false
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 668, 217.296, 166, 202 )
+_sections_unfolded = [ "Region", "Transform", "Visibility" ]
+
+[node name="veins" type="Sprite" parent="." index="3"]
+
+visible = false
+position = Vector2( 0.8, 0.2 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 490, 165.817, 113, 132.845 )
-_sections_unfolded = [ "Region", "Transform", "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="veins" type="Sprite" parent="." index="4"]
+[node name="glow" type="Sprite" parent="." index="4"]
 
 visible = false
+material = SubResource( 2 )
 position = Vector2( 0.8, 0.2 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 5 )
-_sections_unfolded = [ "Transform", "Visibility" ]
-
-[node name="glow" type="Sprite" parent="." index="5"]
-
-visible = false
-material = SubResource( 1 )
-position = Vector2( 0.8, 0.2 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 6 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
-[node name="Area2D" type="Area2D" parent="." index="6"]
+[node name="Area2D" type="Area2D" parent="." index="5"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -184,11 +178,11 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
-position = Vector2( -0.181746, 11.625 )
-scale = Vector2( 1.23913, 1.07639 )
-shape = SubResource( 2 )
+position = Vector2( 0.611449, 11.625 )
+scale = Vector2( 1.42646, 1.07639 )
+shape = SubResource( 3 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="7"]
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="6"]
 
 input_pickable = false
 collision_layer = 1
@@ -200,9 +194,15 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 
-position = Vector2( 0.0682523, 15.9024 )
+position = Vector2( -0.931752, 17.9024 )
 scale = Vector2( 1.65385, 0.567308 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
+
+[node name="interact_tooltip" parent="." index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 0, 7 )
+Enabled = false
+OneShot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 
@@ -211,7 +211,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/flash = SubResource( 4 )
+anims/flash = SubResource( 5 )
 blend_times = [  ]
 
 [node name="overlay" type="CanvasLayer" parent="." index="9"]

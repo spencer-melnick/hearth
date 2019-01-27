@@ -2,17 +2,17 @@
 
 [ext_resource path="res://Scripts/Gameplay/FirstFireplace.cs" type="Script" id=1]
 [ext_resource path="res://Prefabs/Effects/fireplace_light.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Textures/environmental_asset_sheet.png" type="Texture" id=4]
-[ext_resource path="res://Textures/hearth_overlay_1.png" type="Texture" id=5]
-[ext_resource path="res://Textures/hearth_overlay_2.png" type="Texture" id=6]
+[ext_resource path="res://Textures/environmental_asset_sheet.png" type="Texture" id=3]
+[ext_resource path="res://Textures/hearth_overlay_1.png" type="Texture" id=4]
+[ext_resource path="res://Textures/hearth_overlay_2.png" type="Texture" id=5]
+[ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=6]
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0, 0.2, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.726562, 0.726562, 0.726562, 1, 1, 1, 1, 1 )
 
-[sub_resource type="CanvasItemMaterial" id=6]
+[sub_resource type="CanvasItemMaterial" id=2]
 
 render_priority = 0
 blend_mode = 1
@@ -26,7 +26,7 @@ extents = Vector2( 20, 15 )
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 13.9742, 10 )
 
 [node name="first_fireplace" type="Node2D" groups=[
 "interactive",
@@ -39,50 +39,45 @@ HeatOuterRadius = 200.0
 HeatSpeed = 20.0
 MaxHeatSpeed = 20.0
 MinHeatSpeed = 9.5
-FadeGradient = SubResource( 5 )
+FadeGradient = SubResource( 1 )
 
 [node name="fireplace_light" parent="." index="0" instance=ExtResource( 2 )]
 
-[node name="interact_tooltip" parent="." index="1" instance=ExtResource( 3 )]
+[node name="stand" type="Sprite" parent="." index="1"]
 
-Enabled = false
-OneShot = true
-UseAreaTrigger = false
-
-[node name="stand" type="Sprite" parent="." index="2"]
-
-position = Vector2( 0, 15 )
+position = Vector2( -1, 13 )
 scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 region_enabled = true
-region_rect = Rect2( 470, 318.493, 150, 66 )
+region_rect = Rect2( 644, 407.296, 210, 120 )
 _sections_unfolded = [ "Region", "Transform" ]
 
-[node name="hearth" type="Sprite" parent="." index="3"]
+[node name="hearth" type="Sprite" parent="." index="2"]
 
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 4 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
 region_enabled = true
-region_rect = Rect2( 490, 165.817, 113, 132.845 )
+region_rect = Rect2( 670, 227.718, 164, 185.578 )
 _sections_unfolded = [ "Region", "Transform" ]
 
-[node name="veins" type="Sprite" parent="." index="4"]
+[node name="veins" type="Sprite" parent="." index="3"]
 
-position = Vector2( 0.8, 0.2 )
+position = Vector2( 0.8, -3.8 )
 scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="glow" type="Sprite" parent="." index="5"]
+[node name="glow" type="Sprite" parent="." index="4"]
 
-material = SubResource( 6 )
-position = Vector2( 0.8, 0.2 )
+material = SubResource( 2 )
+position = Vector2( 0.8, -3.8 )
 scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Material", "Transform" ]
 
-[node name="Area2D" type="Area2D" parent="." index="6"]
+[node name="Area2D" type="Area2D" parent="." index="5"]
 
+position = Vector2( 0, -1 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -93,12 +88,13 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
-position = Vector2( -0.181746, 11.625 )
-scale = Vector2( 1.23913, 1.07639 )
+position = Vector2( 0.370383, 14.625 )
+scale = Vector2( 1.44183, 1.07639 )
 shape = SubResource( 3 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="7"]
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="6"]
 
+position = Vector2( 0, 1 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -112,5 +108,12 @@ bounce = 0.0
 position = Vector2( 0.0682523, 15.9024 )
 scale = Vector2( 1.65385, 0.567308 )
 shape = SubResource( 4 )
+
+[node name="interact_tooltip" parent="." index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 0, 7 )
+Enabled = false
+OneShot = true
+UseAreaTrigger = false
 
 

@@ -30,6 +30,11 @@ public class BasicCharacter : KinematicBody2D
 	}
 
 	private Node2D _carryAttachPoint;
+	
+	private AnimationPlayer _animationPlayer;
+	
+	private String _currentAnimation = "Walk_Down";
+	private bool _animationPlaying = false;
 
 	public bool FuelHeld
 	{
@@ -63,6 +68,7 @@ public class BasicCharacter : KinematicBody2D
 		_globals = GetNode("/root/Globals") as Globals;
 		_carryAttachPoint = GetNode("carry_attach_point") as Node2D;
 		_healthParticles = GetNode("health_particles") as Particles2D;
+		_animationPlayer = GetNode("AnimationPlayer") as AnimationPlayer;
     }
 
 	public override void _Process(float delta)
@@ -77,6 +83,68 @@ public class BasicCharacter : KinematicBody2D
 			}
 		}
 	}
+	
+	private void _updateAnimation(Vector2 axisInput)
+	{
+		String nextAnimation = "";
+		
+		bool shouldPlay = true;
+		
+		if (axisInput.LengthSquared() == 0.0f)
+		{
+			shouldPlay = false;
+			nextAnimation = _currentAnimation;
+			nextAnimation = nextAnimation.Replace("_Carry", "");
+		}
+		else if (axisInput.x > 0.0f)
+		{
+			nextAnimation = "Walk_Right";
+		}
+		else if (axisInput.x < 0.0f)
+		{
+			nextAnimation = "Walk_Left";
+		}
+		else if (axisInput.y > 0.0f)
+		{
+			nextAnimation = "Walk_Down";
+		}
+		else if (axisInput.y < 0.0f)
+		{
+			nextAnimation = "Walk_Up";
+		}
+		
+		if (_carriedObject != null)
+		{
+			nextAnimation += "_Carry";
+		}
+		
+		if (nextAnimation != _currentAnimation)
+		{
+			_animationPlayer.Play(nextAnimation);
+			_currentAnimation = nextAnimation;
+			
+			if (!shouldPlay)
+			{
+				_animationPlaying = false;
+				_animationPlayer.Seek(0.0f, true);
+				_animationPlayer.Stop(false);
+			}
+			else
+			{
+				_animationPlaying = true;
+			}
+		}
+		else if (!_animationPlaying && shouldPlay)
+		{
+			_animationPlaying = true;
+			_animationPlayer.Play(_currentAnimation);
+		}
+		else if (_animationPlaying && !shouldPlay)
+		{
+			_animationPlaying = false;
+			_animationPlayer.Stop();
+		}
+	}
 
 	public override void _PhysicsProcess(float delta) {
 		if (_globals.IsGameRunning)
@@ -89,8 +157,10 @@ public class BasicCharacter : KinematicBody2D
 					axisInput += axisMapping.Axis;
 				}
 			}
+			_updateAnimation(axisInput);
 
 			axisInput = axisInput.Normalized();
+			
 			Vector2 velocity = axisInput * WalkSpeed * WalkScale;
 			KinematicCollision2D collision = MoveAndCollide(velocity * delta);
 

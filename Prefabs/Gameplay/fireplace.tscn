@@ -10,10 +10,7 @@
 script = ExtResource( 1 )
 HeatInnerRadius = 50.0
 HeatOuterRadius = 100.0
-HealEnabled = false
-HealInnerRadius = 10.0
-HealOuterRadius = 0.0
-HealSpeed = 20.0
+HeatSpeed = 20.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
