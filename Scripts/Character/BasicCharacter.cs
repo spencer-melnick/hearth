@@ -13,6 +13,9 @@ public class BasicCharacter : KinematicBody2D
 
 	[Export]
 	public Vector2 WalkScale = new Vector2(1.0f, 1.0f);
+	
+	[Export]
+	public NodePath FadeOut;
 
 	private Globals _globals;
 
@@ -289,6 +292,12 @@ public class BasicCharacter : KinematicBody2D
 	{
 		_alive = false;
 		_updateAnimation(new Vector2(0.0f, 0.0f));
+	}
+
+	public void BeginFade()
+	{
+		AnimationPlayer FadeAnimation = GetNode(FadeOut) as AnimationPlayer;
+		FadeAnimation.Play("Fade_out");
 	}
 
 	public void GameOver()

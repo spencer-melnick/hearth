@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/Character/BasicCharacter.cs" type="Script" id=1]
 [ext_resource path="res://Textures/player_placeholder.png" type="Texture" id=2]
@@ -9,16 +9,17 @@
 [ext_resource path="res://Sounds/Noises/FOOTPRINT5.wav" type="AudioStream" id=7]
 [ext_resource path="res://Textures/light.png" type="Texture" id=8]
 [ext_resource path="res://Sounds/Noises/ddeath.wav" type="AudioStream" id=9]
+[ext_resource path="res://Prefabs/Effects/cold_breath.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 7, 6 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=2]
 
 resource_name = "Death"
-length = 0.83
+length = 7.0
 loop = false
 step = 0.17
 tracks/0/type = "value"
@@ -117,8 +118,215 @@ tracks/7/keys = {
 "update": 1,
 "values": [ true, false, true, false ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("Particles2D:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 6.97 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "GameOver"
+} ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Light2D:energy")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 1.53, 2.72 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.75, 0.01 ]
+}
+tracks/11/type = "method"
+tracks/11/path = NodePath(".")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 2.38 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "BeginFade"
+} ]
+}
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
+
+resource_name = "Death_Carry"
+length = 7.0
+loop = false
+step = 0.17
+tracks/0/type = "value"
+tracks/0/path = NodePath("filtered_spritesheet:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("filtered_spritesheet:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("filtered_spritesheet:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("filtered_spritesheet:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 32, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("filtered_spritesheet:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("filtered_spritesheet:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.17, 0.34, 0.51, 0.68 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("death_sound:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.34, 0.68 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("footprint_sound_2:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.17, 0.34, 0.68, 0.83 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Particles2D:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 6.97 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "GameOver"
+} ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Light2D:energy")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 1.53, 2.72 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.75, 0.01 ]
+}
+tracks/11/type = "method"
+tracks/11/path = NodePath(".")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 2.38 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "BeginFade"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
 
 length = 0.67
 loop = true
@@ -213,7 +421,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=4]
 
 length = 0.67
 loop = true
@@ -308,7 +516,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=5]
 
 length = 0.67
 loop = true
@@ -403,7 +611,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=6]
 
 length = 0.67
 loop = true
@@ -498,7 +706,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=7]
 
 length = 0.67
 loop = true
@@ -593,7 +801,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=8]
 
 length = 0.67
 loop = true
@@ -688,7 +896,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=9]
 
 length = 0.67
 loop = true
@@ -879,8 +1087,8 @@ tracks/6/keys = {
 }
 
 [node name="basic_character" type="KinematicBody2D" groups=[
-"main_character",
 "applies_pressure",
+"main_character",
 ]]
 
 input_pickable = false
@@ -891,6 +1099,7 @@ script = ExtResource( 1 )
 WalkSpeed = 20.0
 FreezeSpeed = 10.0
 WalkScale = Vector2( 1, 1 )
+FadeOut = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -920,7 +1129,7 @@ scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 3 )
 vframes = 6
 hframes = 4
-frame = 17
+frame = 16
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
@@ -930,14 +1139,15 @@ autoplay = "Walk_Down"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Death = SubResource( 11 )
-anims/Walk_Down = SubResource( 12 )
-anims/Walk_Down_Carry = SubResource( 13 )
-anims/Walk_Left = SubResource( 14 )
-anims/Walk_Left_Carry = SubResource( 15 )
-anims/Walk_Right = SubResource( 16 )
-anims/Walk_Right_Carry = SubResource( 17 )
-anims/Walk_Up = SubResource( 18 )
+anims/Death = SubResource( 2 )
+anims/Death_Carry = SubResource( 11 )
+anims/Walk_Down = SubResource( 3 )
+anims/Walk_Down_Carry = SubResource( 4 )
+anims/Walk_Left = SubResource( 5 )
+anims/Walk_Left_Carry = SubResource( 6 )
+anims/Walk_Right = SubResource( 7 )
+anims/Walk_Right_Carry = SubResource( 8 )
+anims/Walk_Up = SubResource( 9 )
 anims/Walk_Up_Carry = SubResource( 10 )
 blend_times = [  ]
 
@@ -999,5 +1209,10 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
+
+[node name="Particles2D" parent="." index="10" instance=ExtResource( 10 )]
+
+emitting = false
+local_coords = false
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Tileset/dungeon_tileset_1.tres" type="TileSet" id=1]
 [ext_resource path="res://Textures/snow_placeholder_2.png" type="Texture" id=2]
@@ -17,11 +17,85 @@
 [ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Textures/environmental_asset_sheet.png" type="Texture" id=16]
 [ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Textures/filtered_spritesheet.png" type="Texture" id=18]
+[ext_resource path="res://Textures/heart.png" type="Texture" id=18]
 [ext_resource path="res://Prefabs/GUI/title_screen_duplicate.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Sounds/Music/song.wav" type="AudioStream" id=20]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="Animation" id=1]
+
+resource_name = "Fade_out"
+length = 4.5
+loop = false
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.157104, 0.162869, 0.304688, 0 ), Color( 0.157104, 0.162869, 0.304688, 0 ), Color( 0.157104, 0.162869, 0.304688, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../AudioStreamPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../snow_particles:speed_scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 10.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../snow_particles:amount")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.75 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 100, 1000 ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "fade_in"
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.160784, 0.160784, 0.333333, 1 ), Color( 0.160784, 0.160784, 0.333333, 0 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 4000.0
@@ -263,7 +337,8 @@ TooltipPath = NodePath("../../interact_tooltip")
 editor/display_folded = true
 position = Vector2( 133.5, 104.5 )
 WalkSpeed = 80.0
-FreezeSpeed = 2.0
+FreezeSpeed = 50.0
+FadeOut = NodePath("../../gui_layer/ColorRect/AnimationPlayer")
 
 [node name="Camera2D" type="Camera2D" parent="wall_tiles/basic_character" index="2"]
 
@@ -595,17 +670,44 @@ margin_bottom = 277.0
 
 [node name="Player Icon" type="Sprite" parent="gui_layer" index="3"]
 
-position = Vector2( 20.7424, 272.609 )
+position = Vector2( 19.2424, 272.609 )
 scale = Vector2( 0.09, 0.09 )
 texture = ExtResource( 18 )
-region_enabled = true
 region_rect = Rect2( 3, 515, 56, 121 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Region", "Transform" ]
 
 [node name="title_screen" parent="gui_layer" index="4" instance=ExtResource( 19 )]
 
 position = Vector2( 101.449, 47.7808 )
 scale = Vector2( 0.25, 0.25 )
+
+[node name="ColorRect" type="ColorRect" parent="gui_layer" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1024.0
+margin_bottom = 576.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.160784, 0.160784, 0.333333, 1 )
+_sections_unfolded = [ "Grow Direction", "Margin" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="gui_layer/ColorRect" index="0"]
+
+root_node = NodePath("..")
+autoplay = "fade_in"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Fade_out = SubResource( 1 )
+anims/fade_in = SubResource( 2 )
+blend_times = [  ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="10"]
 
@@ -623,7 +725,7 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 
 position = Vector2( -23, 0.5 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="11"]
 
