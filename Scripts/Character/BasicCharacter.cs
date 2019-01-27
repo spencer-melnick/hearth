@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 using AdventureGame;
 public class BasicCharacter : KinematicBody2D
@@ -30,8 +31,9 @@ public class BasicCharacter : KinematicBody2D
 	}
 
 	private Node2D _carryAttachPoint;
-	
 	private AnimationPlayer _animationPlayer;
+	private List<AudioStreamPlayer> _footprintPlayers;
+	private Random _random;
 	
 	private String _currentAnimation = "Walk_Down";
 	private bool _animationPlaying = false;
@@ -69,6 +71,12 @@ public class BasicCharacter : KinematicBody2D
 		_carryAttachPoint = GetNode("carry_attach_point") as Node2D;
 		_healthParticles = GetNode("health_particles") as Particles2D;
 		_animationPlayer = GetNode("AnimationPlayer") as AnimationPlayer;
+
+		_footprintPlayers = new List<AudioStreamPlayer>();
+		_footprintPlayers.Add(GetNode("footprint_sound_1") as AudioStreamPlayer);
+		_footprintPlayers.Add(GetNode("footprint_sound_2") as AudioStreamPlayer);
+
+		_random = new Random();
     }
 
 	public override void _Process(float delta)
@@ -259,5 +267,12 @@ public class BasicCharacter : KinematicBody2D
 		{
 			_fuelHeld = false;
 		}
+	}
+
+	public void PlayFootprintSound()
+	{
+		int footprintSoundNumber = _random.Next(0, _footprintPlayers.Count);
+		_footprintPlayers[footprintSoundNumber].Play();
+		GD.Print("Footprint sound");
 	}
 }

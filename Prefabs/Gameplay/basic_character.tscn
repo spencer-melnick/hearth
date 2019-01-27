@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Character/BasicCharacter.cs" type="Script" id=1]
 [ext_resource path="res://Textures/player_placeholder.png" type="Texture" id=2]
 [ext_resource path="res://Textures/filtered_spritesheet.png" type="Texture" id=3]
 [ext_resource path="res://Prefabs/Effects/health_particles.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sounds/Noises/FOOTPRINT4.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/Noises/FOOTPRINT5.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -40,6 +42,23 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.17, 0.51 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "PlayFootprintSound"
+}, {
+"args": [  ],
+"method": "PlayFootprintSound"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 
@@ -70,6 +89,23 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.17, 0.51 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "PlayFootprintSound"
+}, {
+"args": [  ],
+"method": "PlayFootprintSound"
+} ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -102,6 +138,23 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.17, 0.51 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "PlayFootprintSound"
+}, {
+"args": [  ],
+"method": "PlayFootprintSound"
+} ]
+}
 
 [sub_resource type="Animation" id=5]
 
@@ -132,6 +185,23 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.17, 0.51 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "PlayFootprintSound"
+}, {
+"args": [  ],
+"method": "PlayFootprintSound"
+} ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -164,6 +234,23 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.17, 0.51 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "PlayFootprintSound"
+}, {
+"args": [  ],
+"method": "PlayFootprintSound"
+} ]
+}
 
 [sub_resource type="Animation" id=7]
 
@@ -194,6 +281,23 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.17, 0.51 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "PlayFootprintSound"
+}, {
+"args": [  ],
+"method": "PlayFootprintSound"
+} ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -226,6 +330,23 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.17, 0.51 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "PlayFootprintSound"
+}, {
+"args": [  ],
+"method": "PlayFootprintSound"
+} ]
+}
 
 [sub_resource type="Animation" id=9]
 
@@ -257,10 +378,27 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.17, 0.51 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "PlayFootprintSound"
+}, {
+"args": [  ],
+"method": "PlayFootprintSound"
+} ]
+}
 
 [node name="basic_character" type="KinematicBody2D" groups=[
-"applies_pressure",
 "main_character",
+"applies_pressure",
 ]]
 
 input_pickable = false
@@ -324,5 +462,23 @@ blend_times = [  ]
 
 rotation = -1.5708
 emitting = false
+
+[node name="footprint_sound_1" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 5 )
+volume_db = -20.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="footprint_sound_2" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 6 )
+volume_db = -20.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 
