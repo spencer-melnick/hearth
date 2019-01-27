@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/WIND_picking_up.wav-5a207c658244f21c1498870f20344eaa.sample"
+
+[deps]
+
+source_file="res://Sounds/Noises/WIND_picking_up.wav"
+dest_files=[ "res://.import/WIND_picking_up.wav-5a207c658244f21c1498870f20344eaa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

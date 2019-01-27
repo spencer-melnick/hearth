@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Tileset/dungeon_tileset_1.tres" type="TileSet" id=1]
 [ext_resource path="res://Prefabs/Gameplay/fire_fader.tscn" type="PackedScene" id=2]
@@ -12,8 +12,10 @@
 [ext_resource path="res://Scripts/Effects/SnowParticles.cs" type="Script" id=10]
 [ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Sounds/Music/demo_with_oboe.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Textures/environmental_asset_sheet.png" type="Texture" id=13]
+[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Textures/filtered_spritesheet.png" type="Texture" id=15]
+[ext_resource path="res://Sounds/Music/song.wav" type="AudioStream" id=16]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -66,7 +68,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 0, 10, 0, 1, 11, 0, 2, 11, 0, 3, 11, 0, 4, 11, 0, 5, 11, 0, 6, 11, 0, 7, 12, 0, 65536, 9, 0, 65537, 16, 0, 65538, 16, 0, 65539, 16, 0, 65540, 16, 0, 65541, 16, 0, 65542, 16, 0, 65543, 13, 0, 131072, 9, 0, 131073, 16, 0, 131074, 16, 0, 131075, 16, 0, 131076, 16, 0, 131077, 15, 0, 131078, 16, 0, 131079, 13, 0, 196608, 9, 0, 196609, 16, 0, 196610, 15, 0, 196611, 16, 0, 196612, 16, 0, 196613, 16, 0, 196614, 16, 0, 196615, 13, 0, 262144, 9, 0, 262145, 16, 0, 262146, 16, 0, 262147, 16, 0, 262148, 15, 0, 262149, 16, 0, 262150, 16, 0, 262151, 13, 0, 327680, 9, 0, 327681, 16, 0, 327682, 16, 0, 327683, 16, 0, 327684, 16, 0, 327685, 16, 0, 327686, 16, 0, 327687, 13, 0, 393216, 19, 0, 393217, 14, 0, 393218, 14, 0, 393219, 14, 0, 393220, 14, 0, 393221, 14, 0, 393222, 14, 0, 393223, 20, 0 )
+tile_data = PoolIntArray( 0, 10, 0, 1, 11, 0, 2, 11, 0, 3, 11, 0, 4, 11, 0, 5, 11, 0, 6, 11, 0, 7, 12, 0, 65536, 9, 0, 65537, 16, 0, 65538, 16, 0, 65539, 16, 0, 65540, 16, 0, 65541, 16, 0, 65542, 16, 0, 65543, 13, 0, 131072, 9, 0, 131073, 16, 0, 131074, 16, 0, 131075, 16, 0, 131076, 16, 0, 131077, 15, 0, 131078, 16, 0, 131079, 13, 0, 196608, 9, 0, 196609, 16, 0, 196610, 15, 0, 196611, 16, 0, 196612, 16, 0, 196613, 16, 0, 196614, 16, 0, 196615, 13, 0, 262144, 9, 0, 262145, 16, 0, 262146, 16, 0, 262147, 16, 0, 262148, 15, 0, 262149, 16, 0, 262150, 16, 0, 262151, 13, 0, 327680, 9, 0, 327681, 16, 0, 327682, 16, 0, 327683, 16, 0, 327684, 16, 0, 327685, 16, 0, 327686, 16, 0, 327687, 13, 0, 393216, 19, 0, 393217, 14, 0, 393218, 14, 0, 393219, 14, 0, 393220, 14, 0, 393221, 14, 0, 393222, 14, 0, 393223, 20, 0, 1966037, 10, 0, 1966038, 11, 0, 1966039, 11, 0, 1966040, 11, 0, 1966041, 11, 0, 1966042, 11, 0, 1966043, 11, 0, 1966044, 11, 0, 1966045, 11, 0, 1966046, 11, 0, 1966047, 12, 0, 2031573, 9, 0, 2031574, 16, 0, 2031575, 16, 0, 2031576, 16, 0, 2031577, 16, 0, 2031578, 16, 0, 2031579, 16, 0, 2031580, 16, 0, 2031581, 16, 0, 2031582, 16, 0, 2031583, 13, 0, 2097109, 9, 0, 2097110, 16, 0, 2097111, 16, 0, 2097112, 16, 0, 2097113, 16, 0, 2097114, 16, 0, 2097115, 16, 0, 2097116, 16, 0, 2097117, 16, 0, 2097118, 16, 0, 2097119, 13, 0, 2162645, 9, 0, 2162646, 16, 0, 2162647, 16, 0, 2162648, 16, 0, 2162649, 16, 0, 2162650, 16, 0, 2162651, 16, 0, 2162652, 16, 0, 2162653, 16, 0, 2162654, 16, 0, 2162655, 13, 0, 2228181, 9, 0, 2228182, 16, 0, 2228183, 16, 0, 2228184, 16, 0, 2228185, 16, 0, 2228186, 16, 0, 2228187, 16, 0, 2228188, 16, 0, 2228189, 16, 0, 2228190, 16, 0, 2228191, 13, 0, 2293717, 9, 0, 2293718, 16, 0, 2293719, 16, 0, 2293720, 16, 0, 2293721, 16, 0, 2293722, 16, 0, 2293723, 16, 0, 2293724, 16, 0, 2293725, 16, 0, 2293726, 16, 0, 2293727, 13, 0, 2359253, 9, 0, 2359254, 16, 0, 2359255, 16, 0, 2359256, 16, 0, 2359257, 16, 0, 2359258, 16, 0, 2359259, 16, 0, 2359260, 16, 0, 2359261, 16, 0, 2359262, 16, 0, 2359263, 13, 0, 2424789, 19, 0, 2424790, 14, 0, 2424791, 14, 0, 2424792, 14, 0, 2424793, 14, 0, 2424794, 14, 0, 2424795, 14, 0, 2424796, 14, 0, 2424797, 14, 0, 2424798, 14, 0, 2424799, 20, 0 )
 _sections_unfolded = [ "Cell" ]
 __meta__ = {
 "_edit_lock_": true
@@ -95,7 +97,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -4390981, 11, 0, -4194363, -1610612726, 0, -4128826, -1610612726, 0, -4063289, -1610612728, 0, -3997752, -1610612727, 0, -3932229, 11, 0, -3932215, -1610612727, 0, -3866678, -1610612728, 0, -3801141, -1610612727, 0, -3735604, -1610612726, 0, -3473477, 11, 0, -3211308, -1610612726, 0, -3145771, -1610612727, 0, -3080234, -1610612727, 0, -3014697, -1610612728, 0, -2949160, -1610612728, 0, -2883623, -1610612727, 0, -2818117, 11, 0, -2818086, -1610612726, 0, -2228253, -1610612728, 0, -2162716, -1610612726, 0, -2097179, -1610612727, 0, -2031685, 4, 0, -2031642, -1610612727, 0, -1966105, -1610612726, 0, -1900568, -1610612728, 0, -1835031, -1610612728, 0, -1769494, -1610612726, 0, -1703957, -1610612727, 0, -1638420, -1610612727, 0, -1572883, -1610612726, 0, -1507346, -1610612726, 0, -1441809, -1610612728, 0, -1507289, -1610612725, 0, -1507282, -1610612725, 0, -1376325, 5, 0, -1376272, -1610612728, 0, -1441762, 1610612743, 0, -1310735, -1610612727, 0, -1376227, 10, 0, -1245198, -1610612726, 0, -1310692, 9, 0, -1179661, -1610612726, 0, -1245157, 8, 0, -1179622, 8, 0, -1179599, 10, 0, -1114087, 9, 0, -1114065, 8, 0, -1114063, 7, 0, -1048552, 10, 0, -1048530, 9, 0, -982995, 10, 0, -917460, 10, 0, -786501, 6, 0, -851925, 8, 0, -786390, 9, 0, -196625, -1610612732, 0, -131092, 9, 0, -65564, 1610612743, 0, -65561, -1610612732, 0, -65558, -1610612731, 0, 65467, 4, 0, 65506, 1610612746, 0, 196539, 5, 0, 196576, 1610612745, 0, 262075, 6, 0, 327611, 6, 0, 393147, -1610612729, 0, 393148, -1610612728, 0, 458685, -1610612727, 0, 524222, -1073741816, 0, 589759, -1610612727, 0, 655296, -1073741814, 0, 655328, 11, 0, 720833, -1610612726, 0, 786370, -1073741815, 0, 851907, -1610612726, 0, 851909, -1073741817, 0, 1048517, 11, 0, 1114081, -1610612728, 0, 1048668, 10, 0, 1114203, 9, 0, 1179738, 8, 0, 1310691, -1610612729, 0, 1245252, -1610612727, 0, 1376229, -1610612726, 0, 1310789, -1610612726, 0, 1310810, -1610612729, 0, 1310811, -1610612728, 0, 1441768, -1610612730, 0, 1376326, -1610612726, 0, 1507269, 7, 0, 1441867, -1610612725, 0, 1441869, 1610612743, 0, 1441875, -1610612725, 0, 1441882, -1610612725, 0, 1441884, 7, 0, 1572802, 10, 0, 1507405, 1610612743, 0, 1507420, -1610612728, 0, 1572957, -1610612728, 0, 1703872, 9, 0, 1638477, 5, 0, 1638494, -1610612727, 0, 1704013, -1610612726, 0, 1704031, -1610612727, 0, 1769550, -1610612728, 0, 1769568, -1610612727, 0, 1900479, 11, 0, 1835087, -1610612727, 0, 1835105, -1610612726, 0, 1900642, -1610612728, 0, 1966159, 1610612744, 0, 1966160, 7, 0, 2031694, 1610612743, 0, 2162766, 11, 0, 2359231, 11, 0, 2621428, 8, 0, 2686963, 9, 0, 2621518, 11, 0, 2752498, 10, 0, 2687028, -1610612727, 0, 2817983, 11, 0, 2818033, 9, 0, 2752565, -1610612726, 0, 2883568, 8, 0, 2818102, -1610612726, 0, 2949103, 10, 0, 2883639, -1610612728, 0, 3014638, 9, 0, 2949176, -1610612727, 0, 3080173, 8, 0, 3145698, -1610612732, 0, 3145700, -1610612731, 0, 3145701, -1610612725, 0, 3145704, -1610612732, 0, 3145706, -1610612731, 0, 3145707, -1610612725, 0, 3145709, 7, 0, 3080260, -1610612725, 0, 3080267, -1610612725, 0, 3080270, 7, 0, 3276859, 11, 0, 3670074, 9, 0, 3670075, 7, 0, 3735609, 8, 0, 3801144, 9, 0, 3866679, 10, 0, 3932214, 8, 0, 3997749, 9, 0 )
+tile_data = PoolIntArray( -4390981, 11, 0, -4194363, -1610612726, 0, -4128826, -1610612726, 0, -4063289, -1610612728, 0, -3997752, -1610612727, 0, -3932229, 11, 0, -3932215, -1610612727, 0, -3866678, -1610612728, 0, -3801141, -1610612727, 0, -3735604, -1610612726, 0, -3473477, 11, 0, -3211308, -1610612726, 0, -3145771, -1610612727, 0, -3080234, -1610612727, 0, -3014697, -1610612728, 0, -2949160, -1610612728, 0, -2883623, -1610612727, 0, -2818117, 11, 0, -2818086, -1610612726, 0, -2228253, -1610612728, 0, -2162716, -1610612726, 0, -2097179, -1610612727, 0, -2031685, 4, 0, -2031642, -1610612727, 0, -1966105, -1610612726, 0, -1900568, -1610612728, 0, -1835031, -1610612728, 0, -1769494, -1610612726, 0, -1703957, -1610612727, 0, -1638420, -1610612727, 0, -1572883, -1610612726, 0, -1507346, -1610612726, 0, -1441809, -1610612728, 0, -1507289, -1610612725, 0, -1507282, -1610612725, 0, -1376325, 5, 0, -1376272, -1610612728, 0, -1441762, 1610612743, 0, -1310735, -1610612727, 0, -1376227, 10, 0, -1245198, -1610612726, 0, -1310692, 9, 0, -1179661, -1610612726, 0, -1245157, 8, 0, -1179622, 8, 0, -1179599, 10, 0, -1114087, 9, 0, -1114065, 8, 0, -1114063, 7, 0, -1048552, 10, 0, -1048530, 9, 0, -982995, 10, 0, -917460, 10, 0, -786501, 6, 0, -851925, 8, 0, -786390, 9, 0, -196625, -1610612732, 0, -131092, 9, 0, -65564, 1610612743, 0, -65561, -1610612732, 0, -65558, -1610612731, 0, 65467, 4, 0, 65506, 1610612746, 0, 196539, 5, 0, 196576, 1610612745, 0, 262075, 6, 0, 327611, 6, 0, 393147, -1610612729, 0, 393148, -1610612728, 0, 458685, -1610612727, 0, 524222, -1073741816, 0, 589759, -1610612727, 0, 655296, -1073741814, 0, 655328, 11, 0, 655330, -1610612728, 0, 720833, -1610612726, 0, 786370, -1073741815, 0, 851907, -1610612726, 0, 851909, -1073741817, 0, 1048517, 11, 0, 1114081, -1610612728, 0, 1048668, 10, 0, 1114203, 9, 0, 1179738, 8, 0, 1310691, -1610612729, 0, 1245252, -1610612727, 0, 1376229, -1610612726, 0, 1310789, -1610612726, 0, 1310810, -1610612729, 0, 1310811, -1610612728, 0, 1441768, -1610612730, 0, 1376326, -1610612726, 0, 1507269, 7, 0, 1441867, -1610612725, 0, 1441869, 1610612743, 0, 1441875, -1610612725, 0, 1441882, -1610612725, 0, 1441884, 7, 0, 1572802, 10, 0, 1507405, 1610612743, 0, 1507420, -1610612728, 0, 1572957, -1610612728, 0, 1703872, 9, 0, 1638477, 5, 0, 1638494, -1610612727, 0, 1704013, -1610612726, 0, 1704031, -1610612727, 0, 1769550, -1610612728, 0, 1769568, -1610612727, 0, 1900479, 11, 0, 1835087, -1610612727, 0, 1835105, -1610612726, 0, 1900642, -1610612728, 0, 1966159, 1610612744, 0, 1966160, 7, 0, 2031694, 1610612743, 0, 2162766, 11, 0, 2359231, 11, 0, 2621428, 8, 0, 2686963, 9, 0, 2621518, 11, 0, 2752498, 10, 0, 2687028, -1610612727, 0, 2817983, 11, 0, 2818033, 9, 0, 2752565, -1610612726, 0, 2883568, 8, 0, 2818102, -1610612726, 0, 2949103, 10, 0, 2883639, -1610612728, 0, 3014638, 9, 0, 2949176, -1610612727, 0, 3080173, 8, 0, 3145698, -1610612732, 0, 3145700, -1610612731, 0, 3145701, -1610612725, 0, 3145704, -1610612732, 0, 3145706, -1610612731, 0, 3145707, -1610612725, 0, 3145709, 7, 0, 3080260, -1610612725, 0, 3080267, -1610612725, 0, 3080270, 7, 0, 3276859, 11, 0, 3670074, 9, 0, 3670075, 7, 0, 3735609, 8, 0, 3801144, 9, 0, 3866679, 10, 0, 3932214, 8, 0, 3997749, 9, 0 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="wall_tiles" type="TileMap" parent="." index="4"]
@@ -116,27 +118,132 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 65537, 5, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 6, 0, 131073, 21, 0, 131078, 21, 0, 196609, 21, 0, 196614, 21, 0, 262145, 8, 0, 262146, 2, 0, 262149, 0, 0, 262150, 7, 0 )
+tile_data = PoolIntArray( 65537, 5, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 6, 0, 131073, 21, 0, 131078, 21, 0, 196609, 21, 0, 196614, 21, 0, 262145, 8, 0, 262146, 2, 0, 262149, 0, 0, 262150, 7, 0, 2031574, 5, 0, 2031575, 1, 0, 2031581, 1, 0, 2031582, 6, 0, 2097110, 21, 0, 2097118, 21, 0, 2162646, 21, 0, 2162654, 21, 0, 2228182, 21, 0, 2228190, 21, 0, 2293718, 21, 0, 2293726, 21, 0, 2359254, 8, 0, 2359255, 1, 0, 2359256, 1, 0, 2359257, 1, 0, 2359258, 1, 0, 2359259, 1, 0, 2359260, 1, 0, 2359261, 1, 0, 2359262, 7, 0 )
 _sections_unfolded = [ "Cell" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="new_fireplace" parent="wall_tiles" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( -39.5465, 132.131 )
+FadeGradient = null
 
 [node name="kindling2" parent="wall_tiles" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 432, 358 )
 
-[node name="kindling" parent="wall_tiles" index="2" instance=ExtResource( 5 )]
+[node name="kindling3" parent="wall_tiles" index="2" instance=ExtResource( 5 )]
+
+position = Vector2( -598.754, 134.881 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="kindling" parent="wall_tiles" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 106.816, 180.552 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="basic_character" parent="wall_tiles" index="3" instance=ExtResource( 6 )]
+[node name="kindling4" parent="wall_tiles" index="4" instance=ExtResource( 5 )]
+
+position = Vector2( -1128.76, 1079.75 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="kindling5" parent="wall_tiles" index="5" instance=ExtResource( 5 )]
+
+position = Vector2( -1230.44, 1021.5 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="kindling6" parent="wall_tiles" index="6" instance=ExtResource( 5 )]
+
+position = Vector2( -1307.18, -106.27 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="kindling7" parent="wall_tiles" index="7" instance=ExtResource( 5 )]
+
+position = Vector2( -1384, -1355.84 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="kindling8" parent="wall_tiles" index="8" instance=ExtResource( 5 )]
+
+position = Vector2( -897.49, -1007.6 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="kindling9" parent="wall_tiles" index="9" instance=ExtResource( 5 )]
+
+position = Vector2( -608.144, -720.811 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="kindling10" parent="wall_tiles" index="10" instance=ExtResource( 5 )]
+
+position = Vector2( 643.984, -426.344 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="kindling11" parent="wall_tiles" index="11" instance=ExtResource( 5 )]
+
+position = Vector2( 997.345, -385.374 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="kindling12" parent="wall_tiles" index="12" instance=ExtResource( 5 )]
+
+position = Vector2( 1266.21, 331.591 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="kindling13" parent="wall_tiles" index="13" instance=ExtResource( 5 )]
+
+position = Vector2( 1168.9, 915.405 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="kindling14" parent="wall_tiles" index="14" instance=ExtResource( 5 )]
+
+position = Vector2( 1960.13, 623.498 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="kindling15" parent="wall_tiles" index="15" instance=ExtResource( 5 )]
+
+position = Vector2( 1839.78, 300.863 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="kindling16" parent="wall_tiles" index="16" instance=ExtResource( 5 )]
+
+position = Vector2( -643.992, 917.965 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="kindling17" parent="wall_tiles" index="17" instance=ExtResource( 5 )]
+
+position = Vector2( -843.718, -329.041 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="kindling18" parent="wall_tiles" index="18" instance=ExtResource( 5 )]
+
+position = Vector2( 830.907, 275.258 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="kindling19" parent="wall_tiles" index="19" instance=ExtResource( 5 )]
+
+position = Vector2( 997.345, 1227.8 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="kindling20" parent="wall_tiles" index="20" instance=ExtResource( 5 )]
+
+position = Vector2( 1464.73, -77.3662 )
+TooltipEnabled = true
+TooltipPath = NodePath("../../interact_tooltip")
+
+[node name="basic_character" parent="wall_tiles" index="21" instance=ExtResource( 6 )]
 
 editor/display_folded = true
 position = Vector2( 133.5, 104.5 )
@@ -168,23 +275,53 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="pushable_block" parent="wall_tiles" index="4" instance=ExtResource( 7 )]
+[node name="pushable_block" parent="wall_tiles" index="22" instance=ExtResource( 7 )]
 
 position = Vector2( 101, 85 )
 
-[node name="pushable_block2" parent="wall_tiles" index="5" instance=ExtResource( 7 )]
+[node name="pushable_block2" parent="wall_tiles" index="23" instance=ExtResource( 7 )]
 
 position = Vector2( -1226.68, 988.99 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="first_fireplace" parent="wall_tiles" index="6" instance=ExtResource( 8 )]
+[node name="pushable_block3" parent="wall_tiles" index="24" instance=ExtResource( 7 )]
+
+position = Vector2( -1276.68, 1040.99 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="pushable_block4" parent="wall_tiles" index="25" instance=ExtResource( 7 )]
+
+position = Vector2( -1126.68, 1040.99 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="pushable_block5" parent="wall_tiles" index="26" instance=ExtResource( 7 )]
+
+position = Vector2( -1126.68, 1040.99 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="pushable_block6" parent="wall_tiles" index="27" instance=ExtResource( 7 )]
+
+position = Vector2( -1182.68, 1063.39 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="pushable_block7" parent="wall_tiles" index="28" instance=ExtResource( 7 )]
+
+position = Vector2( -1234.76, 1066.75 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="pushable_block8" parent="wall_tiles" index="29" instance=ExtResource( 7 )]
+
+position = Vector2( -1173.16, 1008.51 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="first_fireplace" parent="wall_tiles" index="30" instance=ExtResource( 8 )]
 
 position = Vector2( 163.816, 94.5519 )
 HeatInnerRadius = 50.0
 HeatOuterRadius = 100.0
 MinHeatSpeed = 5.0
 
-[node name="second_fireplace2" parent="wall_tiles" index="7" instance=ExtResource( 8 )]
+[node name="second_fireplace2" parent="wall_tiles" index="31" instance=ExtResource( 8 )]
 
 position = Vector2( -1298.61, -1383.31 )
 scale = Vector2( 1, 0.96875 )
@@ -218,17 +355,35 @@ transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
 [node name="fireplace_bar" parent="gui_layer" index="0" instance=ExtResource( 12 )]
 
-margin_left = 4.0
+margin_left = 14.0
 margin_top = 275.0
-margin_right = 254.0
+margin_right = 264.0
 margin_bottom = 283.0
 
-[node name="health_bar" parent="gui_layer" index="1" instance=ExtResource( 13 )]
+[node name="Fire Icon" type="Sprite" parent="gui_layer" index="1"]
 
-margin_left = 4.0
-margin_top = 287.0
-margin_right = 254.0
-margin_bottom = 295.0
+position = Vector2( 7, 278 )
+scale = Vector2( 0.065, 0.065 )
+texture = ExtResource( 13 )
+region_enabled = true
+region_rect = Rect2( 673, 41, 154, 184 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="health_bar" parent="gui_layer" index="2" instance=ExtResource( 14 )]
+
+margin_left = 14.0
+margin_top = 288.0
+margin_right = 264.0
+margin_bottom = 296.0
+
+[node name="Player Icon" type="Sprite" parent="gui_layer" index="3"]
+
+position = Vector2( 8, 292 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 3, 515, 56, 121 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="9"]
 
@@ -246,13 +401,10 @@ _sections_unfolded = [ "Collision" ]
 
 position = Vector2( -23, 0.5 )
 shape = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="10"]
 
-stream = ExtResource( 14 )
+stream = ExtResource( 16 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
