@@ -127,6 +127,7 @@ Action
 * Player puts kindling into hearth (3 versions: good, great, & you're healing the world and your inner being)
 * Player dies
 * Player dies after dropping the kindling they were carrying
+* A great wind!
 
 ## UI / UX
 Start Menu
