@@ -97,10 +97,18 @@ public class Globals : Node
 
     public float NewFireplaceHealth = 0.0f;
 
-    public bool IsGameRunning = true;
+    public bool IsGameRunning = false;
+
+    public void Restart()
+    {
+        _playerHealth = 100.0f;
+        IsNewFireplaceVisible = false;
+        _fireplaceHealth = 100.0f;
+        NewFireplaceHealth = 0.0f;
+    }
 
     public override void _Ready()
     {
-
+        
     }
 }

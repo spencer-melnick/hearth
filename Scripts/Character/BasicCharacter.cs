@@ -290,4 +290,9 @@ public class BasicCharacter : KinematicBody2D
 		_alive = false;
 		_updateAnimation(new Vector2(0.0f, 0.0f));
 	}
+
+	public void GameOver()
+	{
+		GetTree().ChangeScene("res://Prefabs/GUI/death_screen.tscn");
+	}
 }

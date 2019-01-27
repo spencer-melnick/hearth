@@ -18,6 +18,9 @@ public override void _UnhandledInput(InputEvent @event)
 {
     if (@event is InputEventKey eventKey)
         if (eventKey.Pressed)// && eventKey.Scancode == (int)KeyList.Escape)
-            GetTree().ChangeScene("res://Prefabs/GUI/title_screen.tscn");
-}
+        {
+            (GetNode("/root/Globals") as Globals)?.Restart();
+            GetTree().ChangeScene("res://Scenes/dungeon_test_1.tscn");
+        }
+    }
 }
