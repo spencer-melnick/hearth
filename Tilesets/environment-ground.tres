@@ -1,0 +1,43 @@
+[gd_resource type="TileSet" load_steps=2 format=2]
+
+[ext_resource path="res://Textures/environmental_asset_sheet.png" type="Texture" id=1]
+
+[resource]
+
+0/name = "path"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 13, 312, 97, 117 )
+0/is_autotile = false
+0/occluder_offset = Vector2( 48.5, 58.5 )
+0/navigation_offset = Vector2( 48.5, 58.5 )
+0/shapes = [  ]
+1/name = "pond1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 130, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 131, 314, 108, 115 )
+1/is_autotile = false
+1/occluder_offset = Vector2( 54, 57.5 )
+1/navigation_offset = Vector2( 54, 57.5 )
+1/shapes = [  ]
+2/name = "pond3"
+2/texture = ExtResource( 1 )
+2/tex_offset = Vector2( 130, -130 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 139, 41, 94, 127 )
+2/is_autotile = false
+2/occluder_offset = Vector2( 47, 63.5 )
+2/navigation_offset = Vector2( 47, 63.5 )
+2/shapes = [  ]
+3/name = "pond2"
+3/texture = ExtResource( 1 )
+3/tex_offset = Vector2( 130, 130 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 141, 187, 105, 115 )
+3/is_autotile = false
+3/occluder_offset = Vector2( 52.5, 57.5 )
+3/navigation_offset = Vector2( 52.5, 57.5 )
+3/shapes = [  ]
+
