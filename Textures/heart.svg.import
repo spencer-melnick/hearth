@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/environmental_asset_sheet.png-fcf8122ecef80db85c956e1921d113a2.stex"
+path="res://.import/heart.svg-d7c0b6501923623adb23bac96b7ff7d5.stex"
 
 [deps]
 
-source_file="res://Textures/environmental_asset_sheet.png"
-dest_files=[ "res://.import/environmental_asset_sheet.png-fcf8122ecef80db85c956e1921d113a2.stex" ]
+source_file="res://Textures/heart.svg"
+dest_files=[ "res://.import/heart.svg-d7c0b6501923623adb23bac96b7ff7d5.stex" ]
 
 [params]
 
@@ -17,7 +17,7 @@ compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
-flags/mipmaps=true
+flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true
