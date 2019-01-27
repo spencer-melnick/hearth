@@ -18,6 +18,9 @@ public class FireFader : Node2D
 
    public override void _Process(float delta)
    {
-       _globals.FireplaceHealth -= FadeSpeed * delta;
+        if (_globals.IsGameRunning)
+        {
+            _globals.FireplaceHealth -= FadeSpeed * delta;
+        }
    }
 }

@@ -11,6 +11,7 @@ config_version=3
 [application]
 
 config/name="Hearth"
+run/main_scene="res://Scenes/dungeon_test_1.tscn"
 config/icon="res://icon.png"
 
 [autoload]

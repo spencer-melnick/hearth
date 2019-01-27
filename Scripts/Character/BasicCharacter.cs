@@ -10,6 +10,9 @@ public class BasicCharacter : KinematicBody2D
 	[Export]
 	public float FreezeSpeed = 10.0f;
 
+	[Export]
+	public Vector2 WalkScale = new Vector2(1.0f, 1.0f);
+
 	private Globals _globals;
 
 	private bool _fuelHeld = false;
@@ -64,38 +67,44 @@ public class BasicCharacter : KinematicBody2D
 
 	public override void _Process(float delta)
 	{
-		CheckHeat(delta);
-
-		if (Input.IsActionJustPressed("character_primary_interact"))
+		if (_globals.IsGameRunning)
 		{
-			_checkInteractions();
+			CheckHeat(delta);
+
+			if (Input.IsActionJustPressed("character_primary_interact"))
+			{
+				_checkInteractions();
+			}
 		}
 	}
 
 	public override void _PhysicsProcess(float delta) {
-		Vector2 axisInput = new Vector2(0.0f, 0.0f);
-
-		foreach (AxisMapping axisMapping in _axisMappings)
+		if (_globals.IsGameRunning)
 		{
-			if (Input.IsActionPressed(axisMapping.ActionName)) {
-				axisInput += axisMapping.Axis;
-			}
-		}
+			Vector2 axisInput = new Vector2(0.0f, 0.0f);
 
-		axisInput = axisInput.Normalized();
-		Vector2 velocity = axisInput * WalkSpeed;
-		KinematicCollision2D collision = MoveAndCollide(velocity * delta);
-
-		if (collision != null)
-		{
-			Node2D collider = collision.Collider as Node2D;
-			if (collider != null && collider.IsInGroup("pushable")) {
-				IPushable pushedObject = collider as IPushable;
-				pushedObject?.TryPush(collision.Normal, delta);
+			foreach (AxisMapping axisMapping in _axisMappings)
+			{
+				if (Input.IsActionPressed(axisMapping.ActionName)) {
+					axisInput += axisMapping.Axis;
+				}
 			}
 
-			velocity = velocity.Slide(collision.Normal);
-			MoveAndCollide(velocity * delta);
+			axisInput = axisInput.Normalized();
+			Vector2 velocity = axisInput * WalkSpeed * WalkScale;
+			KinematicCollision2D collision = MoveAndCollide(velocity * delta);
+
+			if (collision != null)
+			{
+				Node2D collider = collision.Collider as Node2D;
+				if (collider != null && collider.IsInGroup("pushable")) {
+					IPushable pushedObject = collider as IPushable;
+					pushedObject?.TryPush(collision.Normal, delta);
+				}
+
+				velocity = velocity.Slide(collision.Normal);
+				MoveAndCollide(velocity * delta);
+			}
 		}
 	}
 
@@ -174,6 +183,7 @@ public class BasicCharacter : KinematicBody2D
 	{
 		_carryAttachPoint.RemoveChild(_carriedObject);
 		_carriedObject.QueueFree();
+		_carriedObject = null;
 
 		if (_fuelHeld)
 		{

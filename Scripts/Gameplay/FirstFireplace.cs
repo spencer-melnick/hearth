@@ -63,8 +63,10 @@ public class FirstFireplace : Fireplace, IInteractive
             _tooltip.FadeIn();
         }
 
-        HeatSpeed = MinHeatSpeed + (_globals.FireplaceHealth / 100.0f) *
-                    (MaxHeatSpeed - MinHeatSpeed);
+        HeatSpeed = MinHeatSpeed +
+                    (_globals.FireplaceHealth - _globals.MinFireplaceHealth)
+                    / (100.0f - _globals.MinFireplaceHealth)
+                    * (MaxHeatSpeed - MinHeatSpeed);
 
         float energy = FadeGradient.Interpolate(_globals.FireplaceHealth / 100.0f).Gray();
 
