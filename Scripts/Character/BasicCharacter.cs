@@ -17,6 +17,8 @@ public class BasicCharacter : KinematicBody2D
 	private Globals _globals;
 
 	private bool _fuelHeld = false;
+	
+	private bool _alive = true;
 
 	private Node2D _carriedObject = null;
 
@@ -98,7 +100,13 @@ public class BasicCharacter : KinematicBody2D
 		
 		bool shouldPlay = true;
 		
-		if (axisInput.LengthSquared() == 0.0f)
+		if (!_alive)
+		{
+			nextAnimation = "Death";
+			GD.Print("Character is dead, playing death animation");
+		}
+		
+		else if (axisInput.LengthSquared() == 0.0f)
 		{
 			shouldPlay = false;
 			nextAnimation = _currentAnimation;
@@ -274,5 +282,11 @@ public class BasicCharacter : KinematicBody2D
 		int footprintSoundNumber = _random.Next(0, _footprintPlayers.Count);
 		_footprintPlayers[footprintSoundNumber].Play();
 		GD.Print("Footprint sound");
+	}
+	
+	public void Die()
+	{
+		_alive = false;
+		_updateAnimation(new Vector2(0.0f, 0.0f));
 	}
 }

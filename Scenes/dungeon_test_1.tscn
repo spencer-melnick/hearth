@@ -23,7 +23,7 @@
 custom_solver_bias = 0.0
 radius = 4000.0
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
