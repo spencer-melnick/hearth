@@ -12,8 +12,8 @@ the charleston
 
 ### Basic Elements
 Fire (old home)
-* Has a Strength bar
-* Fire strength slowly drains
+* Has a Strength bar ✓
+* Fire strength slowly drains ✓
 * Fire radius ** Note: Radius of campfire never changes **
 
 Player
@@ -23,10 +23,10 @@ Player
 * Health regained when inside campfire radius ✓
 
 Kindling
-* Exists in world
+* Exists in world ✓
 * Can be picked up ✓
-* Can be added to fire
-* When added to fire, fire health goes up
+* Can be added to fire ✓
+* When added to fire, fire health goes up ✓
 
 Hearth (new home)
 * exists
@@ -52,8 +52,8 @@ Design Map
 ## Art Assets
 Player
 * Facing down ✓
-* Facing up
-* Facing left / right (left and right could just be mirrors) [WIP]
+* Facing up ✓
+* Facing left / right (left and right could just be mirrors) ✓
 * Holding kindling up
 * Holding kindling down
 * Holding kindling left / right
@@ -75,7 +75,7 @@ Scenery
 
 ## Animation
 Player
-* Walking [WIP]
+* Walking ✓
 * Walking with kindling
 * Picking up kindling
 * Adding kindling to fire
