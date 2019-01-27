@@ -1,19 +1,18 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Tileset/dungeon_tileset_1.tres" type="TileSet" id=1]
 [ext_resource path="res://Prefabs/Gameplay/fire_fader.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tilesets/environment-ground.tres" type="TileSet" id=3]
-[ext_resource path="res://Tilesets/environment-obstacles.tres" type="TileSet" id=4]
-[ext_resource path="res://Prefabs/Gameplay/kindling.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Prefabs/Gameplay/basic_character.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Prefabs/Gameplay/pushable_block.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Prefabs/Gameplay/first_fireplace.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Prefabs/Effects/snow_particles.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scripts/Effects/SnowParticles.cs" type="Script" id=10]
-[ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Sounds/Music/demo_with_oboe.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Prefabs/Gameplay/kindling.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Gameplay/basic_character.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/Gameplay/pushable_block.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Gameplay/first_fireplace.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/Effects/snow_particles.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/Effects/SnowParticles.cs" type="Script" id=9]
+[ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sounds/Music/demo_with_oboe.ogg" type="AudioStream" id=13]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -78,7 +77,7 @@ position = Vector2( 308.816, 79.5519 )
 
 [node name="ground_environment" type="TileMap" parent="." index="3"]
 
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.3, 0.3 )
 mode = 0
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 64, 64 )
@@ -95,11 +94,12 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -4259659, 0, 0 )
+tile_data = PoolIntArray(  )
 _sections_unfolded = [ "Transform" ]
 
 [node name="wall_tiles" type="TileMap" parent="." index="4"]
 
+editor/display_folded = true
 mode = 0
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
@@ -122,42 +122,23 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="obstacles-environment" type="TileMap" parent="wall_tiles" index="0"]
-
-mode = 0
-tile_set = ExtResource( 4 )
-cell_size = Vector2( 64, 64 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
-format = 1
-tile_data = PoolIntArray(  )
-
-[node name="kindling2" parent="wall_tiles" index="1" instance=ExtResource( 5 )]
+[node name="kindling2" parent="wall_tiles" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 432, 358 )
 
-[node name="kindling" parent="wall_tiles" index="2" instance=ExtResource( 5 )]
+[node name="kindling" parent="wall_tiles" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( 106.816, 180.552 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="basic_character" parent="wall_tiles" index="3" instance=ExtResource( 6 )]
+[node name="basic_character" parent="wall_tiles" index="2" instance=ExtResource( 5 )]
 
 editor/display_folded = true
 position = Vector2( 133.5, 104.5 )
 WalkSpeed = 80.0
 FreezeSpeed = 2.0
+WalkScale = Vector2( 1, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="wall_tiles/basic_character" index="2"]
 
@@ -184,30 +165,30 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="pushable_block" parent="wall_tiles" index="4" instance=ExtResource( 7 )]
+[node name="pushable_block" parent="wall_tiles" index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 101, 85 )
 
-[node name="pushable_block2" parent="wall_tiles" index="5" instance=ExtResource( 7 )]
+[node name="pushable_block2" parent="wall_tiles" index="4" instance=ExtResource( 6 )]
 
 position = Vector2( -1226.68, 988.99 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="first_fireplace" parent="wall_tiles" index="6" instance=ExtResource( 8 )]
+[node name="first_fireplace" parent="wall_tiles" index="5" instance=ExtResource( 7 )]
 
 position = Vector2( 163.816, 94.5519 )
 
-[node name="second_fireplace2" parent="wall_tiles" index="7" instance=ExtResource( 8 )]
+[node name="second_fireplace2" parent="wall_tiles" index="6" instance=ExtResource( 7 )]
 
 position = Vector2( -1298.61, -1383.31 )
 scale = Vector2( 1, 0.96875 )
 
-[node name="snow_particles" parent="." index="5" instance=ExtResource( 9 )]
+[node name="snow_particles" parent="." index="5" instance=ExtResource( 8 )]
 
 position = Vector2( 133.686, 104.5 )
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 
-[node name="interact_tooltip" parent="." index="6" instance=ExtResource( 11 )]
+[node name="interact_tooltip" parent="." index="6" instance=ExtResource( 10 )]
 
 position = Vector2( 108.816, 179.552 )
 
@@ -225,14 +206,14 @@ rotation = 0.0
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
-[node name="fireplace_bar" parent="gui_layer" index="0" instance=ExtResource( 12 )]
+[node name="fireplace_bar" parent="gui_layer" index="0" instance=ExtResource( 11 )]
 
 margin_left = 4.0
 margin_top = 275.0
 margin_right = 254.0
 margin_bottom = 283.0
 
-[node name="health_bar" parent="gui_layer" index="1" instance=ExtResource( 13 )]
+[node name="health_bar" parent="gui_layer" index="1" instance=ExtResource( 12 )]
 
 margin_left = 4.0
 margin_top = 287.0
@@ -260,7 +241,7 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="10"]
 
-stream = ExtResource( 14 )
+stream = ExtResource( 13 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
