@@ -10,10 +10,10 @@ public class FirstFireplace : Fireplace, IInteractive
     private Light2D _fireplaceLight;
 
     [Export]
-    public float MaxHeatSpeed = 20.0f;
+    public float MaxHeatSpeed = 20.0f; // max player healing speed
 
     [Export]
-    public float MinHeatSpeed = 5.0f;
+    public float MinHeatSpeed = 4.0f; // min player healing speed
 
     [Export]
     public Gradient FadeGradient;

@@ -15,7 +15,7 @@ public class Kindling : Node2D, IInteractive, IFuel
     public NodePath TooltipPath;
 
     [Export]
-    public float FuelAmount = 20.0f;
+    public float FuelAmount = 20.0f; // fire strength++
 
     public float GetFuelAmount()
     {

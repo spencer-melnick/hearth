@@ -7,7 +7,7 @@ public class FireFader : Node2D
     public bool Enabled = true;
 
     [Export]
-    public float FadeSpeed = 1.0f;
+    public float FadeSpeed = 1.0f; // fire losing strength
 
     private Globals _globals;
 

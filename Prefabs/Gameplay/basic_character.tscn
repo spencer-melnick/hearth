@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Character/BasicCharacter.cs" type="Script" id=1]
 [ext_resource path="res://Textures/player_placeholder.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Prefabs/Effects/health_particles.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sounds/Noises/FOOTPRINT4.wav" type="AudioStream" id=5]
 [ext_resource path="res://Sounds/Noises/FOOTPRINT5.wav" type="AudioStream" id=6]
+[ext_resource path="res://Textures/light.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -480,5 +481,31 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+
+[node name="Light2D" type="Light2D" parent="." index="8"]
+
+scale = Vector2( 2, 2 )
+enabled = true
+editor_only = false
+texture = ExtResource( 7 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 0.637727, 0.791939, 0.941406, 1 )
+energy = 0.75
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Transform" ]
 
 

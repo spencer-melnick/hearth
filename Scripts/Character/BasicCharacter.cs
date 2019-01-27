@@ -9,7 +9,7 @@ public class BasicCharacter : KinematicBody2D
 	public float WalkSpeed = 80.0f;
 
 	[Export]
-	public float FreezeSpeed = 10.0f;
+	public float FreezeSpeed = 10.0f; // rate of player losing health
 
 	[Export]
 	public Vector2 WalkScale = new Vector2(1.0f, 1.0f);
