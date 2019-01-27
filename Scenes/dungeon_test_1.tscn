@@ -1,15 +1,15 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Tileset/dungeon_tileset_1.tres" type="TileSet" id=1]
 [ext_resource path="res://Textures/snow_placeholder_2.png" type="Texture" id=2]
 [ext_resource path="res://Prefabs/Gameplay/fire_fader.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Prefabs/Gameplay/new_fireplace.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Prefabs/Gameplay/kindling.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Prefabs/Gameplay/basic_character.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Prefabs/Effects/wind_sounds.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Prefabs/Gameplay/pushable_block.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Prefabs/Gameplay/first_fireplace.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Tilesets/environment-ground.tres" type="TileSet" id=10]
+[ext_resource path="res://Tilesets/environment-ground.tres" type="TileSet" id=4]
+[ext_resource path="res://Prefabs/Gameplay/new_fireplace.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/Gameplay/kindling.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Gameplay/basic_character.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/Effects/wind_sounds.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/Gameplay/pushable_block.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/Gameplay/first_fireplace.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Prefabs/Environment/tree.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Prefabs/Effects/snow_particles.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scripts/Effects/SnowParticles.cs" type="Script" id=13]
@@ -18,14 +18,15 @@
 [ext_resource path="res://Textures/environmental_asset_sheet.png" type="Texture" id=16]
 [ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Textures/filtered_spritesheet.png" type="Texture" id=18]
-[ext_resource path="res://Sounds/Music/song.wav" type="AudioStream" id=19]
+[ext_resource path="res://Prefabs/GUI/title_screen_duplicate.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Sounds/Music/song.wav" type="AudioStream" id=20]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 4000.0
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -85,7 +86,29 @@ format = 1
 tile_data = PoolIntArray( 0, 10, 0, 1, 11, 0, 2, 11, 0, 3, 11, 0, 4, 11, 0, 5, 11, 0, 6, 11, 0, 7, 12, 0, 65536, 9, 0, 65537, 16, 0, 65538, 16, 0, 65539, 16, 0, 65540, 16, 0, 65541, 16, 0, 65542, 16, 0, 65543, 13, 0, 131072, 9, 0, 131073, 16, 0, 131074, 16, 0, 131075, 16, 0, 131076, 16, 0, 131077, 15, 0, 131078, 16, 0, 131079, 13, 0, 196608, 9, 0, 196609, 16, 0, 196610, 15, 0, 196611, 16, 0, 196612, 16, 0, 196613, 16, 0, 196614, 16, 0, 196615, 13, 0, 262144, 9, 0, 262145, 16, 0, 262146, 16, 0, 262147, 16, 0, 262148, 15, 0, 262149, 16, 0, 262150, 16, 0, 262151, 13, 0, 327680, 9, 0, 327681, 16, 0, 327682, 16, 0, 327683, 16, 0, 327684, 16, 0, 327685, 16, 0, 327686, 16, 0, 327687, 13, 0, 393216, 19, 0, 393217, 14, 0, 393218, 14, 0, 393219, 14, 0, 393220, 14, 0, 393221, 14, 0, 393222, 14, 0, 393223, 20, 0, 1966037, 10, 0, 1966038, 11, 0, 1966039, 11, 0, 1966040, 11, 0, 1966041, 11, 0, 1966042, 11, 0, 1966043, 11, 0, 1966044, 11, 0, 1966045, 11, 0, 1966046, 11, 0, 1966047, 12, 0, 2031573, 9, 0, 2031574, 16, 0, 2031575, 16, 0, 2031576, 16, 0, 2031577, 16, 0, 2031578, 16, 0, 2031579, 16, 0, 2031580, 16, 0, 2031581, 16, 0, 2031582, 16, 0, 2031583, 13, 0, 2097109, 9, 0, 2097110, 16, 0, 2097111, 16, 0, 2097112, 16, 0, 2097113, 16, 0, 2097114, 16, 0, 2097115, 16, 0, 2097116, 16, 0, 2097117, 16, 0, 2097118, 16, 0, 2097119, 13, 0, 2162645, 9, 0, 2162646, 16, 0, 2162647, 16, 0, 2162648, 16, 0, 2162649, 16, 0, 2162650, 16, 0, 2162651, 16, 0, 2162652, 16, 0, 2162653, 16, 0, 2162654, 16, 0, 2162655, 13, 0, 2228181, 9, 0, 2228182, 16, 0, 2228183, 16, 0, 2228184, 16, 0, 2228185, 16, 0, 2228186, 16, 0, 2228187, 16, 0, 2228188, 16, 0, 2228189, 16, 0, 2228190, 16, 0, 2228191, 13, 0, 2293717, 9, 0, 2293718, 16, 0, 2293719, 16, 0, 2293720, 16, 0, 2293721, 16, 0, 2293722, 16, 0, 2293723, 16, 0, 2293724, 16, 0, 2293725, 16, 0, 2293726, 16, 0, 2293727, 13, 0, 2359253, 9, 0, 2359254, 16, 0, 2359255, 16, 0, 2359256, 16, 0, 2359257, 16, 0, 2359258, 16, 0, 2359259, 16, 0, 2359260, 16, 0, 2359261, 16, 0, 2359262, 16, 0, 2359263, 13, 0, 2424789, 19, 0, 2424790, 14, 0, 2424791, 14, 0, 2424792, 14, 0, 2424793, 14, 0, 2424794, 14, 0, 2424795, 14, 0, 2424796, 14, 0, 2424797, 14, 0, 2424798, 14, 0, 2424799, 20, 0 )
 _sections_unfolded = [ "Cell", "Collision", "Transform", "Visibility", "Z Index" ]
 
-[node name="wall_tiles" type="TileMap" parent="." index="4"]
+[node name="ground_environment" type="TileMap" parent="." index="4"]
+
+scale = Vector2( 0.3, 0.3 )
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = true
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -6094939, 13, 0, -5898294, 13, 0, -5898271, 13, 0, -5898270, 13, 0, -5963776, 13, 0, -5832787, 13, 0, -5832717, 13, 0, -5898220, 13, 0, -5767271, 13, 0, -5767270, 13, 0, -5701708, 13, 0, -5505045, 13, 0, -5242978, 13, 0, -5177442, 13, 0, -5111921, 13, 0, -5177316, 13, 0, -4718598, 13, 0, -4391026, 13, 0, -4390981, 11, 0, -4194363, -1610612726, 0, -4259829, 13, 0, -4128826, -1610612726, 0, -4194293, 13, 0, -4063289, -1610612728, 0, -3997752, -1610612727, 0, -3997704, 13, 0, -4063203, 13, 0, -4063202, 13, 0, -3932229, 11, 0, -3932215, -1610612727, 0, -3866678, -1610612728, 0, -3801141, -1610612727, 0, -3735604, -1610612726, 0, -3735511, 13, 0, -3669958, 13, 0, -3669936, 13, 0, -3604422, 13, 0, -3604400, 13, 0, -3473477, 11, 0, -3342448, 13, 0, -3407864, 13, 0, -3342328, 13, 0, -3211308, -1610612726, 0, -3145771, -1610612727, 0, -3211234, 13, 0, -3080234, -1610612727, 0, -3145655, 13, 0, -3014697, -1610612728, 0, -2949160, -1610612728, 0, -2883623, -1610612727, 0, -2949067, 13, 0, -2949037, 13, 0, -2818117, 11, 0, -2818086, -1610612726, 0, -2817944, 13, 0, -2556002, 13, 0, -2621352, 13, 0, -2490466, 13, 0, -2228253, -1610612728, 0, -2293703, 13, 0, -2162716, -1610612726, 0, -2228160, 13, 0, -2097179, -1610612727, 0, -2031685, 4, 0, -2031642, -1610612727, 0, -1966105, -1610612726, 0, -1900568, -1610612728, 0, -1835031, -1610612728, 0, -1769577, 13, 0, -1769494, -1610612726, 0, -1834886, 13, 0, -1834885, 13, 0, -1703957, -1610612727, 0, -1638420, -1610612727, 0, -1572883, -1610612726, 0, -1638303, 13, 0, -1507346, -1610612726, 0, -1441809, -1610612728, 0, -1507289, -1610612725, 0, -1507282, -1610612725, 0, -1376325, 5, 0, -1376272, -1610612728, 0, -1441762, 1610612743, 0, -1441706, 13, 0, -1310735, -1610612727, 0, -1376227, 10, 0, -1245198, -1610612726, 0, -1310692, 9, 0, -1179661, -1610612726, 0, -1245157, 8, 0, -1114212, 13, 0, -1179622, 8, 0, -1179599, 10, 0, -1114087, 9, 0, -1114065, 8, 0, -1114063, 7, 0, -1048552, 10, 0, -1048530, 9, 0, -982995, 10, 0, -917460, 10, 0, -786501, 6, 0, -851925, 8, 0, -786390, 9, 0, -786319, 13, 0, -720798, 13, 0, -524264, 2, 0, -524263, 2, 0, -524262, 3, 0, -524261, 3, 0, -458726, 2, 0, -458725, 3, 0, -458677, 12, 0, -327783, 13, 0, -393190, 2, 0, -393189, 2, 0, -393188, 3, 0, -393187, 3, 0, -327653, 2, 0, -327652, 2, 0, -327651, 3, 0, -196625, -1610612732, 0, -262116, 2, 0, -262115, 2, 0, -262114, 3, 0, -262113, 3, 0, -131092, 9, 0, -196579, 2, 0, -196578, 2, 0, -196576, 3, 0, -65564, 1610612743, 0, -65561, -1610612732, 0, -65558, -1610612731, 0, -131042, 2, 0, -131041, 2, 0, -131039, 3, 0, -65504, 2, 0, -65503, 2, 0, -65502, 3, 0, 65467, 4, 0, 65506, 1610612746, 0, 34, 2, 0, 35, 3, 0, 37, 3, 0, 38, 3, 0, 39, 3, 0, 65570, 2, 0, 65571, 2, 0, 65572, 3, 0, 65573, 3, 0, 65574, 3, 0, 65575, 3, 0, 65576, 2, 0, 65577, 2, 0, 196539, 5, 0, 196576, 1610612745, 0, 131108, 3, 0, 131109, 2, 0, 131110, 3, 0, 131114, 2, 0, 262075, 6, 0, 196644, 3, 0, 196645, 2, 0, 196646, 2, 0, 196647, 2, 0, 196648, 2, 0, 196649, 2, 0, 196651, 2, 0, 196652, 2, 0, 327611, 6, 0, 262180, 3, 0, 262181, 3, 0, 262185, 2, 0, 262188, 2, 0, 262262, 13, 0, 393147, -1610612729, 0, 393148, -1610612728, 0, 327717, 3, 0, 327718, 3, 0, 327719, 3, 0, 327720, 3, 0, 327721, 3, 0, 327722, 3, 0, 327723, 2, 0, 327724, 2, 0, 327725, 2, 0, 458685, -1610612727, 0, 393258, 3, 0, 393259, 3, 0, 393260, 2, 0, 393261, 2, 0, 393262, 2, 0, 393263, 2, 0, 393264, 2, 0, 524183, 13, 0, 524222, -1073741816, 0, 458795, 3, 0, 458800, 2, 0, 458801, 2, 0, 458802, 2, 0, 589719, 13, 0, 589759, -1610612727, 0, 524331, 3, 0, 524332, 3, 0, 524336, 2, 0, 524337, 2, 0, 524338, 2, 0, 524339, 2, 0, 524340, 2, 0, 524341, 2, 0, 655255, 13, 0, 655296, -1073741814, 0, 655328, 11, 0, 655330, -1610612728, 0, 589868, 2, 0, 589869, 2, 0, 589875, 2, 0, 589876, 2, 0, 589877, 2, 0, 720833, -1610612726, 0, 655405, 2, 0, 655414, 3, 0, 655415, 3, 0, 786370, -1073741815, 0, 786426, 2, 0, 720941, 2, 0, 720942, 2, 0, 720943, 2, 0, 720948, 3, 0, 720949, 3, 0, 720950, 2, 0, 720951, 2, 0, 851907, -1610612726, 0, 851909, -1073741817, 0, 851960, 2, 0, 851961, 2, 0, 851963, 2, 0, 786479, 2, 0, 786480, 3, 0, 786481, 3, 0, 786482, 2, 0, 786483, 2, 0, 786484, 2, 0, 786485, 2, 0, 786486, 2, 0, 786487, 2, 0, 917497, 2, 0, 917498, 2, 0, 917499, 2, 0, 852022, 2, 0, 852023, 2, 0, 983032, 2, 0, 983033, 2, 0, 983034, 2, 0, 917559, 2, 0, 917560, 2, 0, 1048476, 13, 0, 1048517, 11, 0, 983095, 2, 0, 983096, 2, 0, 983097, 2, 0, 1114081, -1610612728, 0, 1048629, 2, 0, 1048632, 2, 0, 1048633, 2, 0, 1048668, 10, 0, 1114166, 2, 0, 1114168, 2, 0, 1114169, 2, 0, 1114170, 2, 0, 1114203, 9, 0, 1179702, 2, 0, 1179703, 2, 0, 1179705, 2, 0, 1179706, 2, 0, 1179707, 2, 0, 1179738, 8, 0, 1310691, -1610612729, 0, 1245238, 2, 0, 1245239, 2, 0, 1245240, 2, 0, 1245241, 2, 0, 1245242, 2, 0, 1245244, 2, 0, 1245252, -1610612727, 0, 1376229, -1610612726, 0, 1310775, 2, 0, 1310776, 2, 0, 1310777, 2, 0, 1310780, 2, 0, 1310789, -1610612726, 0, 1310810, -1610612729, 0, 1310811, -1610612728, 0, 1441768, -1610612730, 0, 1376313, 2, 0, 1376314, 2, 0, 1376315, 2, 0, 1376316, 2, 0, 1376326, -1610612726, 0, 1507269, 7, 0, 1441867, -1610612725, 0, 1441869, 1610612743, 0, 1441875, -1610612725, 0, 1441882, -1610612725, 0, 1441884, 7, 0, 1572753, 13, 0, 1572802, 10, 0, 1572826, 2, 0, 1507405, 1610612743, 0, 1507420, -1610612728, 0, 1638290, 13, 0, 1638355, 2, 0, 1638356, 2, 0, 1638361, 2, 0, 1638362, 2, 0, 1638363, 2, 0, 1572957, -1610612728, 0, 1703826, 13, 0, 1703872, 9, 0, 1703891, 2, 0, 1703893, 2, 0, 1703894, 2, 0, 1703895, 2, 0, 1703896, 2, 0, 1703897, 2, 0, 1703898, 2, 0, 1703899, 2, 0, 1638477, 5, 0, 1638494, -1610612727, 0, 1769363, 13, 0, 1769427, 2, 0, 1769428, 2, 0, 1769430, 2, 0, 1769432, 2, 0, 1769433, 2, 0, 1769434, 2, 0, 1769435, 2, 0, 1704013, -1610612726, 0, 1704031, -1610612727, 0, 1834963, 2, 0, 1834965, 2, 0, 1834966, 2, 0, 1834967, 2, 0, 1834968, 2, 0, 1834969, 2, 0, 1769550, -1610612728, 0, 1769568, -1610612727, 0, 1900479, 11, 0, 1900498, 2, 0, 1900500, 2, 0, 1900501, 2, 0, 1900503, 2, 0, 1900504, 2, 0, 1900505, 2, 0, 1900541, 1, 0, 1900542, 1, 0, 1900543, 1, 0, 1835008, 1, 0, 1835009, 1, 0, 1835010, 1, 0, 1835011, 1, 0, 1835087, -1610612727, 0, 1835105, -1610612726, 0, 1966034, 2, 0, 1966035, 2, 0, 1966036, 2, 0, 1966037, 2, 0, 1966038, 2, 0, 1966039, 2, 0, 1966040, 2, 0, 1966041, 2, 0, 1966042, 2, 0, 1966076, 1, 0, 1900546, 1, 0, 1900642, -1610612728, 0, 2031570, 2, 0, 2031571, 2, 0, 2031572, 2, 0, 2031573, 2, 0, 2031574, 2, 0, 2031575, 2, 0, 2031576, 2, 0, 2031577, 2, 0, 2031578, 2, 0, 2031579, 2, 0, 2031611, 1, 0, 2031612, 1, 0, 2031613, 1, 0, 2031614, 1, 0, 2031615, 1, 0, 1966080, 1, 0, 1966081, 1, 0, 1966082, 1, 0, 1966083, 1, 0, 1966084, 1, 0, 1966159, 1610612744, 0, 1966160, 7, 0, 2097106, 2, 0, 2097107, 2, 0, 2097108, 2, 0, 2097109, 2, 0, 2097110, 2, 0, 2097111, 2, 0, 2097112, 2, 0, 2097113, 2, 0, 2097114, 2, 0, 2097147, 1, 0, 2097148, 1, 0, 2097149, 1, 0, 2097150, 1, 0, 2097151, 1, 0, 2031617, 1, 0, 2031618, 1, 0, 2031619, 1, 0, 2031620, 1, 0, 2031694, 1610612743, 0, 2162642, 2, 0, 2162645, 2, 0, 2162646, 2, 0, 2162647, 2, 0, 2162648, 2, 0, 2162649, 2, 0, 2162686, 1, 0, 2162687, 1, 0, 2097152, 1, 0, 2097153, 1, 0, 2097155, 1, 0, 2228128, 13, 0, 2228129, 13, 0, 2228134, 13, 0, 2228177, 2, 0, 2228178, 2, 0, 2228179, 2, 0, 2228180, 2, 0, 2228181, 2, 0, 2228182, 2, 0, 2228183, 2, 0, 2228184, 2, 0, 2228220, 1, 0, 2228221, 1, 0, 2228222, 1, 0, 2228223, 1, 0, 2162688, 1, 0, 2162689, 1, 0, 2162690, 1, 0, 2162691, 1, 0, 2162766, 11, 0, 2293666, 13, 0, 2293713, 2, 0, 2293716, 2, 0, 2293717, 2, 0, 2293718, 2, 0, 2293719, 2, 0, 2293756, 1, 0, 2228225, 1, 0, 2359231, 11, 0, 2359249, 2, 0, 2359251, 2, 0, 2359252, 2, 0, 2359253, 2, 0, 2359254, 2, 0, 2359292, 3, 0, 2359293, 1, 0, 2359294, 1, 0, 2359295, 1, 0, 2293760, 1, 0, 2293761, 1, 0, 2424786, 2, 0, 2424787, 2, 0, 2424790, 2, 0, 2424791, 2, 0, 2490322, 2, 0, 2490323, 2, 0, 2490324, 2, 0, 2490325, 2, 0, 2490326, 2, 0, 2555798, 13, 0, 2621428, 8, 0, 2686963, 9, 0, 2621462, 14, 0, 2621518, 11, 0, 2621561, 13, 0, 2752498, 10, 0, 2687028, -1610612727, 0, 2817983, 11, 0, 2818033, 9, 0, 2752565, -1610612726, 0, 2883568, 8, 0, 2818070, 14, 0, 2818102, -1610612726, 0, 2949103, 10, 0, 2883639, -1610612728, 0, 3014638, 9, 0, 2949176, -1610612727, 0, 3080104, 13, 0, 3080173, 8, 0, 3145698, -1610612732, 0, 3145700, -1610612731, 0, 3145701, -1610612725, 0, 3145704, -1610612732, 0, 3145706, -1610612731, 0, 3145707, -1610612725, 0, 3145709, 7, 0, 3080260, -1610612725, 0, 3080267, -1610612725, 0, 3080270, 7, 0, 3276859, 11, 0, 3669981, 13, 0, 3604588, 13, 0, 3670074, 9, 0, 3670075, 7, 0, 3801070, 13, 0, 3735609, 8, 0, 3801144, 9, 0, 3866679, 10, 0, 3997606, 13, 0, 3932214, 8, 0, 3997713, 13, 0, 3997749, 9, 0, 3997784, 13, 0, 4194277, 13, 0, 4194299, 13, 0, 4259800, 13, 0, 4325337, 13, 0, 4259848, 13, 0, 4325386, 13, 0, 4587501, 13, 0, 4587542, 13, 0, 4653163, 13, 0, 4849574, 13, 0, 4849585, 13, 0, 4784158, 13, 0, 4849704, 13, 0, 5177350, 13, 0, 5373946, 13, 0, 5374037, 13, 0, 5505091, 13, 0, 5636084, 13, 0, 5636191, 13, 0, 5832678, 13, 0, 5832785, 13, 0, 5963786, 13, 0, 6160448, 13, 0 )
+_sections_unfolded = [ "Cell", "Collision", "Transform", "Visibility", "Z Index" ]
+
+[node name="wall_tiles" type="TileMap" parent="." index="5"]
 
 mode = 0
 tile_set = ExtResource( 1 )
@@ -106,134 +129,136 @@ format = 1
 tile_data = PoolIntArray( 65537, 5, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 6, 0, 131073, 21, 0, 131078, 21, 0, 196609, 21, 0, 196614, 21, 0, 262145, 8, 0, 262146, 2, 0, 262149, 0, 0, 262150, 7, 0, 2031574, 5, 0, 2031575, 1, 0, 2031581, 1, 0, 2031582, 6, 0, 2097110, 21, 0, 2097118, 21, 0, 2162646, 21, 0, 2162654, 21, 0, 2228182, 21, 0, 2228190, 21, 0, 2293718, 21, 0, 2293726, 21, 0, 2359254, 8, 0, 2359255, 1, 0, 2359256, 1, 0, 2359257, 1, 0, 2359258, 1, 0, 2359259, 1, 0, 2359260, 1, 0, 2359261, 1, 0, 2359262, 7, 0 )
 _sections_unfolded = [ "Cell", "Z Index" ]
 
-[node name="new_fireplace2" parent="wall_tiles" index="0" instance=ExtResource( 4 )]
+[node name="new_fireplace2" parent="wall_tiles" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( -1299.94, -1356.74 )
+HeatSpeed = 0.0
+MinHeatSpeed = 0.0
 
-[node name="kindling" parent="wall_tiles" index="1" instance=ExtResource( 5 )]
+[node name="kindling" parent="wall_tiles" index="1" instance=ExtResource( 6 )]
 
 position = Vector2( 337.763, 242.237 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling2" parent="wall_tiles" index="2" instance=ExtResource( 5 )]
+[node name="kindling2" parent="wall_tiles" index="2" instance=ExtResource( 6 )]
 
 position = Vector2( 432, 358 )
 
-[node name="kindling3" parent="wall_tiles" index="3" instance=ExtResource( 5 )]
+[node name="kindling3" parent="wall_tiles" index="3" instance=ExtResource( 6 )]
 
 position = Vector2( -598.754, 134.881 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="kindling4" parent="wall_tiles" index="4" instance=ExtResource( 5 )]
+[node name="kindling4" parent="wall_tiles" index="4" instance=ExtResource( 6 )]
 
 position = Vector2( -1128.76, 1079.75 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling5" parent="wall_tiles" index="5" instance=ExtResource( 5 )]
+[node name="kindling5" parent="wall_tiles" index="5" instance=ExtResource( 6 )]
 
 position = Vector2( -1230.44, 1021.5 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling6" parent="wall_tiles" index="6" instance=ExtResource( 5 )]
+[node name="kindling6" parent="wall_tiles" index="6" instance=ExtResource( 6 )]
 
 position = Vector2( -1307.18, -106.27 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling7" parent="wall_tiles" index="7" instance=ExtResource( 5 )]
+[node name="kindling7" parent="wall_tiles" index="7" instance=ExtResource( 6 )]
 
 position = Vector2( -1384, -1355.84 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling8" parent="wall_tiles" index="8" instance=ExtResource( 5 )]
+[node name="kindling8" parent="wall_tiles" index="8" instance=ExtResource( 6 )]
 
 position = Vector2( -897.49, -1007.6 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling9" parent="wall_tiles" index="9" instance=ExtResource( 5 )]
+[node name="kindling9" parent="wall_tiles" index="9" instance=ExtResource( 6 )]
 
 position = Vector2( -608.144, -720.811 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling10" parent="wall_tiles" index="10" instance=ExtResource( 5 )]
+[node name="kindling10" parent="wall_tiles" index="10" instance=ExtResource( 6 )]
 
 position = Vector2( 643.984, -426.344 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling11" parent="wall_tiles" index="11" instance=ExtResource( 5 )]
+[node name="kindling11" parent="wall_tiles" index="11" instance=ExtResource( 6 )]
 
 position = Vector2( 997.345, -385.374 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling12" parent="wall_tiles" index="12" instance=ExtResource( 5 )]
+[node name="kindling12" parent="wall_tiles" index="12" instance=ExtResource( 6 )]
 
 position = Vector2( 1266.21, 331.591 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling13" parent="wall_tiles" index="13" instance=ExtResource( 5 )]
+[node name="kindling13" parent="wall_tiles" index="13" instance=ExtResource( 6 )]
 
 position = Vector2( 1168.9, 915.405 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling14" parent="wall_tiles" index="14" instance=ExtResource( 5 )]
+[node name="kindling14" parent="wall_tiles" index="14" instance=ExtResource( 6 )]
 
 position = Vector2( 1960.13, 623.498 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling15" parent="wall_tiles" index="15" instance=ExtResource( 5 )]
+[node name="kindling15" parent="wall_tiles" index="15" instance=ExtResource( 6 )]
 
 position = Vector2( 1839.78, 300.863 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling16" parent="wall_tiles" index="16" instance=ExtResource( 5 )]
+[node name="kindling16" parent="wall_tiles" index="16" instance=ExtResource( 6 )]
 
 position = Vector2( -643.992, 917.965 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling21" parent="wall_tiles" index="17" instance=ExtResource( 5 )]
+[node name="kindling21" parent="wall_tiles" index="17" instance=ExtResource( 6 )]
 
 position = Vector2( 382.485, 931.436 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling17" parent="wall_tiles" index="18" instance=ExtResource( 5 )]
+[node name="kindling17" parent="wall_tiles" index="18" instance=ExtResource( 6 )]
 
 position = Vector2( -843.718, -329.041 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling18" parent="wall_tiles" index="19" instance=ExtResource( 5 )]
+[node name="kindling18" parent="wall_tiles" index="19" instance=ExtResource( 6 )]
 
 position = Vector2( 830.907, 275.258 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling19" parent="wall_tiles" index="20" instance=ExtResource( 5 )]
+[node name="kindling19" parent="wall_tiles" index="20" instance=ExtResource( 6 )]
 
 position = Vector2( 997.345, 1227.8 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="kindling20" parent="wall_tiles" index="21" instance=ExtResource( 5 )]
+[node name="kindling20" parent="wall_tiles" index="21" instance=ExtResource( 6 )]
 
 position = Vector2( 1464.73, -77.3662 )
 TooltipEnabled = true
 TooltipPath = NodePath("../../interact_tooltip")
 
-[node name="basic_character" parent="wall_tiles" index="22" instance=ExtResource( 6 )]
+[node name="basic_character" parent="wall_tiles" index="22" instance=ExtResource( 7 )]
 
 editor/display_folded = true
 position = Vector2( 133.5, 104.5 )
@@ -265,293 +290,271 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="wind_sounds" parent="wall_tiles/basic_character" index="11" instance=ExtResource( 7 )]
+[node name="wind_sounds" parent="wall_tiles/basic_character" index="11" instance=ExtResource( 8 )]
 
 position = Vector2( -25.912, 37.0454 )
 
-[node name="wind_sounds2" parent="wall_tiles/basic_character" index="12" instance=ExtResource( 7 )]
+[node name="wind_sounds2" parent="wall_tiles/basic_character" index="12" instance=ExtResource( 8 )]
 
 position = Vector2( -245.853, -17.574 )
 
-[node name="pushable_block" parent="wall_tiles" index="23" instance=ExtResource( 8 )]
+[node name="pushable_block" parent="wall_tiles" index="23" instance=ExtResource( 9 )]
 
 position = Vector2( 101, 85 )
 
-[node name="pushable_block2" parent="wall_tiles" index="24" instance=ExtResource( 8 )]
+[node name="pushable_block2" parent="wall_tiles" index="24" instance=ExtResource( 9 )]
 
 position = Vector2( -1226.68, 988.99 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="pushable_block3" parent="wall_tiles" index="25" instance=ExtResource( 8 )]
+[node name="pushable_block3" parent="wall_tiles" index="25" instance=ExtResource( 9 )]
 
 position = Vector2( -1276.68, 1040.99 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="pushable_block4" parent="wall_tiles" index="26" instance=ExtResource( 8 )]
+[node name="pushable_block4" parent="wall_tiles" index="26" instance=ExtResource( 9 )]
 
 position = Vector2( -1126.68, 1040.99 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="pushable_block5" parent="wall_tiles" index="27" instance=ExtResource( 8 )]
+[node name="pushable_block5" parent="wall_tiles" index="27" instance=ExtResource( 9 )]
 
 position = Vector2( -1126.68, 1040.99 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="pushable_block6" parent="wall_tiles" index="28" instance=ExtResource( 8 )]
+[node name="pushable_block6" parent="wall_tiles" index="28" instance=ExtResource( 9 )]
 
 position = Vector2( -1182.68, 1063.39 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="pushable_block7" parent="wall_tiles" index="29" instance=ExtResource( 8 )]
+[node name="pushable_block7" parent="wall_tiles" index="29" instance=ExtResource( 9 )]
 
 position = Vector2( -1234.76, 1066.75 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="pushable_block8" parent="wall_tiles" index="30" instance=ExtResource( 8 )]
+[node name="pushable_block8" parent="wall_tiles" index="30" instance=ExtResource( 9 )]
 
 position = Vector2( -1173.16, 1008.51 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="first_fireplace" parent="wall_tiles" index="31" instance=ExtResource( 9 )]
+[node name="first_fireplace" parent="wall_tiles" index="31" instance=ExtResource( 10 )]
 
 position = Vector2( 163.816, 94.5519 )
 HeatInnerRadius = 50.0
 HeatOuterRadius = 100.0
 MinHeatSpeed = 1.0
 
-[node name="ground_environment" type="TileMap" parent="wall_tiles" index="32"]
-
-scale = Vector2( 0.3, 0.3 )
-mode = 0
-tile_set = ExtResource( 10 )
-cell_size = Vector2( 64, 64 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = true
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
-format = 1
-tile_data = PoolIntArray( -6094939, 13, 0, -5898294, 13, 0, -5898271, 13, 0, -5898270, 13, 0, -5963776, 13, 0, -5832787, 13, 0, -5832717, 13, 0, -5898220, 13, 0, -5767271, 13, 0, -5767270, 13, 0, -5701708, 13, 0, -5505045, 13, 0, -5242978, 13, 0, -5177442, 13, 0, -5111921, 13, 0, -5177316, 13, 0, -4718598, 13, 0, -4391026, 13, 0, -4390981, 11, 0, -4194363, -1610612726, 0, -4259829, 13, 0, -4128826, -1610612726, 0, -4194293, 13, 0, -4063289, -1610612728, 0, -3997752, -1610612727, 0, -3997704, 13, 0, -4063203, 13, 0, -4063202, 13, 0, -3932229, 11, 0, -3932215, -1610612727, 0, -3866678, -1610612728, 0, -3801141, -1610612727, 0, -3735604, -1610612726, 0, -3735511, 13, 0, -3669958, 13, 0, -3669936, 13, 0, -3604422, 13, 0, -3604400, 13, 0, -3473477, 11, 0, -3342448, 13, 0, -3407864, 13, 0, -3342328, 13, 0, -3211308, -1610612726, 0, -3145771, -1610612727, 0, -3211234, 13, 0, -3080234, -1610612727, 0, -3145655, 13, 0, -3014697, -1610612728, 0, -2949160, -1610612728, 0, -2883623, -1610612727, 0, -2949067, 13, 0, -2949037, 13, 0, -2818117, 11, 0, -2818086, -1610612726, 0, -2817944, 13, 0, -2556002, 13, 0, -2621352, 13, 0, -2490466, 13, 0, -2228253, -1610612728, 0, -2293703, 13, 0, -2162716, -1610612726, 0, -2228160, 13, 0, -2097179, -1610612727, 0, -2031685, 4, 0, -2031642, -1610612727, 0, -1966105, -1610612726, 0, -1900568, -1610612728, 0, -1835031, -1610612728, 0, -1769577, 13, 0, -1769494, -1610612726, 0, -1834886, 13, 0, -1834885, 13, 0, -1703957, -1610612727, 0, -1638420, -1610612727, 0, -1572883, -1610612726, 0, -1638303, 13, 0, -1507346, -1610612726, 0, -1441809, -1610612728, 0, -1507289, -1610612725, 0, -1507282, -1610612725, 0, -1376325, 5, 0, -1376272, -1610612728, 0, -1441762, 1610612743, 0, -1441706, 13, 0, -1310735, -1610612727, 0, -1376227, 10, 0, -1245198, -1610612726, 0, -1310692, 9, 0, -1179661, -1610612726, 0, -1245157, 8, 0, -1114212, 13, 0, -1179622, 8, 0, -1179599, 10, 0, -1114087, 9, 0, -1114065, 8, 0, -1114063, 7, 0, -1048552, 10, 0, -1048530, 9, 0, -982995, 10, 0, -917460, 10, 0, -786501, 6, 0, -851925, 8, 0, -786390, 9, 0, -786319, 13, 0, -720798, 13, 0, -524264, 2, 0, -524263, 2, 0, -524262, 3, 0, -524261, 3, 0, -458726, 2, 0, -458725, 3, 0, -458677, 12, 0, -327783, 13, 0, -393190, 2, 0, -393189, 2, 0, -393188, 3, 0, -393187, 3, 0, -327653, 2, 0, -327652, 2, 0, -327651, 3, 0, -196625, -1610612732, 0, -262116, 2, 0, -262115, 2, 0, -262114, 3, 0, -262113, 3, 0, -131092, 9, 0, -196579, 2, 0, -196578, 2, 0, -196576, 3, 0, -65564, 1610612743, 0, -65561, -1610612732, 0, -65558, -1610612731, 0, -131042, 2, 0, -131041, 2, 0, -131039, 3, 0, -65504, 2, 0, -65503, 2, 0, -65502, 3, 0, 65467, 4, 0, 65506, 1610612746, 0, 34, 2, 0, 35, 3, 0, 37, 3, 0, 38, 3, 0, 39, 3, 0, 65570, 2, 0, 65571, 2, 0, 65572, 3, 0, 65573, 3, 0, 65574, 3, 0, 65575, 3, 0, 65576, 2, 0, 65577, 2, 0, 196539, 5, 0, 196576, 1610612745, 0, 131108, 3, 0, 131109, 2, 0, 131110, 3, 0, 131114, 2, 0, 262075, 6, 0, 196644, 3, 0, 196645, 2, 0, 196646, 2, 0, 196647, 2, 0, 196648, 2, 0, 196649, 2, 0, 196651, 2, 0, 196652, 2, 0, 327611, 6, 0, 262180, 3, 0, 262181, 3, 0, 262185, 2, 0, 262188, 2, 0, 262262, 13, 0, 393147, -1610612729, 0, 393148, -1610612728, 0, 327717, 3, 0, 327718, 3, 0, 327719, 3, 0, 327720, 3, 0, 327721, 3, 0, 327722, 3, 0, 327723, 2, 0, 327724, 2, 0, 327725, 2, 0, 458685, -1610612727, 0, 393258, 3, 0, 393259, 3, 0, 393260, 2, 0, 393261, 2, 0, 393262, 2, 0, 393263, 2, 0, 393264, 2, 0, 524183, 13, 0, 524222, -1073741816, 0, 458795, 3, 0, 458800, 2, 0, 458801, 2, 0, 458802, 2, 0, 589719, 13, 0, 589759, -1610612727, 0, 524331, 3, 0, 524332, 3, 0, 524336, 2, 0, 524337, 2, 0, 524338, 2, 0, 524339, 2, 0, 524340, 2, 0, 524341, 2, 0, 655255, 13, 0, 655296, -1073741814, 0, 655328, 11, 0, 655330, -1610612728, 0, 589868, 2, 0, 589869, 2, 0, 589875, 2, 0, 589876, 2, 0, 589877, 2, 0, 720833, -1610612726, 0, 655405, 2, 0, 655414, 3, 0, 655415, 3, 0, 786370, -1073741815, 0, 786426, 2, 0, 720941, 2, 0, 720942, 2, 0, 720943, 2, 0, 720948, 3, 0, 720949, 3, 0, 720950, 2, 0, 720951, 2, 0, 851907, -1610612726, 0, 851909, -1073741817, 0, 851960, 2, 0, 851961, 2, 0, 851963, 2, 0, 786479, 2, 0, 786480, 3, 0, 786481, 3, 0, 786482, 2, 0, 786483, 2, 0, 786484, 2, 0, 786485, 2, 0, 786486, 2, 0, 786487, 2, 0, 917497, 2, 0, 917498, 2, 0, 917499, 2, 0, 852022, 2, 0, 852023, 2, 0, 983032, 2, 0, 983033, 2, 0, 983034, 2, 0, 917559, 2, 0, 917560, 2, 0, 1048476, 13, 0, 1048517, 11, 0, 983095, 2, 0, 983096, 2, 0, 983097, 2, 0, 1114081, -1610612728, 0, 1048629, 2, 0, 1048632, 2, 0, 1048633, 2, 0, 1048668, 10, 0, 1114166, 2, 0, 1114168, 2, 0, 1114169, 2, 0, 1114170, 2, 0, 1114203, 9, 0, 1179702, 2, 0, 1179703, 2, 0, 1179705, 2, 0, 1179706, 2, 0, 1179707, 2, 0, 1179738, 8, 0, 1310691, -1610612729, 0, 1245238, 2, 0, 1245239, 2, 0, 1245240, 2, 0, 1245241, 2, 0, 1245242, 2, 0, 1245244, 2, 0, 1245252, -1610612727, 0, 1376229, -1610612726, 0, 1310775, 2, 0, 1310776, 2, 0, 1310777, 2, 0, 1310780, 2, 0, 1310789, -1610612726, 0, 1310810, -1610612729, 0, 1310811, -1610612728, 0, 1441768, -1610612730, 0, 1376313, 2, 0, 1376314, 2, 0, 1376315, 2, 0, 1376316, 2, 0, 1376326, -1610612726, 0, 1507269, 7, 0, 1441867, -1610612725, 0, 1441869, 1610612743, 0, 1441875, -1610612725, 0, 1441882, -1610612725, 0, 1441884, 7, 0, 1572753, 13, 0, 1572802, 10, 0, 1572826, 2, 0, 1507405, 1610612743, 0, 1507420, -1610612728, 0, 1638290, 13, 0, 1638355, 2, 0, 1638356, 2, 0, 1638361, 2, 0, 1638362, 2, 0, 1638363, 2, 0, 1572957, -1610612728, 0, 1703826, 13, 0, 1703872, 9, 0, 1703891, 2, 0, 1703893, 2, 0, 1703894, 2, 0, 1703895, 2, 0, 1703896, 2, 0, 1703897, 2, 0, 1703898, 2, 0, 1703899, 2, 0, 1638477, 5, 0, 1638494, -1610612727, 0, 1769363, 13, 0, 1769427, 2, 0, 1769428, 2, 0, 1769430, 2, 0, 1769432, 2, 0, 1769433, 2, 0, 1769434, 2, 0, 1769435, 2, 0, 1704013, -1610612726, 0, 1704031, -1610612727, 0, 1834963, 2, 0, 1834965, 2, 0, 1834966, 2, 0, 1834967, 2, 0, 1834968, 2, 0, 1834969, 2, 0, 1769550, -1610612728, 0, 1769568, -1610612727, 0, 1900479, 11, 0, 1900498, 2, 0, 1900500, 2, 0, 1900501, 2, 0, 1900503, 2, 0, 1900504, 2, 0, 1900505, 2, 0, 1900541, 1, 0, 1900542, 1, 0, 1900543, 1, 0, 1835008, 1, 0, 1835009, 1, 0, 1835010, 1, 0, 1835011, 1, 0, 1835087, -1610612727, 0, 1835105, -1610612726, 0, 1966034, 2, 0, 1966035, 2, 0, 1966036, 2, 0, 1966037, 2, 0, 1966038, 2, 0, 1966039, 2, 0, 1966040, 2, 0, 1966041, 2, 0, 1966042, 2, 0, 1966076, 1, 0, 1900546, 1, 0, 1900642, -1610612728, 0, 2031570, 2, 0, 2031571, 2, 0, 2031572, 2, 0, 2031573, 2, 0, 2031574, 2, 0, 2031575, 2, 0, 2031576, 2, 0, 2031577, 2, 0, 2031578, 2, 0, 2031579, 2, 0, 2031611, 1, 0, 2031612, 1, 0, 2031613, 1, 0, 2031614, 1, 0, 2031615, 1, 0, 1966080, 1, 0, 1966081, 1, 0, 1966082, 1, 0, 1966083, 1, 0, 1966084, 1, 0, 1966159, 1610612744, 0, 1966160, 7, 0, 2097106, 2, 0, 2097107, 2, 0, 2097108, 2, 0, 2097109, 2, 0, 2097110, 2, 0, 2097111, 2, 0, 2097112, 2, 0, 2097113, 2, 0, 2097114, 2, 0, 2097147, 1, 0, 2097148, 1, 0, 2097149, 1, 0, 2097150, 1, 0, 2097151, 1, 0, 2031617, 1, 0, 2031618, 1, 0, 2031619, 1, 0, 2031620, 1, 0, 2031694, 1610612743, 0, 2162642, 2, 0, 2162645, 2, 0, 2162646, 2, 0, 2162647, 2, 0, 2162648, 2, 0, 2162649, 2, 0, 2162686, 1, 0, 2162687, 1, 0, 2097152, 1, 0, 2097153, 1, 0, 2097155, 1, 0, 2228128, 13, 0, 2228129, 13, 0, 2228134, 13, 0, 2228177, 2, 0, 2228178, 2, 0, 2228179, 2, 0, 2228180, 2, 0, 2228181, 2, 0, 2228182, 2, 0, 2228183, 2, 0, 2228184, 2, 0, 2228220, 1, 0, 2228221, 1, 0, 2228222, 1, 0, 2228223, 1, 0, 2162688, 1, 0, 2162689, 1, 0, 2162690, 1, 0, 2162691, 1, 0, 2162766, 11, 0, 2293666, 13, 0, 2293713, 2, 0, 2293716, 2, 0, 2293717, 2, 0, 2293718, 2, 0, 2293719, 2, 0, 2293756, 1, 0, 2228225, 1, 0, 2359231, 11, 0, 2359249, 2, 0, 2359251, 2, 0, 2359252, 2, 0, 2359253, 2, 0, 2359254, 2, 0, 2359292, 3, 0, 2359293, 1, 0, 2359294, 1, 0, 2359295, 1, 0, 2293760, 1, 0, 2293761, 1, 0, 2424786, 2, 0, 2424787, 2, 0, 2424790, 2, 0, 2424791, 2, 0, 2490322, 2, 0, 2490323, 2, 0, 2490324, 2, 0, 2490325, 2, 0, 2490326, 2, 0, 2555798, 13, 0, 2621428, 8, 0, 2686963, 9, 0, 2621462, 14, 0, 2621518, 11, 0, 2621561, 13, 0, 2752498, 10, 0, 2687028, -1610612727, 0, 2817983, 11, 0, 2818033, 9, 0, 2752565, -1610612726, 0, 2883568, 8, 0, 2818070, 14, 0, 2818102, -1610612726, 0, 2949103, 10, 0, 2883639, -1610612728, 0, 3014638, 9, 0, 2949176, -1610612727, 0, 3080104, 13, 0, 3080173, 8, 0, 3145698, -1610612732, 0, 3145700, -1610612731, 0, 3145701, -1610612725, 0, 3145704, -1610612732, 0, 3145706, -1610612731, 0, 3145707, -1610612725, 0, 3145709, 7, 0, 3080260, -1610612725, 0, 3080267, -1610612725, 0, 3080270, 7, 0, 3276859, 11, 0, 3669981, 13, 0, 3604588, 13, 0, 3670074, 9, 0, 3670075, 7, 0, 3801070, 13, 0, 3735609, 8, 0, 3801144, 9, 0, 3866679, 10, 0, 3997606, 13, 0, 3932214, 8, 0, 3997713, 13, 0, 3997749, 9, 0, 3997784, 13, 0, 4194277, 13, 0, 4194299, 13, 0, 4259800, 13, 0, 4325337, 13, 0, 4259848, 13, 0, 4325386, 13, 0, 4587501, 13, 0, 4587542, 13, 0, 4653163, 13, 0, 4849574, 13, 0, 4849585, 13, 0, 4784158, 13, 0, 4849704, 13, 0, 5177350, 13, 0, 5373946, 13, 0, 5374037, 13, 0, 5505091, 13, 0, 5636084, 13, 0, 5636191, 13, 0, 5832678, 13, 0, 5832785, 13, 0, 5963786, 13, 0, 6160448, 13, 0 )
-_sections_unfolded = [ "Cell", "Collision", "Transform", "Visibility", "Z Index" ]
-
-[node name="tree" parent="wall_tiles" index="33" instance=ExtResource( 11 )]
+[node name="tree" parent="wall_tiles" index="32" instance=ExtResource( 11 )]
 
 position = Vector2( 189.059, -79.815 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree2" parent="wall_tiles" index="34" instance=ExtResource( 11 )]
+[node name="tree2" parent="wall_tiles" index="33" instance=ExtResource( 11 )]
 
 position = Vector2( 250.147, -89.589 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree3" parent="wall_tiles" index="35" instance=ExtResource( 11 )]
+[node name="tree3" parent="wall_tiles" index="34" instance=ExtResource( 11 )]
 
 position = Vector2( 228.155, -135.201 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree4" parent="wall_tiles" index="36" instance=ExtResource( 11 )]
+[node name="tree4" parent="wall_tiles" index="35" instance=ExtResource( 11 )]
 
 position = Vector2( 286.799, -149.048 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree5" parent="wall_tiles" index="37" instance=ExtResource( 11 )]
+[node name="tree5" parent="wall_tiles" index="36" instance=ExtResource( 11 )]
 
 position = Vector2( 290.872, -91.2181 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree6" parent="wall_tiles" index="38" instance=ExtResource( 11 )]
+[node name="tree6" parent="wall_tiles" index="37" instance=ExtResource( 11 )]
 
 position = Vector2( 327.524, -137.645 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree7" parent="wall_tiles" index="39" instance=ExtResource( 11 )]
+[node name="tree7" parent="wall_tiles" index="38" instance=ExtResource( 11 )]
 
 position = Vector2( 674.503, -131.943 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree8" parent="wall_tiles" index="40" instance=ExtResource( 11 )]
+[node name="tree8" parent="wall_tiles" index="39" instance=ExtResource( 11 )]
 
 position = Vector2( 750.252, -118.911 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree9" parent="wall_tiles" index="41" instance=ExtResource( 11 )]
+[node name="tree9" parent="wall_tiles" index="40" instance=ExtResource( 11 )]
 
 position = Vector2( 884.645, -17.9127 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree10" parent="wall_tiles" index="42" instance=ExtResource( 11 )]
+[node name="tree10" parent="wall_tiles" index="41" instance=ExtResource( 11 )]
 
 position = Vector2( 994.603, 26.0705 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree11" parent="wall_tiles" index="43" instance=ExtResource( 11 )]
+[node name="tree11" parent="wall_tiles" index="42" instance=ExtResource( 11 )]
 
 position = Vector2( 595.704, -593.199 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree12" parent="wall_tiles" index="44" instance=ExtResource( 11 )]
+[node name="tree12" parent="wall_tiles" index="43" instance=ExtResource( 11 )]
 
 position = Vector2( 718.442, -579.251 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree13" parent="wall_tiles" index="45" instance=ExtResource( 11 )]
+[node name="tree13" parent="wall_tiles" index="44" instance=ExtResource( 11 )]
 
 position = Vector2( 807.707, -573.672 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree14" parent="wall_tiles" index="46" instance=ExtResource( 11 )]
+[node name="tree14" parent="wall_tiles" index="45" instance=ExtResource( 11 )]
 
 position = Vector2( 947.181, -598.778 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree15" parent="wall_tiles" index="47" instance=ExtResource( 11 )]
+[node name="tree15" parent="wall_tiles" index="46" instance=ExtResource( 11 )]
 
 position = Vector2( 1432.55, 773.657 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree16" parent="wall_tiles" index="48" instance=ExtResource( 11 )]
+[node name="tree16" parent="wall_tiles" index="47" instance=ExtResource( 11 )]
 
 position = Vector2( 422.755, 812.71 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree17" parent="wall_tiles" index="49" instance=ExtResource( 11 )]
+[node name="tree17" parent="wall_tiles" index="48" instance=ExtResource( 11 )]
 
 position = Vector2( 431.124, 756.92 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree18" parent="wall_tiles" index="50" instance=ExtResource( 11 )]
+[node name="tree18" parent="wall_tiles" index="49" instance=ExtResource( 11 )]
 
 position = Vector2( 235.859, 754.13 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree19" parent="wall_tiles" index="51" instance=ExtResource( 11 )]
+[node name="tree19" parent="wall_tiles" index="50" instance=ExtResource( 11 )]
 
 position = Vector2( 258.175, 829.447 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree20" parent="wall_tiles" index="52" instance=ExtResource( 11 )]
+[node name="tree20" parent="wall_tiles" index="51" instance=ExtResource( 11 )]
 
 position = Vector2( -651.203, 310.6 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree21" parent="wall_tiles" index="53" instance=ExtResource( 11 )]
+[node name="tree21" parent="wall_tiles" index="52" instance=ExtResource( 11 )]
 
 position = Vector2( -718.151, 173.914 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree22" parent="wall_tiles" index="54" instance=ExtResource( 11 )]
+[node name="tree22" parent="wall_tiles" index="53" instance=ExtResource( 11 )]
 
 position = Vector2( -826.941, 293.863 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree23" parent="wall_tiles" index="55" instance=ExtResource( 11 )]
+[node name="tree23" parent="wall_tiles" index="54" instance=ExtResource( 11 )]
 
 position = Vector2( -681.887, -79.9305 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree24" parent="wall_tiles" index="56" instance=ExtResource( 11 )]
+[node name="tree24" parent="wall_tiles" index="55" instance=ExtResource( 11 )]
 
 position = Vector2( -631.676, -121.773 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree25" parent="wall_tiles" index="57" instance=ExtResource( 11 )]
+[node name="tree25" parent="wall_tiles" index="56" instance=ExtResource( 11 )]
 
 position = Vector2( -271.831, -562.514 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree26" parent="wall_tiles" index="58" instance=ExtResource( 11 )]
+[node name="tree26" parent="wall_tiles" index="57" instance=ExtResource( 11 )]
 
 position = Vector2( -221.62, -573.672 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree27" parent="wall_tiles" index="59" instance=ExtResource( 11 )]
+[node name="tree27" parent="wall_tiles" index="58" instance=ExtResource( 11 )]
 
 position = Vector2( -210.462, -473.25 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree28" parent="wall_tiles" index="60" instance=ExtResource( 11 )]
+[node name="tree28" parent="wall_tiles" index="59" instance=ExtResource( 11 )]
 
 position = Vector2( -157.461, -537.409 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree29" parent="wall_tiles" index="61" instance=ExtResource( 11 )]
+[node name="tree29" parent="wall_tiles" index="60" instance=ExtResource( 11 )]
 
 position = Vector2( -838.099, -473.25 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree30" parent="wall_tiles" index="62" instance=ExtResource( 11 )]
+[node name="tree30" parent="wall_tiles" index="61" instance=ExtResource( 11 )]
 
 position = Vector2( -896.679, -509.514 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree31" parent="wall_tiles" index="63" instance=ExtResource( 11 )]
+[node name="tree31" parent="wall_tiles" index="62" instance=ExtResource( 11 )]
 
 position = Vector2( -930.153, -478.829 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree32" parent="wall_tiles" index="64" instance=ExtResource( 11 )]
+[node name="tree32" parent="wall_tiles" index="63" instance=ExtResource( 11 )]
 
 position = Vector2( -997.101, -487.198 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree33" parent="wall_tiles" index="65" instance=ExtResource( 11 )]
+[node name="tree33" parent="wall_tiles" index="64" instance=ExtResource( 11 )]
 
 position = Vector2( -1022.21, -436.987 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree34" parent="wall_tiles" index="66" instance=ExtResource( 11 )]
+[node name="tree34" parent="wall_tiles" index="65" instance=ExtResource( 11 )]
 
 position = Vector2( -988.733, -383.986 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree35" parent="wall_tiles" index="67" instance=ExtResource( 11 )]
+[node name="tree35" parent="wall_tiles" index="66" instance=ExtResource( 11 )]
 
 position = Vector2( -955.259, -344.933 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree36" parent="wall_tiles" index="68" instance=ExtResource( 11 )]
+[node name="tree36" parent="wall_tiles" index="67" instance=ExtResource( 11 )]
 
 position = Vector2( -1440.63, -478.829 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree37" parent="wall_tiles" index="69" instance=ExtResource( 11 )]
+[node name="tree37" parent="wall_tiles" index="68" instance=ExtResource( 11 )]
 
 position = Vector2( -1035.3, 923.523 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree38" parent="wall_tiles" index="70" instance=ExtResource( 11 )]
+[node name="tree38" parent="wall_tiles" index="69" instance=ExtResource( 11 )]
 
 position = Vector2( -970.075, 993.408 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree39" parent="wall_tiles" index="71" instance=ExtResource( 11 )]
+[node name="tree39" parent="wall_tiles" index="70" instance=ExtResource( 11 )]
 
 position = Vector2( -1244.95, -1447.9 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree40" parent="wall_tiles" index="72" instance=ExtResource( 11 )]
+[node name="tree40" parent="wall_tiles" index="71" instance=ExtResource( 11 )]
 
 position = Vector2( -1193.71, -1433.92 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="snow_particles" parent="." index="5" instance=ExtResource( 12 )]
+[node name="snow_particles" parent="." index="6" instance=ExtResource( 12 )]
 
 position = Vector2( 133.686, 104.5 )
 script = ExtResource( 13 )
 
-[node name="interact_tooltip" parent="." index="6" instance=ExtResource( 14 )]
+[node name="interact_tooltip" parent="." index="7" instance=ExtResource( 14 )]
 
 position = Vector2( 336.802, 241.73 )
 OneShot = true
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="7"]
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="8"]
 
 color = Color( 0.207664, 0.1819, 0.355469, 1 )
 _sections_unfolded = [ "Material" ]
@@ -559,9 +562,8 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="gui_layer" type="CanvasLayer" parent="." index="8"]
+[node name="gui_layer" type="CanvasLayer" parent="." index="9"]
 
-editor/display_folded = true
 layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -570,14 +572,14 @@ transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
 [node name="fireplace_bar" parent="gui_layer" index="0" instance=ExtResource( 15 )]
 
-margin_left = 14.0
-margin_top = 275.0
-margin_right = 264.0
-margin_bottom = 283.0
+margin_left = 27.0
+margin_top = 256.0
+margin_right = 277.0
+margin_bottom = 264.0
 
 [node name="Fire Icon" type="Sprite" parent="gui_layer" index="1"]
 
-position = Vector2( 7, 278 )
+position = Vector2( 19.7424, 258.61 )
 scale = Vector2( 0.065, 0.065 )
 texture = ExtResource( 16 )
 region_enabled = true
@@ -586,21 +588,26 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="health_bar" parent="gui_layer" index="2" instance=ExtResource( 17 )]
 
-margin_left = 14.0
-margin_top = 288.0
-margin_right = 264.0
-margin_bottom = 296.0
+margin_left = 27.0
+margin_top = 269.0
+margin_right = 277.0
+margin_bottom = 277.0
 
 [node name="Player Icon" type="Sprite" parent="gui_layer" index="3"]
 
-position = Vector2( 8, 292 )
+position = Vector2( 20.7424, 272.609 )
 scale = Vector2( 0.09, 0.09 )
 texture = ExtResource( 18 )
 region_enabled = true
 region_rect = Rect2( 3, 515, 56, 121 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="9"]
+[node name="title_screen" parent="gui_layer" index="4" instance=ExtResource( 19 )]
+
+position = Vector2( 101.449, 47.7808 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="10"]
 
 editor/display_folded = true
 visible = false
@@ -618,15 +625,15 @@ _sections_unfolded = [ "Collision" ]
 position = Vector2( -23, 0.5 )
 shape = SubResource( 1 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="10"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="11"]
 
-stream = ExtResource( 19 )
+stream = ExtResource( 20 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
 mix_target = 0
 bus = "Master"
 
-[node name="wind_sounds" parent="." index="11" instance=ExtResource( 7 )]
+[node name="wind_sounds" parent="." index="12" instance=ExtResource( 8 )]
 
 

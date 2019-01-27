@@ -238,13 +238,12 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="top_right_wall" type="Sprite" parent="." index="6"]
 
-editor/display_folded = true
 position = Vector2( 96, 32 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 96, 32, 32, 32 )
-_sections_unfolded = [ "Offset", "Region" ]
+_sections_unfolded = [ "Offset", "Region", "Z Index" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="top_right_wall" index="0"]
 
@@ -287,7 +286,7 @@ texture = ExtResource( 1 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 96, 64, 32, 32 )
-_sections_unfolded = [ "Offset", "Region" ]
+_sections_unfolded = [ "Offset", "Region", "Z Index" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="bottom_right_wall" index="0"]
 
@@ -304,7 +303,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 14.5, 18 )
 shape = SubResource( 7 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="bottom_right_wall" index="1"]
 

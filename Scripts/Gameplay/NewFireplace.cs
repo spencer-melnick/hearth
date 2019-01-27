@@ -15,7 +15,7 @@ public class NewFireplace : Fireplace, IInteractive
     public float MaxHeatSpeed = 20.0f;
 
     [Export]
-    public float MinHeatSpeed = 5.0f;
+    public float MinHeatSpeed = 0.0f;
 
     [Export]
     public Gradient FadeGradient;
@@ -28,6 +28,8 @@ public class NewFireplace : Fireplace, IInteractive
 
     public override void _Ready()
     {
+		HeatSpeed = 0.0f;
+		
         _area = GetNode("Area2D") as Area2D;
         _tooltip = GetNode("interact_tooltip") as InteractTooltip;
         _globals = GetNode("/root/Globals") as Globals;
