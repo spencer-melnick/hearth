@@ -11,7 +11,14 @@ public class Globals : Node
     {
         get
         {
-            return _mainCharacter;
+            var characters = GetTree().GetNodesInGroup("main_character");
+
+            if (characters != null)
+            {
+                return characters[0] as BasicCharacter;
+            }
+
+            return null;   
         }
     }
 
@@ -93,11 +100,6 @@ public class Globals : Node
 
     public override void _Ready()
     {
-        var characters = GetTree().GetNodesInGroup("main_character");
 
-        if (characters != null)
-        {
-            _mainCharacter = characters[0] as BasicCharacter;
-        }   
     }
 }

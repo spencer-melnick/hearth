@@ -54,6 +54,7 @@
     <Compile Include="Scripts\Character\CharacterState.cs" />
     <Compile Include="Scripts\Effects\FlickeringLight.cs" />
     <Compile Include="Scripts\Effects\SnowParticles.cs" />
+    <Compile Include="Scripts\Effects\WindSounds.cs" />
     <Compile Include="Scripts\Gameplay\FireFader.cs" />
     <Compile Include="Scripts\Gameplay\Fireplace.cs" />
     <Compile Include="Scripts\Gameplay\FirstFireplace.cs" />
