@@ -21,14 +21,17 @@ FuelAmount = 20.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( 0, 6 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
+offset = Vector2( 0, 55 )
 region_enabled = true
 region_rect = Rect2( 429, 72.648, 156, 72 )
-_sections_unfolded = [ "Region", "Transform" ]
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="Area2D" type="Area2D" parent="." index="1"]
 
+position = Vector2( 0, 6 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -39,6 +42,7 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
+position = Vector2( 0, 9 )
 shape = SubResource( 1 )
 
 

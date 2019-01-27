@@ -15,7 +15,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 7, 6 )
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=11]
 
 resource_name = "Death"
 length = 0.83
@@ -118,7 +118,7 @@ tracks/7/keys = {
 "values": [ true, false, true, false ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=12]
 
 length = 0.67
 loop = true
@@ -213,7 +213,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=13]
 
 length = 0.67
 loop = true
@@ -308,7 +308,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=14]
 
 length = 0.67
 loop = true
@@ -403,7 +403,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=15]
 
 length = 0.67
 loop = true
@@ -498,7 +498,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=16]
 
 length = 0.67
 loop = true
@@ -593,7 +593,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=17]
 
 length = 0.67
 loop = true
@@ -688,7 +688,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=18]
 
 length = 0.67
 loop = true
@@ -907,7 +907,7 @@ _sections_unfolded = [ "Offset" ]
 
 [node name="carry_attach_point" type="Node2D" parent="." index="2"]
 
-position = Vector2( 0, -15 )
+position = Vector2( 0, -33 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -930,14 +930,14 @@ autoplay = "Walk_Down"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Death = SubResource( 2 )
-anims/Walk_Down = SubResource( 3 )
-anims/Walk_Down_Carry = SubResource( 4 )
-anims/Walk_Left = SubResource( 5 )
-anims/Walk_Left_Carry = SubResource( 6 )
-anims/Walk_Right = SubResource( 7 )
-anims/Walk_Right_Carry = SubResource( 8 )
-anims/Walk_Up = SubResource( 9 )
+anims/Death = SubResource( 11 )
+anims/Walk_Down = SubResource( 12 )
+anims/Walk_Down_Carry = SubResource( 13 )
+anims/Walk_Left = SubResource( 14 )
+anims/Walk_Left_Carry = SubResource( 15 )
+anims/Walk_Right = SubResource( 16 )
+anims/Walk_Right_Carry = SubResource( 17 )
+anims/Walk_Up = SubResource( 18 )
 anims/Walk_Up_Carry = SubResource( 10 )
 blend_times = [  ]
 
