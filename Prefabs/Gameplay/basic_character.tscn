@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Scripts/Character/BasicCharacter.cs" type="Script" id=1]
 [ext_resource path="res://Textures/player_placeholder.png" type="Texture" id=2]
-[ext_resource path="res://Textures/death_sprite_sheet.png" type="Texture" id=3]
-[ext_resource path="res://Textures/filtered_spritesheet.png" type="Texture" id=4]
+[ext_resource path="res://Textures/filtered_spritesheet.png" type="Texture" id=3]
+[ext_resource path="res://Textures/death_sprite_sheet.png" type="Texture" id=4]
 [ext_resource path="res://Prefabs/Effects/health_particles.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sounds/Noises/FOOTPRINT4.wav" type="AudioStream" id=6]
 [ext_resource path="res://Sounds/Noises/FOOTPRINT5.wav" type="AudioStream" id=7]
@@ -18,7 +18,7 @@ extents = Vector2( 7, 6 )
 [sub_resource type="Animation" id=2]
 
 resource_name = "Death"
-length = 0.83
+length = 2.0
 loop = false
 step = 0.17
 tracks/0/type = "value"
@@ -31,7 +31,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ) ]
+"values": [ ExtResource( 4 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("filtered_spritesheet:vframes")
@@ -104,6 +104,32 @@ tracks/6/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("footprint_sound_2:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.17, 0.34, 0.68, 0.83 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "GameOver"
+} ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -186,7 +212,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("filtered_spritesheet:offset")
@@ -281,7 +307,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("filtered_spritesheet:offset")
@@ -376,7 +402,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("filtered_spritesheet:offset")
@@ -471,7 +497,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("filtered_spritesheet:offset")
@@ -566,7 +592,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("filtered_spritesheet:offset")
@@ -661,7 +687,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("filtered_spritesheet:offset")
@@ -756,7 +782,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("filtered_spritesheet:offset")
@@ -851,7 +877,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("filtered_spritesheet:offset")
@@ -866,7 +892,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[node name="basic_character" type="KinematicBody2D" index="0" groups=[
+[node name="basic_character" type="KinematicBody2D" groups=[
 "main_character",
 "applies_pressure",
 ]]
@@ -906,10 +932,9 @@ __meta__ = {
 position = Vector2( 0, 4.8 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 3 )
-offset = Vector2( 32, 0 )
-vframes = 3
-hframes = 2
-frame = 4
+vframes = 6
+hframes = 4
+frame = 16
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
@@ -982,7 +1007,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="death_sound" type="AudioStreamPlayer" parent="." index="9"]
 
 stream = ExtResource( 9 )
-volume_db = -15.0
+volume_db = -8.0
 pitch_scale = 1.2
 autoplay = false
 mix_target = 0

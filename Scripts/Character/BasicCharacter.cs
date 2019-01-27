@@ -77,6 +77,7 @@ public class BasicCharacter : KinematicBody2D
 		_footprintPlayers = new List<AudioStreamPlayer>();
 		_footprintPlayers.Add(GetNode("footprint_sound_1") as AudioStreamPlayer);
 		_footprintPlayers.Add(GetNode("footprint_sound_2") as AudioStreamPlayer);
+		_animationPlayer.Stop();
 
 		_random = new Random();
     }
@@ -288,5 +289,10 @@ public class BasicCharacter : KinematicBody2D
 	{
 		_alive = false;
 		_updateAnimation(new Vector2(0.0f, 0.0f));
+	}
+
+	public void GameOver()
+	{
+		GetTree().ChangeScene("res://Prefabs/GUI/death_screen.tscn");
 	}
 }

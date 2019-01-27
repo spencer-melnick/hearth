@@ -17,20 +17,30 @@ extents = Vector2( 16, 8 )
 custom_solver_bias = 0.0
 extents = Vector2( 14.5, 8 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 13, 10 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 13, 8 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 13, 2 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 14.5, 8 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 13, 6 )
 
 [sub_resource type="RectangleShape2D" id=9]
 
@@ -40,19 +50,9 @@ extents = Vector2( 14.5, 8 )
 [sub_resource type="RectangleShape2D" id=10]
 
 custom_solver_bias = 0.0
-extents = Vector2( 13, 6 )
-
-[sub_resource type="RectangleShape2D" id=11]
-
-custom_solver_bias = 0.0
-extents = Vector2( 14.5, 8 )
-
-[sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
 extents = Vector2( 13, 16 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=11]
 
 custom_solver_bias = 0.0
 extents = Vector2( 13, 14 )
@@ -162,7 +162,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="up_wall/StaticBody2D" index="0"]
 
 position = Vector2( 16, 22 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="center_wall" type="Sprite" parent="." index="4"]
@@ -188,7 +188,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="center_wall/StaticBody2D" index="0"]
 
 position = Vector2( 16, 20 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="top_left_wall" type="Sprite" parent="." index="5"]
@@ -232,7 +232,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="top_left_wall/StaticBody2D2" index="0"]
 
 position = Vector2( 16, 30 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="top_right_wall" type="Sprite" parent="." index="6"]
@@ -276,7 +276,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="top_right_wall/StaticBody2D2" index="0"]
 
 position = Vector2( 16, 30 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="bottom_right_wall" type="Sprite" parent="." index="7"]
@@ -302,7 +302,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bottom_right_wall/StaticBody2D" index="0"]
 
 position = Vector2( 14.5, 20 )
-shape = SubResource( 9 )
+shape = SubResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="bottom_right_wall" index="1"]
@@ -319,7 +319,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bottom_right_wall/StaticBody2D2" index="0"]
 
 position = Vector2( 16, 6 )
-shape = SubResource( 10 )
+shape = SubResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="bottom_left_wall" type="Sprite" parent="." index="8"]
@@ -346,7 +346,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bottom_left_wall/StaticBody2D" index="0"]
 
 position = Vector2( 17.5, 20 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="bottom_left_wall" index="1"]
@@ -363,7 +363,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bottom_left_wall/StaticBody2D2" index="0"]
 
 position = Vector2( 16, 6 )
-shape = SubResource( 10 )
+shape = SubResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="left_brick" type="Sprite" parent="." index="9"]
@@ -498,7 +498,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="vertical_wall/StaticBody2D" index="0"]
 
 position = Vector2( 16, 16 )
-shape = SubResource( 4 )
+shape = SubResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="down_wall" type="Sprite" parent="." index="22"]
@@ -524,7 +524,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="down_wall/StaticBody2D" index="0"]
 
 position = Vector2( 16, 14 )
-shape = SubResource( 5 )
+shape = SubResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 

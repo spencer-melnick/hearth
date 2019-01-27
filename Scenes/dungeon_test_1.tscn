@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Tileset/dungeon_tileset_1.tres" type="TileSet" id=1]
 [ext_resource path="res://Textures/snow_placeholder_2.png" type="Texture" id=2]
@@ -12,11 +12,12 @@
 [ext_resource path="res://Prefabs/Effects/snow_particles.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scripts/Effects/SnowParticles.cs" type="Script" id=11]
 [ext_resource path="res://Prefabs/Gameplay/interact_tooltip.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Textures/environmental_asset_sheet.png" type="Texture" id=14]
-[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Textures/filtered_spritesheet.png" type="Texture" id=16]
-[ext_resource path="res://Sounds/Music/song.wav" type="AudioStream" id=17]
+[ext_resource path="res://Prefabs/GUI/title_screen_duplicate.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Prefabs/GUI/fireplace_bar.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Textures/environmental_asset_sheet.png" type="Texture" id=15]
+[ext_resource path="res://Prefabs/GUI/health_bar.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Textures/heart.png" type="Texture" id=17]
+[ext_resource path="res://Sounds/Music/song.wav" type="AudioStream" id=18]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -354,44 +355,47 @@ _sections_unfolded = [ "Material" ]
 
 [node name="gui_layer" type="CanvasLayer" parent="." index="9"]
 
-editor/display_folded = true
 layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 
-[node name="fireplace_bar" parent="gui_layer" index="0" instance=ExtResource( 13 )]
+[node name="title_screen" parent="gui_layer" index="0" instance=ExtResource( 13 )]
+
+position = Vector2( 89.9111, 37.8643 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="fireplace_bar" parent="gui_layer" index="1" instance=ExtResource( 14 )]
+
+margin_left = 14.0
+margin_top = 262.0
+margin_right = 264.0
+margin_bottom = 270.0
+
+[node name="Fire Icon" type="Sprite" parent="gui_layer" index="2"]
+
+position = Vector2( 7, 265.5 )
+scale = Vector2( 0.065, 0.065 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 673, 41, 154, 184 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="health_bar" parent="gui_layer" index="3" instance=ExtResource( 16 )]
 
 margin_left = 14.0
 margin_top = 275.0
 margin_right = 264.0
 margin_bottom = 283.0
 
-[node name="Fire Icon" type="Sprite" parent="gui_layer" index="1"]
+[node name="Player Icon" type="Sprite" parent="gui_layer" index="4"]
 
-position = Vector2( 7, 278 )
-scale = Vector2( 0.065, 0.065 )
-texture = ExtResource( 14 )
-region_enabled = true
-region_rect = Rect2( 673, 41, 154, 184 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="health_bar" parent="gui_layer" index="2" instance=ExtResource( 15 )]
-
-margin_left = 14.0
-margin_top = 288.0
-margin_right = 264.0
-margin_bottom = 296.0
-
-[node name="Player Icon" type="Sprite" parent="gui_layer" index="3"]
-
-position = Vector2( 8, 292 )
+position = Vector2( 8, 279.5 )
 scale = Vector2( 0.09, 0.09 )
-texture = ExtResource( 16 )
-region_enabled = true
+texture = ExtResource( 17 )
 region_rect = Rect2( 3, 515, 56, 121 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Animation", "Region", "Transform" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="10"]
 
@@ -412,7 +416,7 @@ shape = SubResource( 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="11"]
 
-stream = ExtResource( 17 )
+stream = ExtResource( 18 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true

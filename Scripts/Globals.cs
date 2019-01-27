@@ -51,9 +51,9 @@ public class Globals : Node
         set {
             if (value < 0.0f)
             {
-				_mainCharacter.Die();
-                GD.Print("Player died at " + _mainCharacter.GetGlobalPosition());
-                GD.Print(_mainCharacter.GetGlobalPosition().Length() + " from spawn");
+				MainCharacter.Die();
+                GD.Print("Player died at " + MainCharacter.GetGlobalPosition());
+                GD.Print(MainCharacter.GetGlobalPosition().Length() + " from spawn");
                 IsGameRunning = false;
                 value = 0.0f;
             }
@@ -97,10 +97,18 @@ public class Globals : Node
 
     public float NewFireplaceHealth = 0.0f;
 
-    public bool IsGameRunning = true;
+    public bool IsGameRunning = false;
+
+    public void Restart()
+    {
+        _playerHealth = 100.0f;
+        IsNewFireplaceVisible = false;
+        _fireplaceHealth = 100.0f;
+        NewFireplaceHealth = 0.0f;
+    }
 
     public override void _Ready()
     {
-
+        
     }
 }
