@@ -85,6 +85,10 @@ public class Globals : Node
         }
     }
 
+    public bool IsNewFireplaceVisible = false;
+
+    public float NewFireplaceHealth = 0.0f;
+
     public bool IsGameRunning = true;
 
     public override void _Ready()
